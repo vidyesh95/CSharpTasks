@@ -1,6 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-Console.WriteLine("Task and solutions!");
+/*Console.WriteLine("Task and solutions!");*/
 
 /*
  * LEVEL 1 & 2 TASK
@@ -106,7 +106,7 @@ Console.WriteLine($"After swap: first number is {number1} and second number is {
 /*
  * 3. Find the greatest of three numbers.
  */
-Console.WriteLine("Enter three numbers to find the greatest number");
+/*Console.WriteLine("Enter three numbers to find the greatest number");
 int number1;
 while (!int.TryParse(Console.ReadLine(), out number1))
 {
@@ -154,12 +154,34 @@ else if (number1 == number3 && number1 > number2)
 else
 {
     Console.WriteLine("All numbers are equal");
-}
+}*/
 
 
 /*
  * 4. Enter principal, no of years, rate of interest and calculate simple interest as well as compound interest.
  */
+Console.WriteLine("Enter principal amount");
+decimal principal;
+while (!decimal.TryParse(Console.ReadLine(), out principal))
+{
+    Console.WriteLine("Invalid input. Please enter a valid number.");
+}
+
+Console.WriteLine("Enter number of years");
+int numberOfYears;
+while (!int.TryParse(Console.ReadLine(), out numberOfYears))
+{
+    Console.WriteLine("Invalid input. Please enter a valid number.");
+}
+
+Console.WriteLine("Enter rate of interest");
+decimal rateOfInterest;
+while (!decimal.TryParse(Console.ReadLine(), out rateOfInterest))
+{
+    Console.WriteLine("Invalid input. Please enter a valid number.");
+}
+
+Console.WriteLine($"Simple Interest is {principal * numberOfYears * rateOfInterest / 100}");
 /*
  * 5. Enter number and check it is even-odd.
  */
