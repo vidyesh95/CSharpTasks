@@ -1,14 +1,14 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 Console.WriteLine("Task and solutions!");
+
 /*
  * LEVEL 1 & 2 TASK
  *
  * 1. Perform all Mathematical operations (i.e., addition, subtraction, multiplication, division, Modulus division)
  * with numbers.
  */
-
-decimal total = 0;
+/*decimal total = 0;
 decimal tempValue = 0;
 while (true)
 {
@@ -74,64 +74,89 @@ while (true)
     {
         break;
     }
-}
+}*/
 
 
 /*
  * 2. Swap two numbers with third variable and without third variable.
-3. Find the greatest of three numbers.
-4. Enter principal, no of years, rate of interest and calculate simple
-interest as well as compound interest.
-5. Enter number and check it is even-odd.
-6. Enter 10 numbers and find sum of all numbers.
-7. Enter number and find its factorial.
-8. Print Fibonacci series. (0 1 1 2 3 5 8 ….)
-9. Enter three-digit number and display the sum of digits.
- (Example: Input - 123 Output - 6)
-10. Enter three-digit number and display its reverse.
- (Example: Input - 123 Output - 321)
-11. Enter a number and print its prime or not.
-12. Print multiplication table of a number entered by user.
-13. Enter year and print it is leap year or not.
-14. Enter a number and print it is palindrome or not.
-15. Enter a number and print it is Armstrong or not.
-16. Create Calculator program using switch case.
-17. Print all whole numbers between 20 to 50.
-18. Print greater among two numbers using ternary operator.
-19. Enter a number and print it is positive or negative.
-20. Enter marks and check pass or fail.
-21. Enter marks and print according to criteria:
-70-100 ->distinction
-50-70 -> first class
-40-45 -> second class
-<40 -> fail
-22. Print all prime numbers between 1 to 100.
-23. Enter day name (Example: Monday, Tuesday, etc.) and print it is
-weekday or weekend using switch case.
-24. Print all even numbers between 1 to 50.
-25. Write a login program to enter username and password, continue
-the loop till the user enters correct credentials.
-26. Enter age and print the eligibility to vote using goto statement.
-27. Find the minimum or maximum element from the Array.
-28. Accept 10 numbers from the user in the array and perform
-sorting.
-29. Accept 10 numbers in an array and reverse the values (without
-using any inbuilt functions)
-30. Accept 10 numbers in an array and print which numbers are even
-or odd.
-31. Create two arrays with 5 numbers in each. Merge all the
-numbers in the third array in sorted order.
-32. Accept values in 2D array and perform matrix Addition and
-multiplication.
-33. Accept 10 numbers in an array and calculate sum of all the
-elements.
-34. Accept 10 numbers in an array and calculate average of all the
-elements.
-35. Insert a new element in a particular position of an array and
-display the array.
-36. Delete an already existing element from an array and display the
-array.
-37. Print the following patterns:
+ */
+Console.WriteLine("Enter two numbers to swap");
+
+Console.WriteLine("Enter first number");
+int number1;
+while (!int.TryParse(Console.ReadLine(), out number1))
+{
+    Console.WriteLine("Invalid input. Please enter a valid number.");
+}
+
+Console.WriteLine("Enter second number");
+int number2;
+while (!int.TryParse(Console.ReadLine(), out number2))
+{
+    Console.WriteLine("Invalid input. Please enter a valid number.");
+}
+
+Console.WriteLine($"Before swap: first number is {number1} and second number is {number2}");
+number2 += number1;
+number1 = number2 - number1;
+number2 -= number1;
+Console.WriteLine($"After swap: first number is {number1} and second number is {number2}");
+
+
+/*
+ * 3. Find the greatest of three numbers.
+ */
+/*
+ * 4. Enter principal, no of years, rate of interest and calculate simple interest as well as compound interest.
+ */
+/*
+ * 5. Enter number and check it is even-odd.
+ */
+/*
+ * 6. Enter 10 numbers and find sum of all numbers.
+ */
+/*
+ * 7. Enter number and find its factorial.
+ */
+/*
+ * 8. Print Fibonacci series. (0 1 1 2 3 5 8 ….)
+ */
+/*
+ * 9. Enter three-digit number and display the sum of digits(Example: Input - 123 Output - 6).
+ */
+/*
+ * 10. Enter three-digit number and display its reverse(Example: Input - 123 Output - 321).
+ * 11. Enter a number and print its prime or not.
+ * 12. Print multiplication table of a number entered by user.
+ * 13. Enter year and print it is leap year or not.
+ * 14. Enter a number and print it is palindrome or not.
+ * 15. Enter a number and print it is Armstrong or not.
+ * 16. Create Calculator program using switch case.
+ * 17. Print all whole numbers between 20 to 50.
+ * 18. Print greater among two numbers using ternary operator.
+ * 19. Enter a number and print it is positive or negative.
+ * 20. Enter marks and check pass or fail.
+ * 21. Enter marks and print according to criteria:
+ *     70-100 ->distinction
+ *     50-70 -> first class
+ *     40-45 -> second class
+ *     <40 -> fail
+ * 22. Print all prime numbers between 1 to 100.
+ * 23. Enter day name (Example: Monday, Tuesday, etc.) and print it is weekday or weekend using switch case.
+ * 24. Print all even numbers between 1 to 50.
+ * 25. Write a login program to enter username and password, continue the loop till the user enters correct credentials.
+ * 26. Enter age and print the eligibility to vote using goto statement.
+ * 27. Find the minimum or maximum element from the Array.
+ * 28. Accept 10 numbers from the user in the array and perform sorting.
+ * 29. Accept 10 numbers in an array and reverse the values (without using any inbuilt functions)
+ * 30. Accept 10 numbers in an array and print which numbers are even or odd.
+ * 31. Create two arrays with 5 numbers in each. Merge all the numbers in the third array in sorted order.
+ * 32. Accept values in 2D array and perform matrix Addition and multiplication.
+ * 33. Accept 10 numbers in an array and calculate sum of all the elements.
+ * 34. Accept 10 numbers in an array and calculate average of all the elements.
+ * 35. Insert a new element in a particular position of an array and display the array.
+ * 36. Delete an already existing element from an array and display the array.
+ * 37. Print the following patterns:
 1) * 2) 1 3) 1 4) 1
 ** 1 2 2 2 2 3
 *** 1 2 3 3 3 3 4 5 6
