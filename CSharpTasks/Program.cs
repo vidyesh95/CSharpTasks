@@ -80,7 +80,7 @@ while (true)
 /*
  * 2. Swap two numbers with third variable and without third variable.
  */
-Console.WriteLine("Enter two numbers to swap");
+/*Console.WriteLine("Enter two numbers to swap");
 
 Console.WriteLine("Enter first number");
 int number1;
@@ -100,12 +100,63 @@ Console.WriteLine($"Before swap: first number is {number1} and second number is 
 number2 += number1;
 number1 = number2 - number1;
 number2 -= number1;
-Console.WriteLine($"After swap: first number is {number1} and second number is {number2}");
+Console.WriteLine($"After swap: first number is {number1} and second number is {number2}");*/
 
 
 /*
  * 3. Find the greatest of three numbers.
  */
+Console.WriteLine("Enter three numbers to find the greatest number");
+int number1;
+while (!int.TryParse(Console.ReadLine(), out number1))
+{
+    Console.WriteLine("Invalid input. Please enter a valid number.");
+}
+
+int number2;
+while (!int.TryParse(Console.ReadLine(), out number2))
+{
+    Console.WriteLine("Invalid input. Please enter a valid number.");
+}
+
+int number3;
+while (!int.TryParse(Console.ReadLine(), out number3))
+{
+    Console.WriteLine("Invalid input. Please enter a valid number.");
+}
+
+Console.WriteLine($"Entered numbers are {number1}, {number2} and {number3}");
+
+if (number1 > number2 && number1 > number3)
+{
+    Console.WriteLine($"Greatest number is {number1}");
+}
+else if (number2 > number1 && number2 > number3)
+{
+    Console.WriteLine($"Greatest number is {number2}");
+}
+else if (number3 > number1 && number3 > number2)
+{
+    Console.WriteLine($"Greatest number is {number3}");
+}
+else if (number1 == number2 && number1 > number3)
+{
+    Console.WriteLine($"Greatest number is {number1} and {number2}");
+}
+else if (number2 == number3 && number2 > number1)
+{
+    Console.WriteLine($"Greatest number is {number2} and {number3}");
+}
+else if (number1 == number3 && number1 > number2)
+{
+    Console.WriteLine($"Greatest number is {number1} and {number3}");
+}
+else
+{
+    Console.WriteLine("All numbers are equal");
+}
+
+
 /*
  * 4. Enter principal, no of years, rate of interest and calculate simple interest as well as compound interest.
  */
