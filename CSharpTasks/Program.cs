@@ -8,8 +8,8 @@
  * 1. Perform all Mathematical operations (i.e., addition, subtraction, multiplication, division, Modulus division)
  * with numbers.
  */
-/*decimal total = 0;
-decimal tempValue = 0;
+/*decimal total = 0m;
+decimal tempValue = 0m;
 while (true)
 {
     Console.WriteLine("Enter two numbers to perform all Mathematical operations");
@@ -182,6 +182,8 @@ while (!decimal.TryParse(Console.ReadLine(), out rateOfInterest))
 }
 
 Console.WriteLine($"Simple Interest is {principal * numberOfYears * rateOfInterest / 100}");
+
+
 /*
  * 5. Enter number and check it is even-odd.
  */
