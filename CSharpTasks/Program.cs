@@ -623,7 +623,7 @@ Console.WriteLine(num1 > num2 ? $"{num1} is greater than {num2}" : $"{num2} is g
 /*
  * 19. Enter a number and print it is positive or negative.
  */
-Console.WriteLine("Enter a number to check it is positive or negative");
+/*Console.WriteLine("Enter a number to check it is positive or negative");
 int number;
 while (!int.TryParse(Console.ReadLine(), out number))
 {
@@ -641,11 +641,22 @@ switch (number)
     default:
         Console.WriteLine("Number is neutral");
         break;
-}
+}*/
+
 
 /*
  * 20. Enter marks and check pass or fail.
  */
+Console.Write("Enter marks to check pass or fail : ");
+int marks;
+while (!int.TryParse(Console.ReadLine(), out marks) || marks < 0 || marks > 100)
+{
+    Console.WriteLine("Invalid input. Please enter a valid number between 0 and 100.");
+}
+
+Console.WriteLine(marks >= 40 ? "Pass" : "Fail");
+
+
 /*
  * 21. Enter marks and print according to criteria:
  *     70-100 ->distinction
