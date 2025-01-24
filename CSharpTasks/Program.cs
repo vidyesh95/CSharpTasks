@@ -368,7 +368,7 @@ while (tempNumber > 0)
 /*
  * 11. Enter a number and print its prime or not.
  */
-Console.Write("Enter a number to check it is prime or not : ");
+/*Console.Write("Enter a number to check it is prime or not : ");
 int number;
 while (!int.TryParse(Console.ReadLine(), out number) || number < 2)
 {
@@ -384,18 +384,50 @@ for (var i = 2; i <= number / 2; i++)
         break;
     }
 }
-Console.WriteLine(isPrime ? "Number is prime" : "Number is not prime");
+Console.WriteLine(isPrime ? "Number is prime" : "Number is not prime");*/
 
 
 /*
  * 12. Print multiplication table of a number entered by user.
  */
+/*Console.Write("Enter a number to print its multiplication table : ");
+int number;
+while (!int.TryParse(Console.ReadLine(), out number))
+{
+    Console.WriteLine("Invalid input. Please enter a valid number.");
+}
+Console.WriteLine($"Multiplication table of {number}");
+for (var i = 1; i <= 10; i++)
+{
+    Console.WriteLine($"{number} * {i} = {number * i}");
+}*/
+
+
 /*
  * 13. Enter year and print it is leap year or not.
  */
+Console.WriteLine("Enter a year to check it is leap year or not");
+int year;
+while (!int.TryParse(Console.ReadLine(), out year) || year < 1)
+{
+    Console.WriteLine("Invalid input. Please enter a valid year.");
+}
+
+if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
+{
+    Console.WriteLine("Year is leap year");
+}
+else
+{
+    Console.WriteLine("Year is not leap year");
+}
+
 /*
  * 14. Enter a number and print it is palindrome or not.
  */
+
+
+
 /*
  * 15. Enter a number and print it is Armstrong or not.
  */
