@@ -664,8 +664,7 @@ Console.WriteLine(marks >= 40 ? "Pass" : "Fail");*/
  *     40-45 -> second class
  *     <40 -> fail
  */
-
-while (true)
+/*while (true)
 {
     Console.WriteLine("Enter marks to print according to criteria");
     Console.WriteLine(" 70-100 ->distinction, 50-69 -> first class, 40-49 -> second class, <39 -> fail");
@@ -697,12 +696,32 @@ while (true)
     {
         break;
     }
-}
+}*/
 
 
 /*
  * 22. Print all prime numbers between 1 to 100.
  */
+Console.WriteLine("All prime numbers between 1 to 100");
+for (var i = 2; i < 101; i++)
+{
+    bool isPrime = true;
+    for (var j = 2; j <= i / 2; j++)
+    {
+        if (i % j == 0)
+        {
+            isPrime = false;
+            break;
+        }
+    }
+
+    if (isPrime)
+    {
+        Console.Write($"{i}, ");
+    }
+}
+
+
 /*
  * 23. Enter day name (Example: Monday, Tuesday, etc.) and print it is weekday or weekend using switch case.
  */
