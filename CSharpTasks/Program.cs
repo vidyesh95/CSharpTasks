@@ -604,7 +604,7 @@ Console.Write(result.ToString().TrimEnd(',', ' ').Insert(result.Length-2 , "."))
 /*
  * 18. Print greater among two numbers using ternary operator.
  */
-Console.WriteLine("Enter two numbers to print greater among two numbers using ternary operator");
+/*Console.WriteLine("Enter two numbers to print greater among two numbers using ternary operator");
 int num1;
 while (!int.TryParse(Console.ReadLine(), out num1))
 {
@@ -617,12 +617,32 @@ while (!int.TryParse(Console.ReadLine(), out num2))
     Console.WriteLine("Invalid input. Please enter a valid number.");
 }
 
-Console.WriteLine(num1 > num2 ? $"{num1} is greater than {num2}" : $"{num2} is greater than {num1}");
+Console.WriteLine(num1 > num2 ? $"{num1} is greater than {num2}" : $"{num2} is greater than {num1}");*/
 
 
 /*
  * 19. Enter a number and print it is positive or negative.
  */
+Console.WriteLine("Enter a number to check it is positive or negative");
+int number;
+while (!int.TryParse(Console.ReadLine(), out number))
+{
+    Console.WriteLine("Invalid input. Please enter a valid number.");
+}
+
+switch (number)
+{
+    case < 0:
+        Console.WriteLine("Number is negative");
+        break;
+    case > 0:
+        Console.WriteLine("Number is positive");
+        break;
+    default:
+        Console.WriteLine("Number is neutral");
+        break;
+}
+
 /*
  * 20. Enter marks and check pass or fail.
  */
