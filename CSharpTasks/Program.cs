@@ -8,20 +8,20 @@
  * 1. Perform all Mathematical operations (i.e., addition, subtraction, multiplication, division, Modulus division)
  * with numbers.
  */
-/*decimal total = 0m;
-decimal tempValue = 0m;
+/*decimal total = 0M;
+decimal tempValue = 0M;
 while (true)
 {
     Console.WriteLine("Enter two numbers to perform all Mathematical operations");
 
-    Console.WriteLine("Enter first number");
+    Console.Write("Enter first number : ");
     decimal num1;
     while (!decimal.TryParse(Console.ReadLine(), out num1))
     {
         Console.WriteLine("Invalid input. Please enter a valid number.");
     }
 
-    Console.WriteLine("Enter second number");
+    Console.Write("Enter second number : ");
     decimal num2;
     while (!decimal.TryParse(Console.ReadLine(), out num2))
     {
@@ -37,7 +37,16 @@ while (true)
     Console.WriteLine("Division => /");
     Console.WriteLine("Modulus division => %");
     Console.WriteLine("Enter operation symbol");
-    var stringOperation = Console.ReadLine();
+    string? stringOperation;
+    while (true)
+    {
+        stringOperation = Console.ReadLine();
+        if (stringOperation == "+" || stringOperation == "-" || stringOperation == "*" || stringOperation == "/" || stringOperation == "%")
+        {
+            break;
+        }
+        Console.WriteLine("Invalid operation. Please enter a valid operation symbol.");
+    }
 
     switch (stringOperation)
     {
@@ -68,6 +77,15 @@ while (true)
 
     total += tempValue;
     Console.WriteLine($"Total is {total}");
+    
+    Console.WriteLine("Enter c to clear total or any other key to continue");
+    var isTotalClear = Console.ReadLine();
+    if (isTotalClear == "c")
+    {
+        total = 0;
+    }
+    Console.WriteLine($"Total is {total}");
+    
     Console.WriteLine("Enter y to continue or any other key to exit");
     var isContinue = Console.ReadLine();
     if (isContinue != "y")
@@ -448,7 +466,7 @@ Console.WriteLine(reversedNumber == number ? "Number is palindrome" : "Number is
  * 15. Enter a number and print it is Armstrong or not.
  * (Armstrong numbers : 1, 2, 3, 4, 5, 6, 7, 8, 9, 153, 370, 371, 407, 1634, 8208, 9474)
  */
-Console.Write("Enter a number to check it is Armstrong or not : ");
+/*Console.Write("Enter a number to check it is Armstrong or not : ");
 int number;
 while (!int.TryParse(Console.ReadLine(), out number) || number < 0)
 {
@@ -466,14 +484,99 @@ while (tempNumber > 0)
     tempNumber /= 10;
 }
 
-Console.WriteLine(sum == number ? "Number is Armstrong" : "Number is not Armstrong");
-
-
+Console.WriteLine(sum == number ? "Number is Armstrong" : "Number is not Armstrong");*/
 
 
 /*
  * 16. Create Calculator program using switch case.
  */
+decimal total = 0M;
+decimal tempValue = 0M;
+while (true)
+{
+    Console.WriteLine("Enter two numbers to perform all Mathematical operations");
+
+    Console.Write("Enter first number : ");
+    decimal num1;
+    while (!decimal.TryParse(Console.ReadLine(), out num1))
+    {
+        Console.WriteLine("Invalid input. Please enter a valid number.");
+    }
+
+    Console.Write("Enter second number : ");
+    decimal num2;
+    while (!decimal.TryParse(Console.ReadLine(), out num2))
+    {
+        Console.WriteLine("Invalid input. Please enter a valid number.");
+    }
+
+    Console.WriteLine($"first number is {num1} and second number is {num2}");
+
+    Console.WriteLine("Now what operation you want to perform on numbers?");
+    Console.WriteLine("Addition => +");
+    Console.WriteLine("Subtraction => -");
+    Console.WriteLine("Multiplication => *");
+    Console.WriteLine("Division => /");
+    Console.WriteLine("Modulus division => %");
+    Console.WriteLine("Enter operation symbol");
+    string? stringOperation;
+    while (true)
+    {
+        stringOperation = Console.ReadLine();
+        if (stringOperation == "+" || stringOperation == "-" || stringOperation == "*" || stringOperation == "/" || stringOperation == "%")
+        {
+            break;
+        }
+        Console.WriteLine("Invalid operation. Please enter a valid operation symbol.");
+    }
+
+    switch (stringOperation)
+    {
+        case "+":
+            tempValue = num1 + num2;
+            Console.WriteLine($"Addition of {num1} and {num2} is {tempValue}");
+            break;
+        case "-":
+            tempValue = num1 - num2;
+            Console.WriteLine($"Subtraction of {num1} and {num2} is {tempValue}");
+            break;
+        case "*":
+            tempValue = num1 * num2;
+            Console.WriteLine($"Multiplication of {num1} and {num2} is {tempValue}");
+            break;
+        case "/":
+            tempValue = num1 / num2;
+            Console.WriteLine($"Division of {num1} and {num2} is {tempValue}");
+            break;
+        case "%":
+            tempValue = num1 % num2;
+            Console.WriteLine($"Modulus division of {num1} and {num2} is {tempValue}");
+            break;
+        default:
+            Console.WriteLine("Invalid operation");
+            break;
+    }
+
+    total += tempValue;
+    Console.WriteLine($"Total is {total}");
+    
+    Console.WriteLine("Enter c to clear total or any other key to continue");
+    var isTotalClear = Console.ReadLine();
+    if (isTotalClear == "c")
+    {
+        total = 0;
+    }
+    Console.WriteLine($"Total is {total}");
+    
+    Console.WriteLine("Enter y to continue or any other key to exit");
+    var isContinue = Console.ReadLine();
+    if (isContinue != "y")
+    {
+        break;
+    }
+}
+
+
 /*
  * 17. Print all whole numbers between 20 to 50.
  */
