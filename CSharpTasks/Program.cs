@@ -224,7 +224,7 @@ Console.WriteLine(number % 2 == 0 ? "Number is even" : "Number is odd");*/
 /*
  * 6. Enter 10 numbers and find sum of all numbers.
  */
-decimal sum = 0;
+/*decimal sum = 0m;
 Console.WriteLine("Enter 10 numbers to find sum of all numbers");
 for (var i = 1; i < 11; i++)
 {
@@ -237,11 +237,26 @@ for (var i = 1; i < 11; i++)
 
     sum += number;
 }
-Console.WriteLine($"Sum of all numbers is {sum}");
+Console.WriteLine($"Sum of all numbers is {sum}");*/
 
 /*
  * 7. Enter number and find its factorial.
  */
+Console.Write("Enter a number to find its factorial : ");
+long number;
+while (!long.TryParse(Console.ReadLine(), out number) || number < 0)
+{
+    Console.WriteLine("Invalid input. Please enter a valid number greater than or equal to 0.");
+}
+
+long factorial = 1;
+for (var i = number; i > 0; i--)
+{
+    factorial *= i;
+}
+Console.WriteLine($"Factorial of {number} is {factorial}");
+
+
 /*
  * 8. Print Fibonacci series. (0 1 1 2 3 5 8 ….)
  */
