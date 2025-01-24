@@ -260,7 +260,7 @@ Console.WriteLine($"Factorial of {number} is {factorial}");*/
 /*
  * 8. Print Fibonacci series. (0 1 1 2 3 5 8 ….)
  */
-Console.Write("Enter a natural number to print that number of elements in Fibonacci series : ");
+/*Console.Write("Enter a natural number to print that number of elements in Fibonacci series : ");
 int number;
 while (!int.TryParse(Console.ReadLine(), out number) || number < 1 || number > 140)
 {
@@ -289,12 +289,44 @@ switch (number)
 
         break;
     }
-}
+}*/
 
 
 /*
  * 9. Enter three-digit number and display the sum of digits(Example: Input - 123 Output - 6).
  */
+
+Console.Write("Enter a three-digit number to display the sum of digits : ");
+int number;
+while (!int.TryParse(Console.ReadLine(), out number) || number < 100 || number > 999)
+{
+    Console.WriteLine("Invalid input. Please enter a valid three-digit number.");
+}
+
+int numberCopy = number;
+
+List<int> digits = new List<int>();
+Console.WriteLine("Method 1 using List and LINQ");
+while (number > 0)
+{
+    digits.Add(number % 10);
+    number /= 10;
+}
+foreach (var digit in digits)
+{
+    Console.WriteLine(digit);
+}
+Console.WriteLine($"Sum of digits is {digits.Sum()}");
+
+Console.WriteLine("Method 2 using temporary variable");
+var sum = 0;
+while (numberCopy > 0)
+{
+    sum += (numberCopy % 10);
+    numberCopy /= 10;
+}
+Console.WriteLine($"Sum of digits is {sum}");
+
 /*
  * 10. Enter three-digit number and display its reverse(Example: Input - 123 Output - 321).
  * 11. Enter a number and print its prime or not.
