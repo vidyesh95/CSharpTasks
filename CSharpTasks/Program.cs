@@ -77,7 +77,7 @@ while (true)
 
     total += tempValue;
     Console.WriteLine($"Total is {total}");
-    
+
     Console.WriteLine("Enter c to clear total or any other key to continue");
     var isTotalClear = Console.ReadLine();
     if (isTotalClear == "c")
@@ -85,7 +85,7 @@ while (true)
         total = 0;
     }
     Console.WriteLine($"Total is {total}");
-    
+
     Console.WriteLine("Enter y to continue or any other key to exit");
     var isContinue = Console.ReadLine();
     if (isContinue != "y")
@@ -559,7 +559,7 @@ while (true)
 
     total += tempValue;
     Console.WriteLine($"Total is {total}");
-    
+
     Console.WriteLine("Enter c to clear total or any other key to continue");
     var isTotalClear = Console.ReadLine();
     if (isTotalClear == "c")
@@ -567,7 +567,7 @@ while (true)
         total = 0;
     }
     Console.WriteLine($"Total is {total}");
-    
+
     Console.WriteLine("Enter y to continue or any other key to exit");
     var isContinue = Console.ReadLine();
     if (isContinue != "y")
@@ -580,8 +580,7 @@ while (true)
 /*
  * 17. Print all whole numbers between 20 to 50.
  */
-
-using System.Text;
+/*using System.Text;
 
 Console.Write("All whole numbers between 20 to 50 : ");
 for (var i = 20; i < 51; i++)
@@ -598,11 +597,29 @@ for (var i = 20; i < 51; i++)
 {
     result.Append($"{i}, ");
 }
-Console.Write(result.ToString().TrimEnd(',', ' ').Insert(result.Length-2 , ".")); //-2 to remove comma and
-                                                                                  //space and insert dot at the end
+Console.Write(result.ToString().TrimEnd(',', ' ').Insert(result.Length-2 , "."));*/ //-2 to remove comma and
+//space and insert dot at the end
+
+
 /*
  * 18. Print greater among two numbers using ternary operator.
  */
+Console.WriteLine("Enter two numbers to print greater among two numbers using ternary operator");
+int num1;
+while (!int.TryParse(Console.ReadLine(), out num1))
+{
+    Console.WriteLine("Invalid input. Please enter a valid number.");
+}
+
+int num2;
+while (!int.TryParse(Console.ReadLine(), out num2))
+{
+    Console.WriteLine("Invalid input. Please enter a valid number.");
+}
+
+Console.WriteLine(num1 > num2 ? $"{num1} is greater than {num2}" : $"{num2} is greater than {num1}");
+
+
 /*
  * 19. Enter a number and print it is positive or negative.
  */
