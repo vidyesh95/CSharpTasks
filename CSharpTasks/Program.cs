@@ -425,7 +425,7 @@ else
 /*
  * 14. Enter a number and print it is palindrome or not.
  */
-Console.Write("Enter a number to check it is palindrome or not : ");
+/*Console.Write("Enter a number to check it is palindrome or not : ");
 int number;
 while (!int.TryParse(Console.ReadLine(), out number) || number < 0)
 {
@@ -441,12 +441,36 @@ while (tempNumber > 0)
     tempNumber /= 10;
 }
 
-Console.WriteLine(reversedNumber == number ? "Number is palindrome" : "Number is not palindrome");
+Console.WriteLine(reversedNumber == number ? "Number is palindrome" : "Number is not palindrome");*/
 
 
 /*
  * 15. Enter a number and print it is Armstrong or not.
+ * (Armstrong numbers : 1, 2, 3, 4, 5, 6, 7, 8, 9, 153, 370, 371, 407, 1634, 8208, 9474)
  */
+Console.Write("Enter a number to check it is Armstrong or not : ");
+int number;
+while (!int.TryParse(Console.ReadLine(), out number) || number < 0)
+{
+    Console.WriteLine("Invalid input. Please enter a valid number greater than or equal to 0.");
+}
+
+int tempNumber = number;
+string numberString = number.ToString();
+int lengthOfNumber = numberString.Length;
+int sum = 0;
+while (tempNumber > 0)
+{
+    var digit = tempNumber % 10;
+    sum += (int)Math.Pow(digit, lengthOfNumber);
+    tempNumber /= 10;
+}
+
+Console.WriteLine(sum == number ? "Number is Armstrong" : "Number is not Armstrong");
+
+
+
+
 /*
  * 16. Create Calculator program using switch case.
  */
