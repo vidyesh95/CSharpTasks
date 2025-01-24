@@ -330,7 +330,7 @@ Console.WriteLine($"Sum of digits is {sum}");*/
 /*
  * 10. Enter three-digit number and display its reverse(Example: Input - 123 Output - 321).
  */
-Console.Write("Enter a three-digit number to display its reverse : ");
+/*Console.Write("Enter a three-digit number to display its reverse : ");
 int number;
 while (!int.TryParse(Console.ReadLine(), out number) || number < 100 || number > 999)
 {
@@ -362,12 +362,31 @@ while (tempNumber > 0)
     reversedNumber = reversedNumber * 10 + digit;
     tempNumber /= 10;
     Console.Write(reversedNumber);
-}
+}*/
 
 
 /*
  * 11. Enter a number and print its prime or not.
  */
+Console.Write("Enter a number to check it is prime or not : ");
+int number;
+while (!int.TryParse(Console.ReadLine(), out number) || number < 2)
+{
+    Console.WriteLine("Invalid input. Please enter a valid number greater than or equal to 2.");
+}
+
+bool isPrime = true;
+for (var i = 2; i <= number / 2; i++)
+{
+    if (number % i == 0)
+    {
+        isPrime = false;
+        break;
+    }
+}
+Console.WriteLine(isPrime ? "Number is prime" : "Number is not prime");
+
+
 /*
  * 12. Print multiplication table of a number entered by user.
  */
