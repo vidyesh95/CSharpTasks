@@ -160,9 +160,10 @@ else
 /*
  * 4. Enter principal, no of years, rate of interest and calculate simple interest as well as compound interest.
  */
+
 Console.WriteLine("Enter principal amount");
-decimal principal;
-while (!decimal.TryParse(Console.ReadLine(), out principal))
+double principal;
+while (!double.TryParse(Console.ReadLine(), out principal))
 {
     Console.WriteLine("Invalid input. Please enter a valid number.");
 }
@@ -175,14 +176,38 @@ while (!int.TryParse(Console.ReadLine(), out numberOfYears))
 }
 
 Console.WriteLine("Enter rate of interest");
-decimal rateOfInterest;
-while (!decimal.TryParse(Console.ReadLine(), out rateOfInterest))
+double rateOfInterest;
+while (!double.TryParse(Console.ReadLine(), out rateOfInterest))
 {
     Console.WriteLine("Invalid input. Please enter a valid number.");
 }
 
 Console.WriteLine($"Simple Interest is {principal * numberOfYears * rateOfInterest / 100}");
+/*
+ * P = Initial Principal Amount
+ * r = Annual Interest Rate
+ * c = Number of Times Interest is Compounded
+ *     Annually     (c = 1)     : Interest is compounded once per year.
+ *     Semiannually (c = 2)     : Interest is compounded twice per year.
+ *     Quarterly    (c = 4)     : Interest is compounded four times per year.
+ *     Monthly      (c = 12)    : Interest is compounded twelve times per year.
+ *     Daily        (c = 365)   : Interest is compounded every day.
+ * n = Number of Years
+ */
+Console.WriteLine("Enter number of times interest is compounded (1, 2, 4, 12, 365)");
+int compoundTimes;
+while (
+    !int.TryParse(Console.ReadLine(), out compoundTimes) ||
+    (compoundTimes != 1 && compoundTimes != 2 && compoundTimes != 4 && compoundTimes != 12 && compoundTimes != 365)
+)
+{
+    Console.WriteLine("Invalid input. Please enter a valid number (1, 2, 4, 12, 365).");
+}
 
+decimal compoundInterest = (decimal)(principal * Math.Pow(
+    (1 + rateOfInterest / 100 / compoundTimes),
+    compoundTimes * numberOfYears));
+Console.WriteLine($"Compound Interest is {compoundInterest}");
 
 /*
  * 5. Enter number and check it is even-odd.
