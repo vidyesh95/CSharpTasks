@@ -490,7 +490,7 @@ Console.WriteLine(sum == number ? "Number is Armstrong" : "Number is not Armstro
 /*
  * 16. Create Calculator program using switch case.
  */
-decimal total = 0M;
+/*decimal total = 0M;
 decimal tempValue = 0M;
 while (true)
 {
@@ -574,12 +574,32 @@ while (true)
     {
         break;
     }
-}
+}*/
 
 
 /*
  * 17. Print all whole numbers between 20 to 50.
  */
+
+using System.Text;
+
+Console.Write("All whole numbers between 20 to 50 : ");
+for (var i = 20; i < 51; i++)
+{
+    Console.Write($"{i}, ");
+}
+
+
+Console.WriteLine("Without comma and space at the end");
+
+Console.Write("All whole numbers between 20 to 50 : ");
+StringBuilder result = new StringBuilder();
+for (var i = 20; i < 51; i++)
+{
+    result.Append($"{i}, ");
+}
+Console.Write(result.ToString().TrimEnd(',', ' ').Insert(result.Length-2 , ".")); //-2 to remove comma and
+                                                                                  //space and insert dot at the end
 /*
  * 18. Print greater among two numbers using ternary operator.
  */
