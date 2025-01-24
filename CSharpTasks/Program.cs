@@ -296,7 +296,7 @@ switch (number)
  * 9. Enter three-digit number and display the sum of digits(Example: Input - 123 Output - 6).
  */
 
-Console.Write("Enter a three-digit number to display the sum of digits : ");
+/*Console.Write("Enter a three-digit number to display the sum of digits : ");
 int number;
 while (!int.TryParse(Console.ReadLine(), out number) || number < 100 || number > 999)
 {
@@ -325,40 +325,129 @@ while (numberCopy > 0)
     sum += (numberCopy % 10);
     numberCopy /= 10;
 }
-Console.WriteLine($"Sum of digits is {sum}");
+Console.WriteLine($"Sum of digits is {sum}");*/
 
 /*
  * 10. Enter three-digit number and display its reverse(Example: Input - 123 Output - 321).
+ */
+Console.Write("Enter a three-digit number to display its reverse : ");
+int number;
+while (!int.TryParse(Console.ReadLine(), out number) || number < 100 || number > 999)
+{
+    Console.WriteLine("Invalid input. Please enter a valid three-digit number.");
+}
+
+int tempNumber = number;
+
+Console.WriteLine("Method 1 using List");
+List<int> digits = new List<int>();
+while (number > 0)
+{
+    digits.Add(number % 10);
+    number /= 10;
+}
+
+foreach (var digit in digits)
+{
+    Console.Write(digit);
+}
+
+Console.WriteLine();
+Console.WriteLine("Method 2 using temporary variable");
+int reversedNumber = 0;
+Console.Write("Reversed number is ");
+while (tempNumber > 0)
+{
+    int digit = tempNumber % 10;
+    reversedNumber = reversedNumber * 10 + digit;
+    tempNumber /= 10;
+    Console.Write(reversedNumber);
+}
+
+
+/*
  * 11. Enter a number and print its prime or not.
+ */
+/*
  * 12. Print multiplication table of a number entered by user.
+ */
+/*
  * 13. Enter year and print it is leap year or not.
+ */
+/*
  * 14. Enter a number and print it is palindrome or not.
+ */
+/*
  * 15. Enter a number and print it is Armstrong or not.
+ */
+/*
  * 16. Create Calculator program using switch case.
+ */
+/*
  * 17. Print all whole numbers between 20 to 50.
+ */
+/*
  * 18. Print greater among two numbers using ternary operator.
+ */
+/*
  * 19. Enter a number and print it is positive or negative.
+ */
+/*
  * 20. Enter marks and check pass or fail.
+ */
+/*
  * 21. Enter marks and print according to criteria:
  *     70-100 ->distinction
  *     50-70 -> first class
  *     40-45 -> second class
  *     <40 -> fail
+ */
+/*
  * 22. Print all prime numbers between 1 to 100.
+ */
+/*
  * 23. Enter day name (Example: Monday, Tuesday, etc.) and print it is weekday or weekend using switch case.
+ */
+/*
  * 24. Print all even numbers between 1 to 50.
+ */
+/*
  * 25. Write a login program to enter username and password, continue the loop till the user enters correct credentials.
+ */
+/*
  * 26. Enter age and print the eligibility to vote using goto statement.
+ */
+/*
  * 27. Find the minimum or maximum element from the Array.
+ */
+/*
  * 28. Accept 10 numbers from the user in the array and perform sorting.
+ */
+/*
  * 29. Accept 10 numbers in an array and reverse the values (without using any inbuilt functions)
+ */
+/*
  * 30. Accept 10 numbers in an array and print which numbers are even or odd.
+ */
+/*
  * 31. Create two arrays with 5 numbers in each. Merge all the numbers in the third array in sorted order.
+ */
+/*
  * 32. Accept values in 2D array and perform matrix Addition and multiplication.
+ */
+/*
  * 33. Accept 10 numbers in an array and calculate sum of all the elements.
+ */
+/*
  * 34. Accept 10 numbers in an array and calculate average of all the elements.
+ */
+/*
  * 35. Insert a new element in a particular position of an array and display the array.
+ */
+/*
  * 36. Delete an already existing element from an array and display the array.
+ */
+/*
  * 37. Print the following patterns:
 1) * 2) 1 3) 1 4) 1
 ** 1 2 2 2 2 3
