@@ -249,7 +249,7 @@ while (!long.TryParse(Console.ReadLine(), out number) || number < 0)
     Console.WriteLine("Invalid input. Please enter a valid number greater than or equal to 0.");
 }
 
-long factorial = 1;
+long factorial = 1L;
 for (var i = number; i > 0; i--)
 {
     factorial *= i;
