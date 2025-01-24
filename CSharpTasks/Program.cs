@@ -406,7 +406,7 @@ for (var i = 1; i <= 10; i++)
 /*
  * 13. Enter year and print it is leap year or not.
  */
-Console.WriteLine("Enter a year to check it is leap year or not");
+/*Console.WriteLine("Enter a year to check it is leap year or not");
 int year;
 while (!int.TryParse(Console.ReadLine(), out year) || year < 1)
 {
@@ -420,12 +420,28 @@ if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
 else
 {
     Console.WriteLine("Year is not leap year");
-}
+}*/
 
 /*
  * 14. Enter a number and print it is palindrome or not.
  */
+Console.Write("Enter a number to check it is palindrome or not : ");
+int number;
+while (!int.TryParse(Console.ReadLine(), out number) || number < 0)
+{
+    Console.WriteLine("Invalid input. Please enter a valid number greater than or equal to 0.");
+}
 
+int tempNumber = number;
+int reversedNumber = 0;
+while (tempNumber > 0)
+{
+    int digit = tempNumber % 10;
+    reversedNumber = reversedNumber * 10 + digit;
+    tempNumber /= 10;
+}
+
+Console.WriteLine(reversedNumber == number ? "Number is palindrome" : "Number is not palindrome");
 
 
 /*
