@@ -647,14 +647,14 @@ switch (number)
 /*
  * 20. Enter marks and check pass or fail.
  */
-Console.Write("Enter marks to check pass or fail : ");
+/*Console.Write("Enter marks to check pass or fail : ");
 int marks;
 while (!int.TryParse(Console.ReadLine(), out marks) || marks < 0 || marks > 100)
 {
     Console.WriteLine("Invalid input. Please enter a valid number between 0 and 100.");
 }
 
-Console.WriteLine(marks >= 40 ? "Pass" : "Fail");
+Console.WriteLine(marks >= 40 ? "Pass" : "Fail");*/
 
 
 /*
@@ -664,6 +664,42 @@ Console.WriteLine(marks >= 40 ? "Pass" : "Fail");
  *     40-45 -> second class
  *     <40 -> fail
  */
+
+while (true)
+{
+    Console.WriteLine("Enter marks to print according to criteria");
+    Console.WriteLine(" 70-100 ->distinction, 50-69 -> first class, 40-49 -> second class, <39 -> fail");
+    int marks;
+    while (!int.TryParse(Console.ReadLine(), out marks) || marks < 0 || marks > 100)
+    {
+        Console.WriteLine("Invalid input. Please enter a valid number between 0 and 100.");
+    }
+
+    switch (marks)
+    {
+        case >= 70:
+            Console.WriteLine("Distinction");
+            break;
+        case >= 50:
+            Console.WriteLine("First class");
+            break;
+        case >= 40:
+            Console.WriteLine("Second class");
+            break;
+        default:
+            Console.WriteLine("Fail");
+            break;
+    }
+    
+    Console.WriteLine("If you want to continue press y or any other key to exit");
+    var isContinue = Console.ReadLine();
+    if (isContinue != "y")
+    {
+        break;
+    }
+}
+
+
 /*
  * 22. Print all prime numbers between 1 to 100.
  */
