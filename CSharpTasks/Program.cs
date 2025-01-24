@@ -161,7 +161,7 @@ else
  * 4. Enter principal, no of years, rate of interest and calculate simple interest as well as compound interest.
  */
 
-Console.WriteLine("Enter principal amount");
+/*Console.WriteLine("Enter principal amount");
 double principal;
 while (!double.TryParse(Console.ReadLine(), out principal))
 {
@@ -182,7 +182,7 @@ while (!double.TryParse(Console.ReadLine(), out rateOfInterest))
     Console.WriteLine("Invalid input. Please enter a valid number.");
 }
 
-Console.WriteLine($"Simple Interest is {principal * numberOfYears * rateOfInterest / 100}");
+Console.WriteLine($"Simple Interest is {principal * numberOfYears * rateOfInterest / 100}");*/
 /*
  * P = Initial Principal Amount
  * r = Annual Interest Rate
@@ -194,7 +194,7 @@ Console.WriteLine($"Simple Interest is {principal * numberOfYears * rateOfIntere
  *     Daily        (c = 365)   : Interest is compounded every day.
  * n = Number of Years
  */
-Console.WriteLine("Enter number of times interest is compounded (1, 2, 4, 12, 365)");
+/*Console.WriteLine("Enter number of times interest is compounded (1, 2, 4, 12, 365)");
 int compoundTimes;
 while (
     !int.TryParse(Console.ReadLine(), out compoundTimes) ||
@@ -207,11 +207,20 @@ while (
 decimal compoundInterest = (decimal)(principal * Math.Pow(
     (1 + rateOfInterest / 100 / compoundTimes),
     compoundTimes * numberOfYears));
-Console.WriteLine($"Compound Interest is {compoundInterest}");
+Console.WriteLine($"Compound Interest is {compoundInterest}");*/
 
 /*
  * 5. Enter number and check it is even-odd.
  */
+Console.WriteLine("Enter a number to check it is even or odd");
+int number;
+while (!int.TryParse(Console.ReadLine(), out number))
+{
+    Console.WriteLine("Invalid input. Please enter a valid number.");
+}
+
+Console.WriteLine(number % 2 == 0 ? "Number is even" : "Number is odd");
+
 /*
  * 6. Enter 10 numbers and find sum of all numbers.
  */
