@@ -242,7 +242,7 @@ Console.WriteLine($"Sum of all numbers is {sum}");*/
 /*
  * 7. Enter number and find its factorial.
  */
-Console.Write("Enter a number to find its factorial : ");
+/*Console.Write("Enter a number to find its factorial : ");
 long number;
 while (!long.TryParse(Console.ReadLine(), out number) || number < 0)
 {
@@ -254,12 +254,44 @@ for (var i = number; i > 0; i--)
 {
     factorial *= i;
 }
-Console.WriteLine($"Factorial of {number} is {factorial}");
+Console.WriteLine($"Factorial of {number} is {factorial}");*/
 
 
 /*
  * 8. Print Fibonacci series. (0 1 1 2 3 5 8 ….)
  */
+Console.Write("Enter a natural number to print that number of elements in Fibonacci series : ");
+int number;
+while (!int.TryParse(Console.ReadLine(), out number) || number < 1 || number > 140)
+{
+    Console.WriteLine("Invalid input. Please enter a valid number greater than 0 and smaller than 141.");
+}
+switch (number)
+{
+    case 1:
+        Console.WriteLine("0");
+        break;
+    case 2:
+        Console.WriteLine("0 1");
+        break;
+    default:
+    {
+        Console.Write("0 1 ");
+        decimal first = 0M;
+        decimal second = 1M;
+        for (var i = 3; i <= number; i++)
+        {
+            decimal temporary = first + second;
+            Console.Write($"{temporary} ");
+            first = second;
+            second = temporary;
+        }
+
+        break;
+    }
+}
+
+
 /*
  * 9. Enter three-digit number and display the sum of digits(Example: Input - 123 Output - 6).
  */
