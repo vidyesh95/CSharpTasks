@@ -212,18 +212,33 @@ Console.WriteLine($"Compound Interest is {compoundInterest}");*/
 /*
  * 5. Enter number and check it is even-odd.
  */
-Console.WriteLine("Enter a number to check it is even or odd");
+/*Console.WriteLine("Enter a number to check it is even or odd");
 int number;
 while (!int.TryParse(Console.ReadLine(), out number))
 {
     Console.WriteLine("Invalid input. Please enter a valid number.");
 }
 
-Console.WriteLine(number % 2 == 0 ? "Number is even" : "Number is odd");
+Console.WriteLine(number % 2 == 0 ? "Number is even" : "Number is odd");*/
 
 /*
  * 6. Enter 10 numbers and find sum of all numbers.
  */
+decimal sum = 0;
+Console.WriteLine("Enter 10 numbers to find sum of all numbers");
+for (var i = 1; i < 11; i++)
+{
+    Console.Write($"Enter number {i} : ");
+    decimal number;
+    while (!decimal.TryParse(Console.ReadLine(), out number))
+    {
+        Console.WriteLine("Invalid input. Please enter a valid number.");
+    }
+
+    sum += number;
+}
+Console.WriteLine($"Sum of all numbers is {sum}");
+
 /*
  * 7. Enter number and find its factorial.
  */
