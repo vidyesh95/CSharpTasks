@@ -725,7 +725,7 @@ for (var i = 2; i < 101; i++)
 /*
  * 23. Enter day name (Example: Monday, Tuesday, etc.) and print it is weekday or weekend using switch case.
  */
-Console.Write("Enter day name to check it is weekday or weekend : ");
+/*Console.Write("Enter day name to check it is weekday or weekend : ");
 string? dayName = Console.ReadLine();
 if (dayName != null)
 {
@@ -746,12 +746,22 @@ if (dayName != null)
             Console.WriteLine("Invalid day name");
             break;
     }
-}
+}*/
 
 
 /*
  * 24. Print all even numbers between 1 to 50.
  */
+Console.WriteLine("All even numbers between 1 to 50");
+for (var i = 1; i < 51; i++)
+{
+    if (i % 2 == 0)
+    {
+        Console.Write($"{i}, ");
+    }
+}
+
+
 /*
  * 25. Write a login program to enter username and password, continue the loop till the user enters correct credentials.
  */
