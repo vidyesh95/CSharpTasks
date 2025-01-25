@@ -752,19 +752,36 @@ if (dayName != null)
 /*
  * 24. Print all even numbers between 1 to 50.
  */
-Console.WriteLine("All even numbers between 1 to 50");
+/*Console.WriteLine("All even numbers between 1 to 50");
 for (var i = 1; i < 51; i++)
 {
     if (i % 2 == 0)
     {
         Console.Write($"{i}, ");
     }
-}
+}*/
 
 
 /*
  * 25. Write a login program to enter username and password, continue the loop till the user enters correct credentials.
  */
+Console.WriteLine("Login");
+while (true)
+{
+    Console.Write("Enter username : ");
+    string? username = Console.ReadLine();
+    Console.Write("Enter password : ");
+    string? password = Console.ReadLine();
+
+    if (username == "admin" && password == "admin")
+    {
+        Console.WriteLine("Login successful");
+        break;
+    }
+    Console.WriteLine("Invalid credentials. Please enter correct credentials.");
+}
+
+
 /*
  * 26. Enter age and print the eligibility to vote using goto statement.
  */
