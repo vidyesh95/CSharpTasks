@@ -702,7 +702,7 @@ Console.WriteLine(marks >= 40 ? "Pass" : "Fail");*/
 /*
  * 22. Print all prime numbers between 1 to 100.
  */
-Console.WriteLine("All prime numbers between 1 to 100");
+/*Console.WriteLine("All prime numbers between 1 to 100");
 for (var i = 2; i < 101; i++)
 {
     bool isPrime = true;
@@ -719,12 +719,36 @@ for (var i = 2; i < 101; i++)
     {
         Console.Write($"{i}, ");
     }
-}
+}*/
 
 
 /*
  * 23. Enter day name (Example: Monday, Tuesday, etc.) and print it is weekday or weekend using switch case.
  */
+Console.Write("Enter day name to check it is weekday or weekend : ");
+string? dayName = Console.ReadLine();
+if (dayName != null)
+{
+    switch (dayName.ToLower())
+    {
+        case "monday":
+        case "tuesday":
+        case "wednesday":
+        case "thursday":
+        case "friday":
+            Console.WriteLine("Weekday");
+            break;
+        case "saturday":
+        case "sunday":
+            Console.WriteLine("Weekend");
+            break;
+        default:
+            Console.WriteLine("Invalid day name");
+            break;
+    }
+}
+
+
 /*
  * 24. Print all even numbers between 1 to 50.
  */
