@@ -904,7 +904,7 @@ for (var i = 0; i < array.Length; i++)
 /*
  * 29. Accept 10 numbers in an array and reverse the values (without using any inbuilt functions)
  */
-Console.WriteLine("Enter 10 elements");
+/*Console.WriteLine("Enter 10 elements");
 int[] array = new int[10];
 for (var i = 0; i < 10; i++)
 {
@@ -936,12 +936,42 @@ Console.WriteLine("After sorting");
 foreach (int element in array)
 {
     Console.Write($"{element} ");
-}
+}*/
 
 
 /*
  * 30. Accept 10 numbers in an array and print which numbers are even or odd.
  */
+Console.WriteLine("Enter 10 elements");
+int[] array = new int[10];
+for (var i = 0; i < 10; i++)
+{
+    int number;
+    Console.Write($"Enter an {i + 1} element : ");
+    while (!int.TryParse(Console.ReadLine(), out number))
+    {
+        Console.WriteLine("Invalid input. Please enter a valid integer element.");
+    }
+
+    array[i] = number;
+}
+
+foreach (int element in array)
+{
+    Console.Write($"{element} ");
+}
+Console.WriteLine();
+foreach (int element in array)
+{
+    if (element%2==0)
+    {
+        Console.WriteLine($"{element} is even");
+    }
+    else
+    {
+        Console.WriteLine($"{element} is odd");
+    }
+}
 
 
 /*
