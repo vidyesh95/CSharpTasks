@@ -765,7 +765,7 @@ for (var i = 1; i < 51; i++)
 /*
  * 25. Write a login program to enter username and password, continue the loop till the user enters correct credentials.
  */
-Console.WriteLine("Login");
+/*Console.WriteLine("Login");
 while (true)
 {
     Console.Write("Enter username : ");
@@ -779,146 +779,599 @@ while (true)
         break;
     }
     Console.WriteLine("Invalid credentials. Please enter correct credentials.");
-}
+}*/
 
 
 /*
  * 26. Enter age and print the eligibility to vote using goto statement.
  */
+start:
+Console.WriteLine("Enter age to check the eligibility to vote");
+int age;
+while (!int.TryParse(Console.ReadLine(), out age) || age < 0)
+{
+    Console.WriteLine("Invalid input. Please enter a valid age greater than or equal to 0.");
+}
+
+Console.WriteLine(age >= 18 ? "Eligible to vote" : "Not eligible to vote");
+
+Console.WriteLine("Enter y to continue or any other key to exit");
+var isContinue = Console.ReadLine();
+if (isContinue == "y")
+{
+    goto start;
+}
+
+
 /*
  * 27. Find the minimum or maximum element from the Array.
  */
+
+
+
 /*
  * 28. Accept 10 numbers from the user in the array and perform sorting.
  */
+
+
+
 /*
  * 29. Accept 10 numbers in an array and reverse the values (without using any inbuilt functions)
  */
+
+
+
 /*
  * 30. Accept 10 numbers in an array and print which numbers are even or odd.
  */
+
+
+
 /*
  * 31. Create two arrays with 5 numbers in each. Merge all the numbers in the third array in sorted order.
  */
+
+
+
 /*
  * 32. Accept values in 2D array and perform matrix Addition and multiplication.
  */
+
+
+
 /*
  * 33. Accept 10 numbers in an array and calculate sum of all the elements.
  */
+
+
+
 /*
  * 34. Accept 10 numbers in an array and calculate average of all the elements.
  */
+
+
+
 /*
  * 35. Insert a new element in a particular position of an array and display the array.
  */
+
+
+
 /*
  * 36. Delete an already existing element from an array and display the array.
  */
-/*
- * 37. Print the following patterns:
-1) * 2) 1 3) 1 4) 1
-** 1 2 2 2 2 3
-*** 1 2 3 3 3 3 4 5 6
- **** 1 2 3 4 4 4 4 4 7 8 9 10
-5) 6) 7)
- * * *
- * * * * * * *
- * * * * * * * * * * *
-* * * * * * * * * * * * * * *
-8) 9) 10)
-1
-2*
-33*
-444*
-5555*
-11) 12) 13)
-********
-*******
-******
-*****
-****
-***
-**
-*
-14) 15) 16)
-5
-54
-543
-5432
-54321
-17) 18) 19) 20) $
- # #
- $ $ $
- # # # #
-38. Print the following patterns using 2D Array :
-1) * 2) 1 3) 1 4) 1
-** 1 2 2 2 2 3
-*** 1 2 3 3 3 3 4 5 6
- **** 1 2 3 4 4 4 4 4 7 8 9 10
-5) 6) 7)
- * * *
- * * * * * * *
- * * * * * * * * * * *
-* * * * * * * * * * * * * * *
-LEVEL 3 TASK
-1. Swap two number using Call by Value and Call by Reference.
-2. Calculate area and circumference of circle using functions (with
-return type and without return type)
-3. Calculate area of rectangle using out parameter.
-4. Display max and min number from the following string array:
-{“1”, “Rohan”, “Avinash”, “5”, “tina”, “100”, “Rahul”, “38”}
-5. Calculate sum of numbers from the string array:
-{“1”, “Sona”, “David”, “50”, “Fardeen”, “19”, “Rishi”, “68”}
-6. Calculate the sum of Integer values as well as decimal values
-separately from the given string array:
-{“1”,”10.5”,”11”,”12.5”,”14”,”15.5”,”16”,”17”,”18.5”}
-7. Accept the Number of Students from 1st std to 5th std, Accept their
-Name and Roll no from user and display them using Jagged Array.
-LEVEL 4 TASK
-STRING TASK:
-1. Enter a sentence and find the number of spaces, words, vowels and
-consonants.
-2. Enter a sentence and capitalize first letter of each word.
-Input: my name is tom.
-Output: My Name Is Tom.
-3. Input: Rohan.Singh@featsystems.com
-Output: First name: Rohan
- Last name: Singh
- Company: featsystems
-4. Input: “Please feel free to contact me on abhishek.solanki@gmail.com
-anytime between 10 am to 6 pm.”
-Output: abhishek.solanki@gmail.com
-5. Enter a name and display the frequency of each letter.
-Input: address
-Output: a =01, d=02, r=01, e=01, s=02
-6. Enter a word and reverse it.
-Input: Sunday Output: yadnus
-7. Enter a word and check it is palindrome or not.
-Input: dad = palindrome
-Input: mom = palindrome
-Input: good = not a palindrome
-8. Enter a sentence and display the frequency of each word.
-9. Enter a word and remove the duplicate letters.
- Input: teen Output: tn
 
-10. Enter 10 names in a string array and display only those names
-which are starting with “H”.
-11. Replace (.) with (,) and vice versa in the following string:
- Input: “Sanjay.Rahul.Gautam,tina.farooq,yash.ketan”
- Output: “Sanjay,Rahul,Gautam.tina,farooq.yash,ketan”
-12. String str = “Client ID: A1234
- Account Number: P12345
- Account Amount: 5690350”
-Extract the Client ID, Account Number and Account amount and
-display them.
-13)Extract the last 10 numbers from the following phone numbers using
-string functions:
-Input: +91 9892345679 Output: 9892345679
-Input: +913 9862343629 Output: 9862343629
-Input: 986-234-3629 Output: 9862343629
-Input: 986 234 362 8 Output: 9862343628
-REGEX TASK:
+
+
+/*
+ * 37. Print the following patterns :
+ */
+/*
+ * 1)
+ *      *
+ *      **
+ *      ***
+ *      ****
+ */
+/*for (int i = 0; i < 4; i++)
+{
+    for (int j = 0; j <= i; j++)
+    {
+        Console.Write("*");
+    }
+    Console.WriteLine();
+}*/
+
+
+/*
+ * 2)
+ *      1
+ *      12
+ *      123
+ *      1234
+ */
+
+
+
+/*
+ * 3)
+ *      1
+ *      22
+ *      333
+ *      4444
+ */
+
+
+
+/*
+ * 4)
+ *      1
+ *      23
+ *      456
+ *      78910
+ */
+
+
+
+/*
+ * 5)
+ *         *
+ *        * *
+ *       * * *
+ *      * * * *
+ */
+
+
+
+/*
+ * 6)
+ *            *
+ *          * *
+ *        * * *
+ *      * * * *
+ */
+
+
+
+/*
+ * 7)
+ *            *
+ *          * * *
+ *        * * * * *
+ *      * * * * * * *
+ */
+
+
+
+/*
+ * 8)
+ *      1
+ *      2*
+ *      33*
+ *      444*
+ *      5555*
+ */
+
+
+
+/*
+ * 9)
+ *      *******
+ *      *     *
+ *      *     *
+ *      *     *
+ *      *     *
+ *      *     *
+ *      *******
+ */
+
+
+
+/*
+ * 10)
+ *                  *
+ *                * * *
+ *              * * * * *
+ *            * * * * * * *
+ *          * * * * * * * * *
+ *        * * * * * * * * * * *
+ *      * * * * * * * * * * * * *
+ *        * * * * * * * * * * *
+ *          * * * * * * * * *
+ *            * * * * * * *
+ *              * * * * *
+ *                * * *
+ *                  *
+ *
+ */
+
+
+
+/*
+ * 11)
+ *      ********
+ *      *******
+ *      ******
+ *      *****
+ *      ****
+ *      ***
+ *      **
+ *      *
+ */
+
+
+
+/* 
+ * 12)
+ *                *
+ *               * *
+ *              *   *
+ *             *     *
+ *            *       *
+ *           *         *
+ *          *           *
+ *         *             *
+ *        *               *
+ *       *                 *
+ *      *                   *
+ *       *                 *
+ *        *               *
+ *         *             *
+ *          *           *
+ *           *         *
+ *            *       *
+ *             *     *
+ *              *   *
+ *               * *
+ *                *
+ */
+
+
+
+/*
+ * 13)
+ *           1
+ *          1 1
+ *         1 2 1
+ *        1 3 3 1
+ *       1 4 6 4 1
+ *      1 5 10 10 5 1
+ */
+
+
+
+/*
+ * 14)
+ *      5
+ *      54
+ *      543
+ *      5432
+ *      54321
+ */
+
+
+
+/*
+ * 15)
+ *      1******
+ *      12*****
+ *      123****
+ *      1234***
+ *      12345**
+ *      123456*
+ *      1234567
+ */
+
+
+
+/*
+ * 16)
+ *      1
+ *      21
+ *      321
+ *      4321
+ *      54321
+ */
+
+
+
+/*
+ * 17)
+ *      5
+ *      45
+ *      345
+ *      2345
+ *      12345
+ */
+
+
+
+/*
+ * 18)
+ *      12345
+ *      2345
+ *      345
+ *      45
+ *      5
+ */
+
+
+
+/*
+ * 19)
+ *      54321
+ *       5432
+ *        543
+ *         54
+ *          5
+ */
+
+
+
+/*
+ * 20)
+ *      $
+ *      # #
+ *      $ $ $
+ *      # # # #
+ */
+
+
+
+/*
+ * 38. Print the following patterns using 2D Array :
+ */
+/*
+ * 1)
+ *      *
+ *      **
+ *      ***
+ *      ****
+ */
+/*var starsArray = new string[][]
+{
+    ["*"],
+    ["*", "*"],
+    ["*", "*", "*"],
+    ["*", "*", "*", "*"]
+};
+
+for (int i = 0; i < starsArray.GetLength(0); i++)
+{
+    for (int j = 0; j <= i; j++)
+    {
+        Console.Write(starsArray[i][j]);
+    }
+    Console.WriteLine();
+}*/
+
+
+/*
+ * 2)
+ *      1
+ *      12
+ *      123
+ *      1234
+ */
+
+
+
+/*
+ * 3)
+ *      1
+ *      22
+ *      333
+ *      4444
+ */
+
+
+
+/*
+ * 4)
+ *      1
+ *      23
+ *      456
+ *      78910
+ */
+
+
+
+/*
+ * 5)
+ *         *
+ *        * *
+ *       * * *
+ *      * * * *
+ */
+
+
+
+/*
+ * 6)
+ *            *
+ *          * *
+ *        * * *
+ *      * * * *
+ */
+
+
+
+/*
+ * 7)
+ *            *
+ *          * * *
+ *        * * * * *
+ *      * * * * * * *
+ */
+
+
+
+/*
+ * LEVEL 3 TASK
+ */
+/*
+ * 1. Swap two number using Call by Value and Call by Reference.
+ */
+
+
+
+/*
+ * 2. Calculate area and circumference of circle using functions (with return type and without return type)
+ */
+
+
+
+/*
+ * 3. Calculate area of rectangle using out parameter.
+ */
+
+
+
+/*
+ * 4. Display max and min number from the following string array:
+ *    {“1”, “Rohan”, “Avinash”, “5”, “tina”, “100”, “Rahul”, “38”}
+ */
+
+
+
+/*
+ * 5. Calculate sum of numbers from the string array:
+ *    {“1”, “Sona”, “David”, “50”, “Fardeen”, “19”, “Rishi”, “68”}
+ */
+
+
+
+/*
+ * 6. Calculate the sum of Integer values as well as decimal values separately from the given string array:
+ *    {“1”,”10.5”,”11”,”12.5”,”14”,”15.5”,”16”,”17”,”18.5”}
+ */
+
+
+
+/*
+ * 7. Accept the Number of Students from 1st std to 5th std, Accept their Name and Roll no from user and display them
+ * using Jagged Array.
+ */
+
+
+
+/*
+ * LEVEL 4 TASK
+ */
+/*
+ * STRING TASK:
+ */
+/*
+ * 1. Enter a sentence and find the number of spaces, words, vowels and consonants.
+ */
+
+
+
+/*
+ * 2.
+ *      Enter a sentence and capitalize first letter of each word.
+ *      Input: my name is tom.
+ *      Output: My Name Is Tom.
+ */
+
+
+
+/*
+ * 3.
+ *      Input: Rohan.Sigh@featsystems.com
+ *      Output: First name: Rohan
+ *              Last name: Singh
+ *              Company: featsystems
+ */
+
+
+
+/*
+ * 4.
+ *      Input: “Please feel free to contact me on abhishek.solanki@gmail.com anytime between 10 am to 6 pm.”
+ *      Output: abhishek.solanki@gmail.com
+ */
+
+
+
+/*
+ * 5.
+ *      Enter a name and display the frequency of each letter.
+ *      Input: address
+ *      output: a =01, d=02, r=01, e=01, s=02
+ */
+
+
+
+/*
+ * 6.
+ *      Enter a word and reverse it.
+ *      Input: Sunday
+ *      Output: yadnus
+ */
+
+
+
+/*
+ * 7.
+ *      Enter a word and check it is palindrome or not.
+ *      Input: dad = palindrome
+ *      Input: mom = palindrome
+ *      Input: good = not a palindrome
+ */
+
+
+
+/*
+ * 8. Enter a sentence and display the frequency of each word.
+ */
+
+
+
+/*
+ * 9. Enter a word and remove the duplicate letters.
+ *      Input: teen
+ *      Output: tn
+ */
+
+
+
+/*
+ * 10. Enter 10 names in a string array and display only those names which are starting with “H”.
+ */
+
+
+
+/*
+ *  11. Replace (.) with (,) and vice versa in the following string:
+        Input: “Sanjay.Rahul.Gautam,tina.farooq,yash.ketan”
+        Output: “Sanjay,Rahul,Gautam.tina,farooq.yash,ketan”
+ */
+
+
+
+/*
+ * 12. String str = “Client ID: A1234
+ *      Account Number: P12345
+ *     Extract the Client ID, Account Number and Account amount and display them.
+ */
+
+
+
+/*
+ * 13.  Extract the last 10 numbers from the following phone numbers using string functions:
+ *      Input: +91 9892345679           Output: 9892345679 
+        Input: +913 9862343629          Output: 9862343629 
+        Input: 986-234-3629             Output: 9862343629 
+        Input: 986 234 362 8            Output: 9862343628
+ */
+
+
+
+/*
+ * REGEX TASK:
+ */
+/*
 1. Enter the following input and validate it:
 Email id, URL, PAN Card no, Aadhaar Card no, Phone no.
 2. Input: “Please feel free to contact me on abhishek.solanki@gmail.com
