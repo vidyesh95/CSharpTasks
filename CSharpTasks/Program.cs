@@ -858,7 +858,7 @@ Console.WriteLine($"Maximum element is {max}");*/
 /*
  * 28. Accept 10 numbers from the user in the array and perform sorting.
  */
-Console.WriteLine("Enter 10 elements");
+/*Console.WriteLine("Enter 10 elements");
 int[] array = new int[10];
 for (var i = 0; i < 10; i++)
 {
@@ -887,23 +887,56 @@ for (var i = 0; i < array.Length; i++)
     {
         if (array[i] > array[j])
         {
-            /*int temp = array[i];
-            array[i] = array[j];
-            array[j] = temp;*/
+            // int temp = array[i];
+            // array[i] = array[j];
+            // array[j] = temp;
             (array[i], array[j]) = (array[j], array[i]);
         }
     }
+}*/
+// Console.WriteLine("Using Array.Sort method");
+// Array.Sort(array);
+/*foreach (int element in array)
+{
+    Console.Write($"{element} ");
+}*/
+
+/*
+ * 29. Accept 10 numbers in an array and reverse the values (without using any inbuilt functions)
+ */
+Console.WriteLine("Enter 10 elements");
+int[] array = new int[10];
+for (var i = 0; i < 10; i++)
+{
+    int number;
+    Console.Write($"Enter an {i + 1} element : ");
+    while (!int.TryParse(Console.ReadLine(), out number))
+    {
+        Console.WriteLine("Invalid input. Please enter a valid integer element.");
+    }
+
+    array[i] = number;
 }
-/*Console.WriteLine("Using Array.Sort method");
-Array.Sort(array);*/
+
+Console.WriteLine("Before sorting");
 foreach (int element in array)
 {
     Console.Write($"{element} ");
 }
 
-/*
- * 29. Accept 10 numbers in an array and reverse the values (without using any inbuilt functions)
- */
+for (int i = 0; i < array.Length/2; i++)
+{
+    int temp = array[i];
+    array[i] = array[array.Length-1-i];
+    array[array.Length-1-i] = temp;
+}
+
+Console.WriteLine();
+Console.WriteLine("After sorting");
+foreach (int element in array)
+{
+    Console.Write($"{element} ");
+}
 
 
 /*
