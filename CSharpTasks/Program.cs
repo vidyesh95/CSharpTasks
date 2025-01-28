@@ -689,7 +689,7 @@ Console.WriteLine(marks >= 40 ? "Pass" : "Fail");*/
             Console.WriteLine("Fail");
             break;
     }
-    
+
     Console.WriteLine("If you want to continue press y or any other key to exit");
     var isContinue = Console.ReadLine();
     if (isContinue != "y")
@@ -785,7 +785,7 @@ while (true)
 /*
  * 26. Enter age and print the eligibility to vote using goto statement.
  */
-start:
+/*start:
 Console.WriteLine("Enter age to check the eligibility to vote");
 int age;
 while (!int.TryParse(Console.ReadLine(), out age) || age < 0)
@@ -800,13 +800,59 @@ var isContinue = Console.ReadLine();
 if (isContinue == "y")
 {
     goto start;
-}
+}*/
 
 
 /*
  * 27. Find the minimum or maximum element from the Array.
  */
+Console.Write("Enter number of integer elements in the array : ");
+int numberOfElements;
+while (!int.TryParse(Console.ReadLine(), out numberOfElements) || numberOfElements < 1)
+{
+    Console.WriteLine("Invalid input. Please enter a valid number greater than 0.");
+}
 
+int[] array = new int[numberOfElements];
+
+for (var i = 0; i < numberOfElements; i++)
+{
+    int number;
+    Console.Write($"Enter an {i+1} element : ");
+    while (!int.TryParse(Console.ReadLine(), out number))
+    {
+        Console.WriteLine("Invalid input. Please enter a valid integer element.");
+    }
+
+    array[i] = number;
+}
+
+foreach (var element in array)
+{
+    Console.Write($"{element} ");
+}
+
+Console.WriteLine();
+Console.WriteLine("Using LINQ");
+Console.WriteLine($"Minimum element is {array.Min()}");
+Console.WriteLine($"Maximum element is {array.Max()}");
+
+Console.WriteLine("Using normal method");
+int min=int.MaxValue;
+int max = int.MinValue;
+foreach (var element in array)
+{
+    if (element<=min)
+    {
+        min = element;
+    }
+    if(element>=max)
+    {
+        max = element;
+    }
+}
+Console.WriteLine($"Minimum element is {min}");
+Console.WriteLine($"Maximum element is {max}");
 
 
 /*
@@ -814,11 +860,9 @@ if (isContinue == "y")
  */
 
 
-
 /*
  * 29. Accept 10 numbers in an array and reverse the values (without using any inbuilt functions)
  */
-
 
 
 /*
@@ -826,11 +870,9 @@ if (isContinue == "y")
  */
 
 
-
 /*
  * 31. Create two arrays with 5 numbers in each. Merge all the numbers in the third array in sorted order.
  */
-
 
 
 /*
@@ -838,11 +880,9 @@ if (isContinue == "y")
  */
 
 
-
 /*
  * 33. Accept 10 numbers in an array and calculate sum of all the elements.
  */
-
 
 
 /*
@@ -850,17 +890,14 @@ if (isContinue == "y")
  */
 
 
-
 /*
  * 35. Insert a new element in a particular position of an array and display the array.
  */
 
 
-
 /*
  * 36. Delete an already existing element from an array and display the array.
  */
-
 
 
 /*
@@ -892,7 +929,6 @@ if (isContinue == "y")
  */
 
 
-
 /*
  * 3)
  *      1
@@ -900,7 +936,6 @@ if (isContinue == "y")
  *      333
  *      4444
  */
-
 
 
 /*
@@ -912,7 +947,6 @@ if (isContinue == "y")
  */
 
 
-
 /*
  * 5)
  *         *
@@ -920,7 +954,6 @@ if (isContinue == "y")
  *       * * *
  *      * * * *
  */
-
 
 
 /*
@@ -932,7 +965,6 @@ if (isContinue == "y")
  */
 
 
-
 /*
  * 7)
  *            *
@@ -940,7 +972,6 @@ if (isContinue == "y")
  *        * * * * *
  *      * * * * * * *
  */
-
 
 
 /*
@@ -953,7 +984,6 @@ if (isContinue == "y")
  */
 
 
-
 /*
  * 9)
  *      *******
@@ -964,7 +994,6 @@ if (isContinue == "y")
  *      *     *
  *      *******
  */
-
 
 
 /*
@@ -986,7 +1015,6 @@ if (isContinue == "y")
  */
 
 
-
 /*
  * 11)
  *      ********
@@ -1000,8 +1028,7 @@ if (isContinue == "y")
  */
 
 
-
-/* 
+/*
  * 12)
  *                *
  *               * *
@@ -1027,7 +1054,6 @@ if (isContinue == "y")
  */
 
 
-
 /*
  * 13)
  *           1
@@ -1039,7 +1065,6 @@ if (isContinue == "y")
  */
 
 
-
 /*
  * 14)
  *      5
@@ -1048,7 +1073,6 @@ if (isContinue == "y")
  *      5432
  *      54321
  */
-
 
 
 /*
@@ -1063,7 +1087,6 @@ if (isContinue == "y")
  */
 
 
-
 /*
  * 16)
  *      1
@@ -1072,7 +1095,6 @@ if (isContinue == "y")
  *      4321
  *      54321
  */
-
 
 
 /*
@@ -1085,7 +1107,6 @@ if (isContinue == "y")
  */
 
 
-
 /*
  * 18)
  *      12345
@@ -1094,7 +1115,6 @@ if (isContinue == "y")
  *      45
  *      5
  */
-
 
 
 /*
@@ -1107,7 +1127,6 @@ if (isContinue == "y")
  */
 
 
-
 /*
  * 20)
  *      $
@@ -1115,7 +1134,6 @@ if (isContinue == "y")
  *      $ $ $
  *      # # # #
  */
-
 
 
 /*
@@ -1155,7 +1173,6 @@ for (int i = 0; i < starsArray.GetLength(0); i++)
  */
 
 
-
 /*
  * 3)
  *      1
@@ -1163,7 +1180,6 @@ for (int i = 0; i < starsArray.GetLength(0); i++)
  *      333
  *      4444
  */
-
 
 
 /*
@@ -1175,7 +1191,6 @@ for (int i = 0; i < starsArray.GetLength(0); i++)
  */
 
 
-
 /*
  * 5)
  *         *
@@ -1183,7 +1198,6 @@ for (int i = 0; i < starsArray.GetLength(0); i++)
  *       * * *
  *      * * * *
  */
-
 
 
 /*
@@ -1195,7 +1209,6 @@ for (int i = 0; i < starsArray.GetLength(0); i++)
  */
 
 
-
 /*
  * 7)
  *            *
@@ -1203,7 +1216,6 @@ for (int i = 0; i < starsArray.GetLength(0); i++)
  *        * * * * *
  *      * * * * * * *
  */
-
 
 
 /*
@@ -1214,17 +1226,14 @@ for (int i = 0; i < starsArray.GetLength(0); i++)
  */
 
 
-
 /*
  * 2. Calculate area and circumference of circle using functions (with return type and without return type)
  */
 
 
-
 /*
  * 3. Calculate area of rectangle using out parameter.
  */
-
 
 
 /*
@@ -1233,12 +1242,10 @@ for (int i = 0; i < starsArray.GetLength(0); i++)
  */
 
 
-
 /*
  * 5. Calculate sum of numbers from the string array:
  *    {“1”, “Sona”, “David”, “50”, “Fardeen”, “19”, “Rishi”, “68”}
  */
-
 
 
 /*
@@ -1247,12 +1254,10 @@ for (int i = 0; i < starsArray.GetLength(0); i++)
  */
 
 
-
 /*
  * 7. Accept the Number of Students from 1st std to 5th std, Accept their Name and Roll no from user and display them
  * using Jagged Array.
  */
-
 
 
 /*
@@ -1266,14 +1271,12 @@ for (int i = 0; i < starsArray.GetLength(0); i++)
  */
 
 
-
 /*
  * 2.
  *      Enter a sentence and capitalize first letter of each word.
  *      Input: my name is tom.
  *      Output: My Name Is Tom.
  */
-
 
 
 /*
@@ -1285,13 +1288,11 @@ for (int i = 0; i < starsArray.GetLength(0); i++)
  */
 
 
-
 /*
  * 4.
  *      Input: “Please feel free to contact me on abhishek.solanki@gmail.com anytime between 10 am to 6 pm.”
  *      Output: abhishek.solanki@gmail.com
  */
-
 
 
 /*
@@ -1302,14 +1303,12 @@ for (int i = 0; i < starsArray.GetLength(0); i++)
  */
 
 
-
 /*
  * 6.
  *      Enter a word and reverse it.
  *      Input: Sunday
  *      Output: yadnus
  */
-
 
 
 /*
@@ -1321,11 +1320,9 @@ for (int i = 0; i < starsArray.GetLength(0); i++)
  */
 
 
-
 /*
  * 8. Enter a sentence and display the frequency of each word.
  */
-
 
 
 /*
@@ -1335,11 +1332,9 @@ for (int i = 0; i < starsArray.GetLength(0); i++)
  */
 
 
-
 /*
  * 10. Enter 10 names in a string array and display only those names which are starting with “H”.
  */
-
 
 
 /*
@@ -1349,7 +1344,6 @@ for (int i = 0; i < starsArray.GetLength(0); i++)
  */
 
 
-
 /*
  * 12. String str = “Client ID: A1234
  *      Account Number: P12345
@@ -1357,15 +1351,13 @@ for (int i = 0; i < starsArray.GetLength(0); i++)
  */
 
 
-
 /*
  * 13.  Extract the last 10 numbers from the following phone numbers using string functions:
- *      Input: +91 9892345679           Output: 9892345679 
-        Input: +913 9862343629          Output: 9862343629 
-        Input: 986-234-3629             Output: 9862343629 
+ *      Input: +91 9892345679           Output: 9892345679
+        Input: +913 9862343629          Output: 9862343629
+        Input: 986-234-3629             Output: 9862343629
         Input: 986 234 362 8            Output: 9862343628
  */
-
 
 
 /*
