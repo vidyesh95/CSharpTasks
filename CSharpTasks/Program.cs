@@ -942,7 +942,7 @@ foreach (int element in array)
 /*
  * 30. Accept 10 numbers in an array and print which numbers are even or odd.
  */
-Console.WriteLine("Enter 10 elements");
+/*Console.WriteLine("Enter 10 elements");
 int[] array = new int[10];
 for (var i = 0; i < 10; i++)
 {
@@ -971,12 +971,94 @@ foreach (int element in array)
     {
         Console.WriteLine($"{element} is odd");
     }
-}
+}*/
 
 
 /*
  * 31. Create two arrays with 5 numbers in each. Merge all the numbers in the third array in sorted order.
  */
+int[] array1 = new int[5];
+int[] array2 = new int[5];
+int thirdArrayLenth = array1.Length + array2.Length;
+int[] array3 = new int[thirdArrayLenth];
+
+Console.WriteLine("Enter 5 elements for first array");
+for (var i = 0; i < array1.Length; i++)
+{
+    int number;
+    Console.Write($"Enter an {i + 1} element : ");
+    while (!int.TryParse(Console.ReadLine(), out number))
+    {
+        Console.WriteLine("Invalid input. Please enter a valid integer element.");
+    }
+
+    array1[i] = number;
+}
+
+foreach (int element in array1)
+{
+    Console.Write($"{element} ");
+}
+
+Console.WriteLine();
+
+Console.WriteLine("Enter 5 elements for second array");
+for (var i = 0; i < array2.Length; i++)
+{
+    int number;
+    Console.Write($"Enter an {i + 1} element : ");
+    while (!int.TryParse(Console.ReadLine(), out number))
+    {
+        Console.WriteLine("Invalid input. Please enter a valid integer element.");
+    }
+
+    array2[i] = number;
+}
+
+foreach (int element in array2)
+{
+    Console.Write($"{element} ");
+}
+
+Console.WriteLine();
+
+for (int i = 0; i < array1.Length; i++)
+{
+    array3[i] = array1[i];
+}
+
+for (int i = 0; i < array2.Length; i++)
+{
+    array3[array1.Length + i] = array2[i];
+}
+
+Console.WriteLine("Third array before sort is");
+
+foreach (int element in array3)
+{
+    Console.Write($"{element} ");
+}
+
+Console.WriteLine();
+Console.WriteLine("Third array after sort is");
+
+for (int i = 0; i < array3.Length; i++)
+{
+    for (int j = i + 1; j < array3.Length; j++)
+    {
+        if (array3[i] > array3[j])
+        {
+            int temp = array3[i];
+            array3[i] = array3[j];
+            array3[j] = temp;
+        }
+    }
+}
+
+foreach (int element in array3)
+{
+    Console.Write($"{element} ");
+}
 
 
 /*
