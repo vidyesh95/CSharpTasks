@@ -806,7 +806,7 @@ if (isContinue == "y")
 /*
  * 27. Find the minimum or maximum element from the Array.
  */
-Console.Write("Enter number of integer elements in the array : ");
+/*Console.Write("Enter number of integer elements in the array : ");
 int numberOfElements;
 while (!int.TryParse(Console.ReadLine(), out numberOfElements) || numberOfElements < 1)
 {
@@ -852,13 +852,54 @@ foreach (var element in array)
     }
 }
 Console.WriteLine($"Minimum element is {min}");
-Console.WriteLine($"Maximum element is {max}");
+Console.WriteLine($"Maximum element is {max}");*/
 
 
 /*
  * 28. Accept 10 numbers from the user in the array and perform sorting.
  */
+Console.WriteLine("Enter 10 elements");
+int[] array = new int[10];
+for (var i = 0; i < 10; i++)
+{
+    int number;
+    Console.Write($"Enter an {i + 1} element : ");
+    while (!int.TryParse(Console.ReadLine(), out number))
+    {
+        Console.WriteLine("Invalid input. Please enter a valid integer element.");
+    }
 
+    array[i] = number;
+}
+
+Console.WriteLine("Before sorting");
+foreach (int element in array)
+{
+    Console.Write($"{element} ");
+}
+
+Console.WriteLine();
+Console.WriteLine("After sorting");
+Console.WriteLine("Using normal method");
+for (var i = 0; i < array.Length; i++)
+{
+    for (var j = i + 1; j < array.Length; j++)
+    {
+        if (array[i] > array[j])
+        {
+            /*int temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;*/
+            (array[i], array[j]) = (array[j], array[i]);
+        }
+    }
+}
+/*Console.WriteLine("Using Array.Sort method");
+Array.Sort(array);*/
+foreach (int element in array)
+{
+    Console.Write($"{element} ");
+}
 
 /*
  * 29. Accept 10 numbers in an array and reverse the values (without using any inbuilt functions)
