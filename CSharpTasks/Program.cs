@@ -1484,7 +1484,7 @@ foreach (int element in newArray)
  *      456
  *      78910
  */
-int n = 1;
+/*int n = 1;
 for (int i = 1; i < 5; i++)
 {
     for (int j = 0; j < i; j++)
@@ -1493,7 +1493,7 @@ for (int i = 1; i < 5; i++)
         n++;
     }
     Console.WriteLine();
-}
+}*/
 
 
 /*
@@ -1503,6 +1503,21 @@ for (int i = 1; i < 5; i++)
  *       * * *
  *      * * * *
  */
+int rows = 4;
+for (int i = 1; i < rows+1; i++)
+{
+    for (int j = rows; j > i; j--)
+    {
+        Console.Write(" ");
+    }
+
+    for (int j = 0; j < i; j++)
+    {
+        Console.Write("* ");
+    }
+    
+    Console.WriteLine();
+}
 
 
 /*
