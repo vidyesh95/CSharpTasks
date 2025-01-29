@@ -1246,6 +1246,32 @@ namespace CSharpTasks
 /*
  * 33. Accept 10 numbers in an array and calculate sum of all the elements.
  */
+/*Console.WriteLine("Enter 10 elements");
+int[] array = new int[10];
+for (var i = 0; i < 10; i++)
+{
+    int number;
+    Console.Write($"Enter an {i + 1} element : ");
+    while (!int.TryParse(Console.ReadLine(), out number))
+    {
+        Console.WriteLine("Invalid input. Please enter a valid integer element.");
+    }
+
+    array[i] = number;
+}
+
+decimal sumOfElements = 0m;
+foreach (int element in array)
+{
+    sumOfElements += element;
+}
+Console.WriteLine($"Sum of all elements is {sumOfElements}");
+Console.WriteLine("Using LINQ");
+Console.WriteLine($"Sum of all elements is {array.Sum()}");*/
+
+/*
+ * 34. Accept 10 numbers in an array and calculate average of all the elements.
+ */
 Console.WriteLine("Enter 10 elements");
 int[] array = new int[10];
 for (var i = 0; i < 10; i++)
@@ -1260,16 +1286,16 @@ for (var i = 0; i < 10; i++)
     array[i] = number;
 }
 
-int sumOfElements = 0;
+decimal sumOfElements = 0m;
 foreach (int element in array)
 {
     sumOfElements += element;
 }
 Console.WriteLine($"Sum of all elements is {sumOfElements}");
 
-/*
- * 34. Accept 10 numbers in an array and calculate average of all the elements.
- */
+Console.WriteLine($"Average of all elements is {sumOfElements / array.Length}");
+Console.WriteLine("Using LINQ");
+Console.WriteLine($"Average of all elements is {array.Average()}");
 
 
 /*
