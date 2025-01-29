@@ -806,7 +806,8 @@ if (isContinue == "y")
 /*
  * 27. Find the minimum or maximum element from the Array.
  */
-/*Console.Write("Enter number of integer elements in the array : ");
+
+Console.Write("Enter number of integer elements in the array : ");
 int numberOfElements;
 while (!int.TryParse(Console.ReadLine(), out numberOfElements) || numberOfElements < 1)
 {
@@ -818,7 +819,7 @@ int[] array = new int[numberOfElements];
 for (var i = 0; i < numberOfElements; i++)
 {
     int number;
-    Console.Write($"Enter an {i+1} element : ");
+    Console.Write($"Enter an {i + 1} element : ");
     while (!int.TryParse(Console.ReadLine(), out number))
     {
         Console.WriteLine("Invalid input. Please enter a valid integer element.");
@@ -838,21 +839,23 @@ Console.WriteLine($"Minimum element is {array.Min()}");
 Console.WriteLine($"Maximum element is {array.Max()}");
 
 Console.WriteLine("Using normal method");
-int min=int.MaxValue;
+int min = int.MaxValue;
 int max = int.MinValue;
 foreach (var element in array)
 {
-    if (element<=min)
+    if (element < min)
     {
         min = element;
     }
-    if(element>=max)
+
+    if (element > max)
     {
         max = element;
     }
 }
+
 Console.WriteLine($"Minimum element is {min}");
-Console.WriteLine($"Maximum element is {max}");*/
+Console.WriteLine($"Maximum element is {max}");
 
 
 /*
@@ -1065,7 +1068,7 @@ foreach (int element in array3)
  * 32. Accept values in 2D array and perform matrix Addition and multiplication.
  */
 
-using System;
+/*using System;
 
 namespace CSharpTasks
 {
@@ -1123,7 +1126,7 @@ namespace CSharpTasks
         {
             /*
              * Check if dimensions of matrices match and throw exception if dimensions dont match
-             */
+             #1#
             if (rows1 != rows2 || columns1 != columns2)
             {
                 throw new InvalidOperationException("Matrices must have same dimensions for addition");
@@ -1133,7 +1136,7 @@ namespace CSharpTasks
 
             /*
              * Addition of Matrices
-             */
+             #1#
             for (int i = 0; i < rows1; i++)
             {
                 for (int j = 0; j < columns1; j++)
@@ -1151,7 +1154,7 @@ namespace CSharpTasks
              * Check if number of rows in first match with number of columns in second matrix and also
              * number of columns in first match with number of rows in second matrix
              * rows1 != columns2 || columns1 != rows2 is redundant so only check 1 condition
-             */
+             #1#
             if (columns1 != rows2)
             {
                 throw new InvalidOperationException("Matrices must have number of rows in first match with number \n" +
@@ -1205,7 +1208,7 @@ namespace CSharpTasks
  * matrix1.GetLength(1) returns the number of columns in matrix1.
  * matrix2.GetLength(0) returns the number of rows in matrix2.
  * matrix2.GetLength(1) returns the number of columns in matrix2.
- */
+ #1#
             int rows1 = matrix1.GetLength(0);
             int columns1 = matrix1.GetLength(1);
             int rows2 = matrix2.GetLength(0);
@@ -1238,7 +1241,7 @@ namespace CSharpTasks
             }
         }
     }
-}
+}*/
 
 
 /*
