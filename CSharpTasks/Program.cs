@@ -806,8 +806,7 @@ if (isContinue == "y")
 /*
  * 27. Find the minimum or maximum element from the Array.
  */
-
-Console.Write("Enter number of integer elements in the array : ");
+/*Console.Write("Enter number of integer elements in the array : ");
 int numberOfElements;
 while (!int.TryParse(Console.ReadLine(), out numberOfElements) || numberOfElements < 1)
 {
@@ -855,7 +854,7 @@ foreach (var element in array)
 }
 
 Console.WriteLine($"Minimum element is {min}");
-Console.WriteLine($"Maximum element is {max}");
+Console.WriteLine($"Maximum element is {max}");*/
 
 
 /*
@@ -896,10 +895,10 @@ for (var i = 0; i < array.Length; i++)
             (array[i], array[j]) = (array[j], array[i]);
         }
     }
-}*/
+}
 // Console.WriteLine("Using Array.Sort method");
 // Array.Sort(array);
-/*foreach (int element in array)
+foreach (int element in array)
 {
     Console.Write($"{element} ");
 }*/
@@ -1247,7 +1246,26 @@ namespace CSharpTasks
 /*
  * 33. Accept 10 numbers in an array and calculate sum of all the elements.
  */
+Console.WriteLine("Enter 10 elements");
+int[] array = new int[10];
+for (var i = 0; i < 10; i++)
+{
+    int number;
+    Console.Write($"Enter an {i + 1} element : ");
+    while (!int.TryParse(Console.ReadLine(), out number))
+    {
+        Console.WriteLine("Invalid input. Please enter a valid integer element.");
+    }
 
+    array[i] = number;
+}
+
+int sumOfElements = 0;
+foreach (int element in array)
+{
+    sumOfElements += element;
+}
+Console.WriteLine($"Sum of all elements is {sumOfElements}");
 
 /*
  * 34. Accept 10 numbers in an array and calculate average of all the elements.
