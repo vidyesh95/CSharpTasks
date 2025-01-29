@@ -1450,14 +1450,14 @@ foreach (int element in newArray)
  *      123
  *      1234
  */
-for (int i = 1; i < 5; i++)
+/*for (int i = 1; i < 5; i++)
 {
     for (int j = 1; j < i+1; j++)
     {
         Console.Write(j);
     }
     Console.WriteLine();
-}
+}*/
 
 
 /*
@@ -1467,6 +1467,14 @@ for (int i = 1; i < 5; i++)
  *      333
  *      4444
  */
+for (int i = 1; i < 5; i++)
+{
+    for (int j = 1; j < i+1; j++)
+    {
+        Console.Write(i);
+    }
+    Console.WriteLine();
+}
 
 
 /*
