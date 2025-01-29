@@ -977,7 +977,7 @@ foreach (int element in array)
 /*
  * 31. Create two arrays with 5 numbers in each. Merge all the numbers in the third array in sorted order.
  */
-int[] array1 = new int[5];
+/*int[] array1 = new int[5];
 int[] array2 = new int[5];
 int thirdArrayLenth = array1.Length + array2.Length;
 int[] array3 = new int[thirdArrayLenth];
@@ -1058,12 +1058,187 @@ for (int i = 0; i < array3.Length; i++)
 foreach (int element in array3)
 {
     Console.Write($"{element} ");
-}
+}*/
 
 
 /*
  * 32. Accept values in 2D array and perform matrix Addition and multiplication.
  */
+
+using System;
+
+namespace CSharpTasks
+{
+    static class MatrixOperations
+    {
+        static int[,] InputMatrixDetails()
+        {
+            Console.WriteLine("Enter number of rows");
+            int rows;
+            while (!int.TryParse(Console.ReadLine(), out rows) || rows < 1)
+            {
+                Console.WriteLine("Invalid input. Please enter a valid number greater than 0.");
+            }
+
+            Console.WriteLine("Enter number of columns");
+            int columns;
+            while (!int.TryParse(Console.ReadLine(), out columns) || columns < 1)
+            {
+                Console.WriteLine("Invalid input. Please enter a valid number greater than 0.");
+            }
+
+            int[,] matrix = new int[rows, columns];
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    Console.WriteLine($"Enter the elements {i}, {j}");
+                    // matrix[i, j] = int.Parse(Console.ReadLine());
+                    while (!int.TryParse(Console.ReadLine(), out matrix[i, j]))
+                    {
+                        Console.WriteLine("Invalid input. Please enter a valid number greater than 0.");
+                    }
+
+                    ;
+                }
+            }
+
+            return matrix;
+        }
+
+        static void PrintMatrix(int[,] matrix)
+        {
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    Console.Write($"{matrix[i, j]} ");
+                }
+
+                Console.WriteLine();
+            }
+        }
+
+        static int[,] AddMatrices(int[,] matrix1, int[,] matrix2, int rows1, int columns1, int rows2, int columns2)
+        {
+            /*
+             * Check if dimensions of matrices match and throw exception if dimensions dont match
+             */
+            if (rows1 != rows2 || columns1 != columns2)
+            {
+                throw new InvalidOperationException("Matrices must have same dimensions for addition");
+            }
+
+            int[,] matrixAddition = new int[rows1, columns1];
+
+            /*
+             * Addition of Matrices
+             */
+            for (int i = 0; i < rows1; i++)
+            {
+                for (int j = 0; j < columns1; j++)
+                {
+                    matrixAddition[i, j] = matrix1[i, j] + matrix2[i, j];
+                }
+            }
+
+            return matrixAddition;
+        }
+
+        static int[,] MultiplyMatrices(int[,] matrix1, int[,] matrix2, int rows1, int columns1, int rows2, int columns2)
+        {
+            /*
+             * Check if number of rows in first match with number of columns in second matrix and also
+             * number of columns in first match with number of rows in second matrix
+             * rows1 != columns2 || columns1 != rows2 is redundant so only check 1 condition
+             */
+            if (columns1 != rows2)
+            {
+                throw new InvalidOperationException("Matrices must have number of rows in first match with number \n" +
+                                                    "of columns in second matrix and also number of columns in \n" +
+                                                    "first match with number of rows in second matrix");
+            }
+
+            int[,] matrixMultiplication = new int[rows1, columns2];
+
+            for (int i = 0; i < rows1; i++)
+            {
+                for (int j = 0; j < columns2; j++)
+                {
+                    int sum = 0;
+                    for (int k = 0; k < columns1; k++)
+                    {
+                        sum += matrix1[i, k] * matrix2[k, j];
+                    }
+
+                    matrixMultiplication[i, j] = sum;
+                }
+            }
+
+            return matrixMultiplication;
+        }
+
+        static void Main()
+        {
+            Console.WriteLine("Enter details for first 2D array");
+            int[,] matrix1 = InputMatrixDetails();
+
+            Console.WriteLine();
+
+            Console.WriteLine("Enter details for second 2D array");
+            int[,] matrix2 = InputMatrixDetails();
+
+            Console.WriteLine();
+
+            Console.WriteLine("First matrix is");
+            PrintMatrix(matrix1);
+
+            Console.WriteLine();
+
+            Console.WriteLine("Second matrix is");
+            PrintMatrix(matrix2);
+
+            Console.WriteLine();
+
+/*
+ * matrix1.GetLength(0) returns the number of rows in matrix1.
+ * matrix1.GetLength(1) returns the number of columns in matrix1.
+ * matrix2.GetLength(0) returns the number of rows in matrix2.
+ * matrix2.GetLength(1) returns the number of columns in matrix2.
+ */
+            int rows1 = matrix1.GetLength(0);
+            int columns1 = matrix1.GetLength(1);
+            int rows2 = matrix2.GetLength(0);
+            int columns2 = matrix2.GetLength(1);
+
+            Console.WriteLine("Addition of two matrices is : ");
+            try
+            {
+                int[,] matrixAddition = AddMatrices(matrix1, matrix2, rows1, columns1, rows2, columns2);
+                PrintMatrix(matrixAddition);
+            }
+            catch (InvalidOperationException exception)
+            {
+                Console.WriteLine(exception.Message);
+                throw;
+            }
+
+            Console.WriteLine();
+
+            Console.WriteLine("Multiplication of two matrices is : ");
+            try
+            {
+                int[,] matrixMultiplication = MultiplyMatrices(matrix1, matrix2, rows1, columns1, rows2, columns2);
+                PrintMatrix(matrixMultiplication);
+            }
+            catch (InvalidOperationException exception)
+            {
+                Console.WriteLine(exception);
+                throw;
+            }
+        }
+    }
+}
 
 
 /*
