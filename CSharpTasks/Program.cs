@@ -1550,7 +1550,7 @@ for (int i = 1; i < rows+1; i++)
  *        * * * * *
  *      * * * * * * *
  */
-int rows = 4;
+/*int rows = 4;
 for (int i = 1; i < rows+1; i++)
 {
     for (int j = rows; j > i; j--)
@@ -1564,7 +1564,7 @@ for (int i = 1; i < rows+1; i++)
     }
     
     Console.WriteLine();
-}
+}*/
 
 
 /*
@@ -1575,6 +1575,21 @@ for (int i = 1; i < rows+1; i++)
  *      444*
  *      5555*
  */
+int rows = 5;
+Console.Write("1");
+for (int i = 1; i < rows+1; i++)
+{
+    for (int j = 1; j < i; j++)
+    {
+        Console.Write(i);
+    }
+
+    if (i>1)
+    {
+        Console.Write("*");
+    }
+    Console.WriteLine();
+}
 
 
 /*
