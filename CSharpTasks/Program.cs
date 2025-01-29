@@ -1515,7 +1515,7 @@ for (int i = 1; i < rows+1; i++)
     {
         Console.Write("* ");
     }
-    
+
     Console.WriteLine();
 }*/
 
@@ -1562,7 +1562,7 @@ for (int i = 1; i < rows+1; i++)
     {
         Console.Write("* ");
     }
-    
+
     Console.WriteLine();
 }*/
 
@@ -1575,7 +1575,25 @@ for (int i = 1; i < rows+1; i++)
  *      444*
  *      5555*
  */
+
 int rows = 5;
+for (int i = 1; i < rows + 1; i++)
+{
+    if (i > 1)
+    {
+        for (int j = 0; j < i-1; j++)
+        {
+            Console.Write(i);
+        }
+        Console.Write("*");
+    }
+    else
+    {
+        Console.Write(i);
+    }
+    Console.WriteLine();
+}
+/*int rows = 5;
 Console.Write("1");
 for (int i = 1; i < rows+1; i++)
 {
@@ -1589,7 +1607,7 @@ for (int i = 1; i < rows+1; i++)
         Console.Write("*");
     }
     Console.WriteLine();
-}
+}*/
 
 
 /*
