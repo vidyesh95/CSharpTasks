@@ -1301,7 +1301,7 @@ Console.WriteLine($"Average of all elements is {array.Average()}");*/
 /*
  * 35. Insert a new element in a particular position of an array and display the array.
  */
-Console.Write("Enter the size of array : ");
+/*Console.Write("Enter the size of array : ");
 int sizeOfArray;
 while (!int.TryParse(Console.ReadLine(), out sizeOfArray))
 {
@@ -1358,16 +1358,69 @@ for (int i = 0; i < sizeOfArray-position; i++)
     newArray[i+position+1] = array[i+position];
 }
 
-// print new array
+Console.WriteLine("Array after inserting a new element");
 foreach (int element in newArray)
 {
     Console.Write($"{element} ");;
-}
+}*/
 
 
 /*
  * 36. Delete an already existing element from an array and display the array.
  */
+Console.Write("Enter the size of array : ");
+int sizeOfArray;
+while (!int.TryParse(Console.ReadLine(), out sizeOfArray))
+{
+    Console.WriteLine("Invalid input. Please enter a valid natural number.");
+}
+
+int[] array = new int[sizeOfArray];
+for (int i = 0; i < sizeOfArray; i++)
+{
+    int number;
+    Console.Write($"Enter an {i + 1} element : ");
+    while (!int.TryParse(Console.ReadLine(), out number))
+    {
+        Console.WriteLine("Invalid input. Please enter a valid integer element.");
+    }
+
+    array[i] = number;
+}
+
+Console.WriteLine("Array before deleting element");
+foreach (int element in array)
+{
+    Console.Write($"{element} ");
+}
+
+Console.WriteLine();
+Console.Write("Enter the position to delete a new element : ");
+int position;
+while (!int.TryParse(Console.ReadLine(), out position) || position < 0 || position > sizeOfArray-1)
+{
+    Console.WriteLine("Invalid input. Please enter a valid position between 1 and size of array -1.");
+}
+Console.WriteLine($"Position is {position}");
+
+int[] newArray = new int[sizeOfArray - 1];
+
+for (int i = 0; i < position ; i++)
+{
+    newArray[i] = array[i];
+}
+
+// Delete element at position by adding rest of array elements from position
+for (int i = 0; i < sizeOfArray-position-1; i++)
+{
+    newArray[i+position] = array[i+position+1];
+}
+
+Console.WriteLine("Array after deleting element");
+foreach (int element in newArray)
+{
+    Console.Write($"{element} ");;
+}
 
 
 /*
