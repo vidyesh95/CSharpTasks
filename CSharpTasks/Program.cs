@@ -1368,7 +1368,7 @@ foreach (int element in newArray)
 /*
  * 36. Delete an already existing element from an array and display the array.
  */
-Console.Write("Enter the size of array : ");
+/*Console.Write("Enter the size of array : ");
 int sizeOfArray;
 while (!int.TryParse(Console.ReadLine(), out sizeOfArray))
 {
@@ -1420,7 +1420,7 @@ Console.WriteLine("Array after deleting element");
 foreach (int element in newArray)
 {
     Console.Write($"{element} ");;
-}
+}*/
 
 
 /*
@@ -1450,6 +1450,14 @@ foreach (int element in newArray)
  *      123
  *      1234
  */
+for (int i = 1; i < 5; i++)
+{
+    for (int j = 1; j < i+1; j++)
+    {
+        Console.Write(j);
+    }
+    Console.WriteLine();
+}
 
 
 /*
