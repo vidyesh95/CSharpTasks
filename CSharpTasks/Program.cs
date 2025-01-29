@@ -1272,7 +1272,7 @@ Console.WriteLine($"Sum of all elements is {array.Sum()}");*/
 /*
  * 34. Accept 10 numbers in an array and calculate average of all the elements.
  */
-Console.WriteLine("Enter 10 elements");
+/*Console.WriteLine("Enter 10 elements");
 int[] array = new int[10];
 for (var i = 0; i < 10; i++)
 {
@@ -1295,12 +1295,74 @@ Console.WriteLine($"Sum of all elements is {sumOfElements}");
 
 Console.WriteLine($"Average of all elements is {sumOfElements / array.Length}");
 Console.WriteLine("Using LINQ");
-Console.WriteLine($"Average of all elements is {array.Average()}");
+Console.WriteLine($"Average of all elements is {array.Average()}");*/
 
 
 /*
  * 35. Insert a new element in a particular position of an array and display the array.
  */
+Console.Write("Enter the size of array : ");
+int sizeOfArray;
+while (!int.TryParse(Console.ReadLine(), out sizeOfArray))
+{
+    Console.WriteLine("Invalid input. Please enter a valid natural number.");
+}
+
+int[] array = new int[sizeOfArray];
+for (int i = 0; i < sizeOfArray; i++)
+{
+    int number;
+    Console.Write($"Enter an {i + 1} element : ");
+    while (!int.TryParse(Console.ReadLine(), out number))
+    {
+        Console.WriteLine("Invalid input. Please enter a valid integer element.");
+    }
+
+    array[i] = number;
+}
+
+Console.WriteLine("Array before inserting a new element");
+foreach (int element in array)
+{
+    Console.Write($"{element} ");
+}
+
+Console.WriteLine();
+Console.Write("Enter the position to insert a new element : ");
+int position;
+while (!int.TryParse(Console.ReadLine(), out position) || position < 0 || position > sizeOfArray)
+{
+    Console.WriteLine("Invalid input. Please enter a valid position between 1 and size of array.");
+}
+Console.WriteLine($"Position is {position}");
+
+int[] newArray = new int[sizeOfArray + 1];
+Console.Write("Enter a new element to insert in the array : ");
+int newElement;
+while (!int.TryParse(Console.ReadLine(), out newElement))
+{
+    Console.WriteLine("Invalid input. Please enter a valid integer element.");
+}
+
+for (int i = 0; i < position ; i++)
+{
+    newArray[i] = array[i];
+}
+
+// Add element at position
+newArray[position] = newElement;
+
+// Add rest of array elements from position
+for (int i = 0; i < sizeOfArray-position; i++)
+{
+    newArray[i+position+1] = array[i+position];
+}
+
+// print new array
+foreach (int element in newArray)
+{
+    Console.Write($"{element} ");;
+}
 
 
 /*
