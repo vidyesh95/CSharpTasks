@@ -1705,7 +1705,7 @@ for (int i = 1; i <= rows; i++)
     Console.WriteLine(new string('*', starCount).Replace("*", "* "));
 }*/
 
-const int rows = 13;
+/*const int rows = 13;
 for (int i = 1; i <= rows; i++)
 {
     // Calculate spaces and star count
@@ -1731,7 +1731,7 @@ for (int i = 1; i <= rows; i++)
         Console.Write("* ");
 
     Console.WriteLine();
-}
+}*/
 
 
 /*
@@ -1780,7 +1780,50 @@ for (int i = 0; i < rows; i++)
  *               * *
  *                *
  */
-// int rows = 21;
+const int rows = 21;
+for (int i = 1; i < rows + 1; i++)
+{
+    if (i < (rows + 1) / 2)
+    {
+        for (int j = (rows + 1) / 2; j > i; j--)
+        {
+            Console.Write(" ");
+        }
+
+        for (int j = 1; j < i + i; j++)
+        {
+            if (j == 1 || j == i + i - 1)
+            {
+                Console.Write("*");
+            }
+            else
+            {
+                Console.Write(" ");
+            }
+        }
+    }
+    else
+    {
+        for (int j = 0; j < i - (rows + 1) / 2; j++)
+        {
+            Console.Write(" ");
+        }
+
+        for (int j = 1; j <  2 * ((rows + 1) - i); j++)
+        {
+            if (j == 1 || j ==  2 * ((rows + 1) - i) - 1)
+            {
+                Console.Write("*");
+            }
+            else
+            {
+                Console.Write(" ");
+            }
+        }
+    }
+
+    Console.WriteLine();
+}
 
 
 /*
