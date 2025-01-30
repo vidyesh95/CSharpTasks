@@ -1939,6 +1939,15 @@ for (int i = 1; i < rows+1; i++)
  *      45
  *      5
  */
+const int rows = 5;
+for (int i = 0; i < rows; i++)
+{
+    for (int j = 1; j < rows-i+1; j++)
+    {
+        Console.Write(j+i);
+    }
+    Console.WriteLine();
+}
 
 
 /*
@@ -1949,7 +1958,7 @@ for (int i = 1; i < rows+1; i++)
  *         54
  *          5
  */
-const int rows = 5;
+/*const int rows = 5;
 for (int i = 0; i < rows; i++)
 {
     for (int j = 0; j < i; j++)
@@ -1962,7 +1971,7 @@ for (int i = 0; i < rows; i++)
         Console.Write(j);
     }
     Console.WriteLine();
-}
+}*/
 
 
 /*
