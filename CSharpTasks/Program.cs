@@ -2046,7 +2046,7 @@ for (int i = 0; i < arraySize; i++)
  *      1234
  */
 
-const int arraySize = 4;
+/*const int arraySize = 4;
 int[,] intArray = new int[arraySize, arraySize];
 
 // Add values to array
@@ -2067,7 +2067,7 @@ for (int i = 0; i < arraySize; i++)
     }
 
     Console.WriteLine();
-}
+}*/
 
 /*
  * 3)
@@ -2106,6 +2106,29 @@ for (int i = 0; i < arraySize; i++)
  *      456
  *      78910
  */
+const int size = 4;
+int[,] intArray = new int[size, size];
+
+// Add values to array
+int number = 1;
+for (int i = 0; i < size; i++)
+{
+    for (int j = 0; j < i + 1; j++)
+    {
+        intArray[i, j] = number;
+        number++;
+    }
+}
+
+// Print array
+for (int i = 0; i < size; i++)
+{
+    for (int j = 0; j < i + 1; j++)
+    {
+        Console.Write(intArray[i, j]);
+    }
+    Console.WriteLine();
+}
 
 
 /*
