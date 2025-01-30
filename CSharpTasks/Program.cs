@@ -1780,7 +1780,7 @@ for (int i = 0; i < rows; i++)
  *               * *
  *                *
  */
-const int rows = 21;
+/*const int rows = 21;
 for (int i = 1; i < rows + 1; i++)
 {
     if (i < (rows + 1) / 2)
@@ -1823,7 +1823,7 @@ for (int i = 1; i < rows + 1; i++)
     }
 
     Console.WriteLine();
-}
+}*/
 
 
 /*
@@ -1860,6 +1860,16 @@ for (int i = 1; i < rows+1; i++)
  *      5432
  *      54321
  */
+
+int rows = 5;
+for (int i = 1; i < rows+1; i++)
+{
+    for (int j = rows; j > rows-i; j--)
+    {
+        Console.Write(j);
+    }
+    Console.WriteLine();
+}
 
 
 /*
