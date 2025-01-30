@@ -2046,7 +2046,7 @@ for (int i = 0; i < arraySize; i++)
  *      1234
  */
 
-const int arraySize = 4;
+/*const int arraySize = 4;
 int[,] starsArray = new int[arraySize, arraySize];
 
 // Add values to array
@@ -2067,7 +2067,7 @@ for (int i = 0; i < arraySize; i++)
     }
 
     Console.WriteLine();
-}
+}*/
 
 /*
  * 3)
@@ -2076,15 +2076,28 @@ for (int i = 0; i < arraySize; i++)
  *      333
  *      4444
  */
-/*const int arraySize = 4;
-for (int i = 1; i < arraySize+1; i++)
+
+const int arraySize = 4;
+int[,] intArray = new int[arraySize, arraySize];
+// Add values to array
+for (int i = 1; i < arraySize + 1; i++)
 {
-    for (int j = 0; j < i; j++)
+    for (int j = 1; j < i + 1; j++)
     {
-        Console.Write(i);
+        intArray[i - 1, j - 1] = i;
     }
+}
+
+// Print array
+for (int i = 0; i < arraySize; i++)
+{
+    for (int j = 0; j < i + 1; j++)
+    {
+        Console.Write(intArray[i, j]);
+    }
+
     Console.WriteLine();
-}*/
+}
 
 /*
  * 4)
