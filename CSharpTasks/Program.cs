@@ -1930,7 +1930,7 @@ for (int i = 1; i < rows+1; i++)
  *      12345
  */
 
-const int rows = 5;
+/*const int rows = 5;
 for (int i = 1; i < rows + 1; i++)
 {
     for (int j = rows - i + 1; j < rows + 1; j++)
@@ -1938,7 +1938,7 @@ for (int i = 1; i < rows + 1; i++)
         Console.Write(j);
     }
     Console.WriteLine();
-}
+}*/
 
 
 /*
@@ -2014,22 +2014,29 @@ for (int i = 1; i < row + 1; i++)
  *      ***
  *      ****
  */
-/*var starsArray = new string[][]
-{
-    ["*"],
-    ["*", "*"],
-    ["*", "*", "*"],
-    ["*", "*", "*", "*"]
-};
 
-for (int i = 0; i < starsArray.GetLength(0); i++)
+int arraySize = 4;
+string[,] starsArray = new string[arraySize, arraySize];
+
+// add * values to array
+for (int i = 0; i < arraySize; i++)
 {
-    for (int j = 0; j <= i; j++)
+    for (int j = 0; j < i + 1; j++)
     {
-        Console.Write(starsArray[i][j]);
+        starsArray[i, j] = "*";
     }
+}
+
+// Print array
+for (int i = 0; i < arraySize; i++)
+{
+    for (int j = 0; j < i + 1; j++)
+    {
+        Console.Write(starsArray[i, j]);
+    }
+
     Console.WriteLine();
-}*/
+}
 
 
 /*
