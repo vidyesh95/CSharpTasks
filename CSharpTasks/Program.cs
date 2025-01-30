@@ -1882,7 +1882,7 @@ for (int i = 1; i < rows+1; i++)
  *      123456*
  *      1234567
  */
-const int rows = 7;
+/*const int rows = 7;
 for (int i = 1; i < rows+1; i++)
 {
     for (int j = 1; j < i+1; j++)
@@ -1895,7 +1895,7 @@ for (int i = 1; i < rows+1; i++)
         Console.Write("*");
     }
     Console.WriteLine();
-}
+}*/
 
 
 /*
@@ -1906,6 +1906,15 @@ for (int i = 1; i < rows+1; i++)
  *      4321
  *      54321
  */
+const int rows = 5;
+for (int i = 1; i < rows+1; i++)
+{
+    for (int j = i+1; j > 1; j--)
+    {
+       Console.Write(j-1); 
+    }
+    Console.WriteLine();
+}
 
 
 /*
