@@ -1619,7 +1619,7 @@ for (int i = 1; i < rows+1; i++)
  *      *     *
  *      *******
  */
-int rows = 7;
+/*int rows = 7;
 for (int i = 1; i < rows+1; i++)
 {
     if (i==1 || i==rows)
@@ -1639,17 +1639,17 @@ for (int i = 1; i < rows+1; i++)
         Console.Write("*");
     }
     Console.WriteLine();
-}
+}*/
 
 
 /*
  * 10)
- *                  *
- *                * * *
- *              * * * * *
- *            * * * * * * *
- *          * * * * * * * * *
- *        * * * * * * * * * * *
+ *      1 1 1 1 1 1 *
+ *      1 1 1 1 1 * * *
+ *      1 1 1 1 * * * * *
+ *      1 1 1 * * * * * * *
+ *      1 1 * * * * * * * * *
+ *      1 * * * * * * * * * * *
  *      * * * * * * * * * * * * *
  *        * * * * * * * * * * *
  *          * * * * * * * * *
@@ -1657,8 +1657,53 @@ for (int i = 1; i < rows+1; i++)
  *              * * * * *
  *                * * *
  *                  *
- *
  */
+/*int rows = 13;
+for (int i = 1; i < rows + 1; i++)
+{
+    //upper spacing
+    for (int j = rows - i - 5; j > 1; j--)
+    {
+        Console.Write("  ");
+    }
+    //lower spacing
+    for (int j = 1; j < i - 6; j++)
+    {
+        Console.Write("  ");
+    }
+
+    if (i < 8)
+    {
+    //upper triangle
+        for (int j = 1; j < i + i; j++)
+        {
+            Console.Write("* ");
+        }
+    }
+    else
+    {
+    // lower triangle
+        for (int j = 1; j < rows + rows - i -i + 2; j++)
+        {
+            Console.Write("* ");
+        }
+    }
+    Console.WriteLine();
+}*/
+
+/*
+ * Using minimum number of loops
+ */
+
+/*int rows = 13;
+for (int i = 1; i <= rows; i++)
+{
+    int leadingSpaces = Math.Abs(i - 7) * 2;
+    Console.Write(new string(' ', leadingSpaces));
+
+    int starCount = i < 8 ? 2 * i - 1 : rows * 2 + 1 - 2 * i;
+    Console.WriteLine(new string('*', starCount).Replace("*", "* "));
+}*/
 
 
 /*
@@ -1672,6 +1717,15 @@ for (int i = 1; i < rows+1; i++)
  *      **
  *      *
  */
+int rows = 8;
+for (int i = 0; i < rows; i++)
+{
+    for (int j = rows; j > i; j--)
+    {
+        Console.Write("*");
+    }
+    Console.WriteLine();
+}
 
 
 /*
