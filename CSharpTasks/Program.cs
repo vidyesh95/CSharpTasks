@@ -1644,12 +1644,12 @@ for (int i = 1; i < rows+1; i++)
 
 /*
  * 10)
- *      1 1 1 1 1 1 *
- *      1 1 1 1 1 * * *
- *      1 1 1 1 * * * * *
- *      1 1 1 * * * * * * *
- *      1 1 * * * * * * * * *
- *      1 * * * * * * * * * * *
+ *                  *
+ *                * * *
+ *              * * * * *
+ *            * * * * * * *
+ *          * * * * * * * * *
+ *        * * * * * * * * * * *
  *      * * * * * * * * * * * * *
  *        * * * * * * * * * * *
  *          * * * * * * * * *
@@ -1705,6 +1705,34 @@ for (int i = 1; i <= rows; i++)
     Console.WriteLine(new string('*', starCount).Replace("*", "* "));
 }*/
 
+const int rows = 13;
+for (int i = 1; i <= rows; i++)
+{
+    // Calculate spaces and star count
+    int space;
+    int starCount;
+    if (i < 8)
+    {
+        space = 2 * (7 - i); // Upper half spaces
+        starCount = 2 * i - 1; // Upper triangle stars
+    }
+    else
+    {
+        space = 2 * (i - 7); // Lower half spaces
+        starCount = rows * 2 + 1 - 2 * i; // Lower triangle stars}
+    }
+
+    // Print spaces
+    for (int j = 0; j < space; j++)
+        Console.Write(" ");
+
+    // Print stars with spacing
+    for (int j = 0; j < starCount; j++)
+        Console.Write("* ");
+
+    Console.WriteLine();
+}
+
 
 /*
  * 11)
@@ -1717,7 +1745,7 @@ for (int i = 1; i <= rows; i++)
  *      **
  *      *
  */
-int rows = 8;
+/*int rows = 8;
 for (int i = 0; i < rows; i++)
 {
     for (int j = rows; j > i; j--)
@@ -1725,7 +1753,7 @@ for (int i = 0; i < rows; i++)
         Console.Write("*");
     }
     Console.WriteLine();
-}
+}*/
 
 
 /*
@@ -1752,6 +1780,7 @@ for (int i = 0; i < rows; i++)
  *               * *
  *                *
  */
+// int rows = 21;
 
 
 /*
@@ -1763,6 +1792,21 @@ for (int i = 0; i < rows; i++)
  *       1 4 6 4 1
  *      1 5 10 10 5 1
  */
+/*int rows = 6;
+
+for (int i = 1; i < rows+1; i++)
+{
+    for (int j = rows-i; j > 0; j--)
+    {
+        Console.Write(" ");
+    }
+    for (int j = 1; j < i+i; j++)
+    {
+        int temp = i+i;
+        Console.Write($"{i}");
+    }
+    Console.WriteLine();
+}*/
 
 
 /*
