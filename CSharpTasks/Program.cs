@@ -1836,7 +1836,7 @@ for (int i = 1; i < rows + 1; i++)
  *      1 5 10 10 5 1
  */
 
-int rows = 6;
+/*int rows = 6;
 
 for (int i = 0; i < rows; i++)
 {
@@ -1853,7 +1853,7 @@ for (int i = 0; i < rows; i++)
     }
 
     Console.WriteLine();
-}
+}*/
 
 
 /*
@@ -1958,6 +1958,15 @@ for (int i = 1; i < rows+1; i++)
  *      $ $ $
  *      # # # #
  */
+const int row = 4;
+for (int i = 1; i < row+1; i++)
+{
+    for (int j = 0; j < i; j++)
+    {
+        Console.Write(i % 2 == 0 ? "# " : "$ ");
+    }
+    Console.WriteLine();
+}
 
 
 /*
