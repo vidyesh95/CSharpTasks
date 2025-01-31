@@ -2669,9 +2669,9 @@ Console.WriteLine($"After swapping: number1 = {number1}, number2 = {number2}");*
  *              Company: featsystems
  */
 
-namespace CSharpTasks
+/*namespace CSharpTasks
 {
-    class StringUtility
+    internal static class StringUtility
     {
         public static void Main()
         {
@@ -2693,7 +2693,7 @@ namespace CSharpTasks
             Console.WriteLine($"Company : {company}");
         }
     }
-}
+}*/
 
 
 /*
@@ -2701,6 +2701,31 @@ namespace CSharpTasks
  *      Input: “Please feel free to contact me on abhishek.solanki@gmail.com anytime between 10 am to 6 pm.”
  *      Output: abhishek.solanki@gmail.com
  */
+
+using System.Text.RegularExpressions;
+
+namespace CSharpTasks
+{
+    internal static class StringUtility
+    {
+        public static void Main()
+        {
+            Console.Write("Enter a sentence : ");
+            string? sentence;
+            while (string.IsNullOrWhiteSpace(sentence = Console.ReadLine()))
+            {
+                Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid sentence:");
+            }
+
+            string emailPattern = @"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b";
+            MatchCollection matches = Regex.Matches(sentence, emailPattern, RegexOptions.IgnoreCase);
+            foreach (Match match in matches)
+            {
+                Console.WriteLine(match.Value.ToLower());
+            }
+        }
+    }
+}
 
 
 /*
