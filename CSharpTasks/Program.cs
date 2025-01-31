@@ -2297,7 +2297,7 @@ for (int i = 0; i < rows; i++)
  * 1. Swap two number using Call by Value and Call by Reference.
  */
 
-int number1 = 10;
+/*int number1 = 10;
 int number2 = 20;
 
 Console.WriteLine($"Before swapping: number1 = {number1}, number2 = {number2}");
@@ -2327,12 +2327,54 @@ void SwapNumbersCallByReference(ref int i, ref int j)
     j = temp;
 }
 
-Console.WriteLine($"After swapping: number1 = {number1}, number2 = {number2}");
+Console.WriteLine($"After swapping: number1 = {number1}, number2 = {number2}");*/
 
 
 /*
  * 2. Calculate area and circumference of circle using functions (with return type and without return type)
  */
+
+namespace Cal
+{
+    class Calculate
+    {
+        public static void Main()
+        {
+            Console.WriteLine("Circle calculations");
+            Console.Write("Enter the radius of the circle : ");
+            double radius;
+            while (!double.TryParse(Console.ReadLine(), out radius) || radius <= 0)
+            {
+                Console.WriteLine("Invalid input. Please enter a valid positive number.");
+            }
+
+            Console.WriteLine("Calculating area and circumference of the circle using functions with return type");
+            Console.WriteLine($"Area of the circle is {CalculateArea(radius)}");
+            Console.WriteLine($"Circumference of the circle is {CalculateCircumference(radius)}");
+
+            Console.WriteLine("Calculating area and circumference of the circle using functions without return type");
+            CalculateAreaAndCircumference(radius, out double area, out double circumference);
+            Console.WriteLine($"Area of the circle is {area}");
+            Console.WriteLine($"Circumference of the circle is {circumference}");
+        }
+
+        private static void CalculateAreaAndCircumference(double radius, out double area, out double circumference)
+        {
+            area = Math.PI * Math.Pow(radius, 2);
+            circumference = 2 * Math.PI * radius;
+        }
+
+        private static double CalculateCircumference(double radius)
+        {
+            return 2 * Math.PI * radius;
+        }
+
+        private static double CalculateArea(double radius)
+        {
+            return Math.PI * Math.Pow(radius, 2);
+        }
+    }
+}
 
 
 /*
