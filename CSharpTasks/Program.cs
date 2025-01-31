@@ -2421,7 +2421,7 @@ Console.WriteLine($"After swapping: number1 = {number1}, number2 = {number2}");*
  *    {“1”, “Rohan”, “Avinash”, “5”, “tina”, “100”, “Rahul”, “38”}
  */
 
-namespace CSharpTasks
+/*namespace CSharpTasks
 {
     internal static class MinMax
     {
@@ -2450,13 +2450,34 @@ namespace CSharpTasks
             Console.WriteLine($"Minimum number is {min}");
         }
     }
-}
+}*/
 
 
 /*
  * 5. Calculate sum of numbers from the string array:
  *    {“1”, “Sona”, “David”, “50”, “Fardeen”, “19”, “Rishi”, “68”}
  */
+
+namespace CSharpTasks
+{
+    internal static class Sum
+    {
+        public static void Main()
+        {
+            string[] array = { "1", "Sona", "David", "50", "Fardeen", "19", "Rishi", "68" };
+            int sum = 0;
+            foreach (string element in array)
+            {
+                if (int.TryParse(element, out int number))
+                {
+                    sum += number;
+                }
+            }
+
+            Console.WriteLine($"Sum of numbers is {sum}");
+        }
+    }
+}
 
 
 /*
