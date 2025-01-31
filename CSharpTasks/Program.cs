@@ -2458,7 +2458,7 @@ Console.WriteLine($"After swapping: number1 = {number1}, number2 = {number2}");*
  *    {“1”, “Sona”, “David”, “50”, “Fardeen”, “19”, “Rishi”, “68”}
  */
 
-namespace CSharpTasks
+/*namespace CSharpTasks
 {
     internal static class Sum
     {
@@ -2477,13 +2477,43 @@ namespace CSharpTasks
             Console.WriteLine($"Sum of numbers is {sum}");
         }
     }
-}
+}*/
 
 
 /*
  * 6. Calculate the sum of Integer values as well as decimal values separately from the given string array:
  *    {“1”,”10.5”,”11”,”12.5”,”14”,”15.5”,”16”,”17”,”18.5”}
  */
+
+namespace CSharpTasks
+{
+    internal static class SumOfIntegersAndDecimals
+    {
+        public static void Main()
+        {
+            string[] array = { "1", "10.5", "11", "12.5", "14", "15.5", "16", "17", "18.5" };
+            decimal sumOfIntegers = 0;
+            decimal sumOfDecimals = 0;
+            foreach (string element in array)
+            {
+                if (decimal.TryParse(element, out decimal number))
+                {
+                    if (number % 1 == 0)
+                    {
+                        sumOfIntegers += number;
+                    }
+                    else
+                    {
+                        sumOfDecimals += number;
+                    }
+                }
+            }
+
+            Console.WriteLine($"Sum of integers is {sumOfIntegers}");
+            Console.WriteLine($"Sum of decimals is {sumOfDecimals}");
+        }
+    }
+}
 
 
 /*
