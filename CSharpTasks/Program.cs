@@ -2177,7 +2177,7 @@ for (int i = 0; i < arraySize; i++)
  *      * * * *
  */
 
-const int arraySize = 4;
+/*const int arraySize = 4;
 // Use [rows, columns] dimensions that match the pattern width
 string[,] starsArray = new string[arraySize, 2 * arraySize - 1];
 
@@ -2210,7 +2210,7 @@ for (int i = 0; i < arraySize; i++)
     }
 
     Console.WriteLine();
-}
+}*/
 
 
 /*
@@ -2220,6 +2220,34 @@ for (int i = 0; i < arraySize; i++)
  *        * * *
  *      * * * *
  */
+
+const int rows = 4;
+string[,] starsArray = new string[rows,rows];
+
+for (int i = 0; i < rows; i++)
+{
+    for (int j = 0; j < rows; j++)
+    {
+        if (j < rows - i - 1)
+        {
+            starsArray[i, j] = "  ";
+        }
+        else
+        {
+            starsArray[i, j] = "* ";
+        }
+    }
+}
+
+// Print array
+for (int i = 0; i < rows; i++)
+{
+    for (int j = 0; j < rows; j++)
+    {
+        Console.Write(starsArray[i,j]);
+    }
+    Console.WriteLine();
+}
 
 
 /*
