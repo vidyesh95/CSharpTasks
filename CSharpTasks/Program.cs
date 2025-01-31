@@ -2221,8 +2221,8 @@ for (int i = 0; i < arraySize; i++)
  *      * * * *
  */
 
-const int rows = 4;
-string[,] starsArray = new string[rows,rows];
+/*const int rows = 4;
+string[,] starsArray = new string[rows, rows];
 
 for (int i = 0; i < rows; i++)
 {
@@ -2244,10 +2244,11 @@ for (int i = 0; i < rows; i++)
 {
     for (int j = 0; j < rows; j++)
     {
-        Console.Write(starsArray[i,j]);
+        Console.Write(starsArray[i, j]);
     }
+
     Console.WriteLine();
-}
+}*/
 
 
 /*
@@ -2257,6 +2258,36 @@ for (int i = 0; i < rows; i++)
  *        * * * * *
  *      * * * * * * *
  */
+
+const int rows = 4;
+const int cols = 7;
+string[,] starsArray = new string[rows, cols];
+
+for (int i = 0; i < rows; i++)
+{
+    for (int j = 0; j < cols; j++)
+    {
+        if (j < rows - i - 1)
+        {
+            starsArray[i, j] = "  ";
+        }
+        else if (j < rows + i)
+        {
+            starsArray[i, j] = "* ";
+        }
+    }
+}
+
+// Print array
+for (int i = 0; i < rows; i++)
+{
+    for (int j = 0; j < cols; j++)
+    {
+        Console.Write(starsArray[i, j]);
+    }
+
+    Console.WriteLine();
+}
 
 
 /*
