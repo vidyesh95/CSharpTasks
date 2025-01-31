@@ -2334,7 +2334,7 @@ Console.WriteLine($"After swapping: number1 = {number1}, number2 = {number2}");*
  * 2. Calculate area and circumference of circle using functions (with return type and without return type)
  */
 
-/*namespace Cal
+namespace Cal
 {
     class Calculate
     {
@@ -2353,12 +2353,14 @@ Console.WriteLine($"After swapping: number1 = {number1}, number2 = {number2}");*
             Console.WriteLine($"Circumference of the circle is {CalculateCircumference(radius)}");
 
             Console.WriteLine("Calculating area and circumference of the circle using functions without return type");
-            CalculateAreaAndCircumference(radius, out double area, out double circumference);
+            double area = 0;
+            double circumference = 0;
+            CalculateAreaAndCircumference(radius, ref area, ref circumference);
             Console.WriteLine($"Area of the circle is {area}");
             Console.WriteLine($"Circumference of the circle is {circumference}");
         }
 
-        private static void CalculateAreaAndCircumference(double radius, out double area, out double circumference)
+        private static void CalculateAreaAndCircumference(double radius, ref double area, ref double circumference)
         {
             area = Math.PI * Math.Pow(radius, 2);
             circumference = 2 * Math.PI * radius;
@@ -2374,14 +2376,14 @@ Console.WriteLine($"After swapping: number1 = {number1}, number2 = {number2}");*
             return Math.PI * Math.Pow(radius, 2);
         }
     }
-}*/
+}
 
 
 /*
  * 3. Calculate area of rectangle using out parameter.
  */
 
-namespace Cal
+/*namespace Cal
 {
     class Calculate
     {
@@ -2401,7 +2403,7 @@ namespace Cal
             {
                 Console.WriteLine("Invalid input. Please enter a valid positive number.");
             }
-            
+
             CalculateArea(length, breadth, out double area);
             Console.WriteLine($"Area of the rectangle is {area}");
         }
@@ -2411,9 +2413,7 @@ namespace Cal
             area = length * breadth;
         }
     }
-}
-
-
+}*/
 
 
 /*
