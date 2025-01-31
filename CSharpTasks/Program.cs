@@ -2554,7 +2554,7 @@ Console.WriteLine($"After swapping: number1 = {number1}, number2 = {number2}");*
                     students[i][j] = new string[] { name, rollNo };
                 }
             }
-            
+
             // Student details
             Console.WriteLine("Student details");
             for (int i = 0; i < 5; i++)
@@ -2580,7 +2580,7 @@ Console.WriteLine($"After swapping: number1 = {number1}, number2 = {number2}");*
  * 1. Enter a sentence and find the number of spaces, words, vowels and consonants.
  */
 
-namespace CSharpTasks
+/*namespace CSharpTasks
 {
     class String
     {
@@ -2592,6 +2592,7 @@ namespace CSharpTasks
             {
                 Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid sentence:");
             }
+
             int spaces = 0;
             int words = 0;
             int vowels = 0;
@@ -2605,7 +2606,8 @@ namespace CSharpTasks
                 }
                 else if (char.IsLetter(ch))
                 {
-                    if (char.ToLower(ch) == 'a' || char.ToLower(ch) == 'e' || char.ToLower(ch) == 'i' || char.ToLower(ch) == 'o' || char.ToLower(ch) == 'u')
+                    if (char.ToLower(ch) == 'a' || char.ToLower(ch) == 'e' || char.ToLower(ch) == 'i' ||
+                        char.ToLower(ch) == 'o' || char.ToLower(ch) == 'u')
                     {
                         vowels++;
                     }
@@ -2623,7 +2625,7 @@ namespace CSharpTasks
             Console.WriteLine($"Number of consonants : {consonants}");
         }
     }
-}
+}*/
 
 
 /*
@@ -2632,6 +2634,31 @@ namespace CSharpTasks
  *      Input: my name is tom.
  *      Output: My Name Is Tom.
  */
+
+namespace CSharpTasks
+{
+    internal static class StringUtility 
+    {
+        public static void Main()
+        {
+            Console.Write("Enter a sentence : ");
+            string? sentence;
+            while (string.IsNullOrWhiteSpace(sentence = Console.ReadLine()))
+            {
+                Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid sentence:");
+            }
+
+            string[] words = sentence.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            for (int i = 0; i < words.Length; i++)
+            {
+                words[i] = char.ToUpper(words[i][0]) + words[i].Substring(1);
+            }
+
+            string result = string.Join(" ", words);
+            Console.WriteLine($"Capitalized sentence : {result}");
+        }
+    }
+}
 
 
 /*
