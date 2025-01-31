@@ -2521,7 +2521,7 @@ Console.WriteLine($"After swapping: number1 = {number1}, number2 = {number2}");*
  *      Roll no from user and display them using Jagged Array.
  */
 
-namespace CSharpTasks
+/*namespace CSharpTasks
 {
     internal static class RegisterStudents
     {
@@ -2567,7 +2567,7 @@ namespace CSharpTasks
             }
         }
     }
-}
+}*/
 
 
 /*
@@ -2579,6 +2579,51 @@ namespace CSharpTasks
 /*
  * 1. Enter a sentence and find the number of spaces, words, vowels and consonants.
  */
+
+namespace CSharpTasks
+{
+    class String
+    {
+        public static void Main()
+        {
+            Console.Write("Enter a sentence : ");
+            string? sentence;
+            while (string.IsNullOrWhiteSpace(sentence = Console.ReadLine()))
+            {
+                Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid sentence:");
+            }
+            int spaces = 0;
+            int words = 0;
+            int vowels = 0;
+            int consonants = 0;
+
+            foreach (char ch in sentence.Trim())
+            {
+                if (char.IsWhiteSpace(ch))
+                {
+                    spaces++;
+                }
+                else if (char.IsLetter(ch))
+                {
+                    if (char.ToLower(ch) == 'a' || char.ToLower(ch) == 'e' || char.ToLower(ch) == 'i' || char.ToLower(ch) == 'o' || char.ToLower(ch) == 'u')
+                    {
+                        vowels++;
+                    }
+                    else
+                    {
+                        consonants++;
+                    }
+                }
+            }
+
+            words = spaces + 1;
+            Console.WriteLine($"Number of spaces : {spaces}");
+            Console.WriteLine($"Number of words : {words}");
+            Console.WriteLine($"Number of vowels : {vowels}");
+            Console.WriteLine($"Number of consonants : {consonants}");
+        }
+    }
+}
 
 
 /*
