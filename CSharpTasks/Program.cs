@@ -2334,7 +2334,7 @@ Console.WriteLine($"After swapping: number1 = {number1}, number2 = {number2}");*
  * 2. Calculate area and circumference of circle using functions (with return type and without return type)
  */
 
-namespace Cal
+/*namespace Cal
 {
     class Calculate
     {
@@ -2374,12 +2374,46 @@ namespace Cal
             return Math.PI * Math.Pow(radius, 2);
         }
     }
-}
+}*/
 
 
 /*
  * 3. Calculate area of rectangle using out parameter.
  */
+
+namespace Cal
+{
+    class Calculate
+    {
+        public static void Main()
+        {
+            Console.WriteLine("Rectangle area calculation");
+            Console.Write("Enter the length of the rectangle : ");
+            double length;
+            while (!double.TryParse(Console.ReadLine(), out length) || length <= 0)
+            {
+                Console.WriteLine("Invalid input. Please enter a valid positive number.");
+            }
+
+            Console.Write("Enter the breadth of the rectangle : ");
+            double breadth;
+            while (!double.TryParse(Console.ReadLine(), out breadth) || breadth <= 0)
+            {
+                Console.WriteLine("Invalid input. Please enter a valid positive number.");
+            }
+            
+            CalculateArea(length, breadth, out double area);
+            Console.WriteLine($"Area of the rectangle is {area}");
+        }
+
+        private static void CalculateArea(double length, double breadth, out double area)
+        {
+            area = length * breadth;
+        }
+    }
+}
+
+
 
 
 /*
