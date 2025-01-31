@@ -2582,7 +2582,7 @@ Console.WriteLine($"After swapping: number1 = {number1}, number2 = {number2}");*
 
 /*namespace CSharpTasks
 {
-    class String
+    class StringUtility
     {
         public static void Main()
         {
@@ -2635,9 +2635,9 @@ Console.WriteLine($"After swapping: number1 = {number1}, number2 = {number2}");*
  *      Output: My Name Is Tom.
  */
 
-namespace CSharpTasks
+/*namespace CSharpTasks
 {
-    internal static class StringUtility 
+    internal static class StringUtility
     {
         public static void Main()
         {
@@ -2658,7 +2658,7 @@ namespace CSharpTasks
             Console.WriteLine($"Capitalized sentence : {result}");
         }
     }
-}
+}*/
 
 
 /*
@@ -2668,6 +2668,32 @@ namespace CSharpTasks
  *              Last name: Singh
  *              Company: featsystems
  */
+
+namespace CSharpTasks
+{
+    class StringUtility
+    {
+        public static void Main()
+        {
+            Console.Write("Enter an email address : ");
+            string? email;
+            while (string.IsNullOrWhiteSpace(email = Console.ReadLine()))
+            {
+                Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid email address:");
+            }
+
+            string[] emailParts = email.Split('@');
+            string[] nameParts = emailParts[0].Split('.');
+            string firstName = nameParts[0];
+            string lastName = nameParts[1];
+            string company = emailParts[1].Split('.')[0];
+
+            Console.WriteLine($"First name : {firstName}");
+            Console.WriteLine($"Last name : {lastName}");
+            Console.WriteLine($"Company : {company}");
+        }
+    }
+}
 
 
 /*
