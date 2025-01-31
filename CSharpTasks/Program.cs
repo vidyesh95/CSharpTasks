@@ -2334,7 +2334,7 @@ Console.WriteLine($"After swapping: number1 = {number1}, number2 = {number2}");*
  * 2. Calculate area and circumference of circle using functions (with return type and without return type)
  */
 
-namespace Cal
+/*namespace Cal
 {
     class Calculate
     {
@@ -2376,7 +2376,7 @@ namespace Cal
             return Math.PI * Math.Pow(radius, 2);
         }
     }
-}
+}*/
 
 
 /*
@@ -2420,6 +2420,37 @@ namespace Cal
  * 4. Display max and min number from the following string array:
  *    {“1”, “Rohan”, “Avinash”, “5”, “tina”, “100”, “Rahul”, “38”}
  */
+
+namespace CSharpTasks
+{
+    internal static class MinMax
+    {
+        public static void Main()
+        {
+            string[] array = { "1", "Rohan", "Avinash", "5", "tina", "100", "Rahul", "38" };
+            int max = int.MinValue;
+            int min = int.MaxValue;
+            foreach (string element in array)
+            {
+                if (int.TryParse(element, out int number))
+                {
+                    if (number > max)
+                    {
+                        max = number;
+                    }
+
+                    if (number < min)
+                    {
+                        min = number;
+                    }
+                }
+            }
+
+            Console.WriteLine($"Maximum number is {max}");
+            Console.WriteLine($"Minimum number is {min}");
+        }
+    }
+}
 
 
 /*
@@ -2544,21 +2575,41 @@ namespace Cal
  * REGEX TASK:
  */
 /*
-1. Enter the following input and validate it:
-Email id, URL, PAN Card no, Aadhaar Card no, Phone no.
-2. Input: “Please feel free to contact me on abhishek.solanki@gmail.com
-anytime between 10 am to 6 pm.”
-Extract email id and timings using Regex.
-3. Extract the last 10 numbers from the following phone numbers using
-Regex functions:
-Input: +91 9892345679 Output: 9892345679
-Input: +913 9862343629 Output: 9862343629
-Input: 232-888-986-234-3629 Output: 9862343629
-Input: 101 986 234 362 8 Output: 9862343628
-DATE TIME TASK:
-1. Enter any random date and print it is weekday or weekend.
-2. Enter your birth date and print the current age.
-3. Enter your and your sibling’s birth date and print the age difference.
+ * 1. Enter the following input and validate it:
+ *      Email id, URL, PAN Card no, Aadhaar Card no, Phone no.
+ */
+
+/*
+ * 2. Input: “Please feel free to contact me on abhishek.solanki@gmail.com
+ * anytime between 10 am to 6 pm.”
+ * Extract email id and timings using Regex.
+ */
+/*
+ * 3. Extract the last 10 numbers from the following phone numbers using
+ * Regex functions:
+ * Input: +91 9892345679 Output: 9892345679
+ * Input: +913 9862343629 Output: 9862343629
+ * Input: 232-888-986-234-3629 Output: 9862343629
+ * Input: 101 986 234 362 8 Output: 9862343628
+ */
+
+/*
+ * DATE TIME TASK:
+ */
+
+/*
+ * 1. Enter any random date and print it is weekday or weekend.
+ */
+
+/*
+ * 2. Enter your birth date and print the current age.
+ */
+
+/*
+ * 3. Enter your and your sibling’s birth date and print the age difference.
+ */
+
+/*
 4. Enter your birthdate and print on which weekday you were born.
 Input: 3/4/2015
 Output: I was born on Friday.
