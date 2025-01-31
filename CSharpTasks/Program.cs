@@ -2485,7 +2485,7 @@ Console.WriteLine($"After swapping: number1 = {number1}, number2 = {number2}");*
  *    {“1”,”10.5”,”11”,”12.5”,”14”,”15.5”,”16”,”17”,”18.5”}
  */
 
-namespace CSharpTasks
+/*namespace CSharpTasks
 {
     internal static class SumOfIntegersAndDecimals
     {
@@ -2513,13 +2513,61 @@ namespace CSharpTasks
             Console.WriteLine($"Sum of decimals is {sumOfDecimals}");
         }
     }
-}
+}*/
 
 
 /*
- * 7. Accept the Number of Students from 1st std to 5th std, Accept their Name and Roll no from user and display them
- * using Jagged Array.
+ * 7.   Accept the Number of Students from 1st std to 5th std, Accept their Name and
+ *      Roll no from user and display them using Jagged Array.
  */
+
+namespace CSharpTasks
+{
+    internal static class RegisterStudents
+    {
+        public static void Main()
+        {
+            string[][][] students = new string[5][][];
+
+            string name;
+            string rollNo;
+
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write($"Enter the number of students for {i + 1} standard : ");
+                int numberOfStudents;
+                while (!int.TryParse(Console.ReadLine(), out numberOfStudents) || numberOfStudents <= 0)
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid positive number.");
+                }
+
+                // Intialize array
+                students[i] = new string[numberOfStudents][];
+
+                //Input student details
+                for (int j = 0; j < numberOfStudents; j++)
+                {
+                    Console.Write($"Enter the name of student {j + 1} : ");
+                    name = Console.ReadLine();
+                    Console.Write($"Enter the roll number of student {j + 1} : ");
+                    rollNo = Console.ReadLine();
+                    students[i][j] = new string[] { name, rollNo };
+                }
+            }
+            
+            // Student details
+            Console.WriteLine("Student details");
+            for (int i = 0; i < 5; i++)
+            {
+                Console.WriteLine($"Standard {i + 1}");
+                for (int j = 0; j < students[i].Length; j++)
+                {
+                    Console.WriteLine($"Name : {students[i][j][0]}, Roll number : {students[i][j][1]}");
+                }
+            }
+        }
+    }
+}
 
 
 /*
