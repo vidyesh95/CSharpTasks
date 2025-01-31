@@ -2106,7 +2106,8 @@ for (int i = 0; i < arraySize; i++)
  *      456
  *      78910
  */
-const int size = 4;
+
+/*const int size = 4;
 int[,] intArray = new int[size, size];
 
 // Add values to array
@@ -2127,8 +2128,9 @@ for (int i = 0; i < size; i++)
     {
         Console.Write(intArray[i, j]);
     }
+
     Console.WriteLine();
-}
+}*/
 
 
 /*
@@ -2138,6 +2140,77 @@ for (int i = 0; i < size; i++)
  *       * * *
  *      * * * *
  */
+
+/*const int arraySize = 4;
+string[,] starsArray = new string[arraySize, arraySize];
+
+// Adding * values to array
+for (int i = 0; i < arraySize; i++)
+{
+    for (int j = arraySize - 1; j > i; j--)
+    {
+        starsArray[i, j] = "  ";
+    }
+
+    for (int j = 0; j < i + 1; j++)
+    {
+        starsArray[i, j] = "* ";
+    }
+}
+
+// Print array
+for (int i = 0; i < arraySize; i++)
+{
+    for (int j = 0; j < arraySize; j++)
+    {
+        Console.Write(starsArray[i, j]);
+    }
+
+    Console.WriteLine();
+}*/
+
+/*
+ * 5)
+ *         *
+ *        * *
+ *       * * *
+ *      * * * *
+ */
+
+const int arraySize = 4;
+// Use [rows, columns] dimensions that match the pattern width
+string[,] starsArray = new string[arraySize, 2 * arraySize - 1];
+
+// Add values to array
+for (int i = 0; i < arraySize; i++)
+{
+    int stars = i + 1;
+    int spaces = arraySize - i - 1;
+
+    // Add spaces
+    for (int j = 0; j < spaces; j++)
+    {
+        starsArray[i, j] = " ";
+    }
+
+    // Fill stars with spacing
+    for (int j = 0; j < stars; j++)
+    {
+        int position = spaces + j * 2;
+        starsArray[i, position] = "*";
+    }
+}
+
+// Print array
+for (int i = 0; i < arraySize; i++)
+{
+    for (int j = 0; j < 2 * arraySize - 1; j++)
+    {
+        Console.Write(starsArray[i, j] ?? " ");
+    }
+
+    Console.WriteLine();
+}
 
 
 /*
