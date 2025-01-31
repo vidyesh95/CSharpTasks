@@ -2259,7 +2259,7 @@ for (int i = 0; i < rows; i++)
  *      * * * * * * *
  */
 
-const int rows = 4;
+/*const int rows = 4;
 const int cols = 7;
 string[,] starsArray = new string[rows, cols];
 
@@ -2287,7 +2287,7 @@ for (int i = 0; i < rows; i++)
     }
 
     Console.WriteLine();
-}
+}*/
 
 
 /*
@@ -2296,6 +2296,38 @@ for (int i = 0; i < rows; i++)
 /*
  * 1. Swap two number using Call by Value and Call by Reference.
  */
+
+int number1 = 10;
+int number2 = 20;
+
+Console.WriteLine($"Before swapping: number1 = {number1}, number2 = {number2}");
+Console.WriteLine("Swapping numbers using call by value");
+SwapNumbersCallByValue(number1, number2);
+
+static void SwapNumbersCallByValue(int i, int j)
+{
+    int temp = i;
+    i = j;
+    j = temp;
+}
+
+Console.WriteLine($"After swapping: number1 = {number1}, number2 = {number2}");
+
+Console.WriteLine();
+
+Console.WriteLine($"Before swapping: number1 = {number1}, number2 = {number2}");
+Console.WriteLine("Swapping numbers using call by reference using ref");
+
+SwapNumbersCallByReference(ref number1, ref number2);
+
+void SwapNumbersCallByReference(ref int i, ref int j)
+{
+    int temp = i;
+    i = j;
+    j = temp;
+}
+
+Console.WriteLine($"After swapping: number1 = {number1}, number2 = {number2}");
 
 
 /*
