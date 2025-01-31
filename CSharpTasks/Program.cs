@@ -2723,7 +2723,6 @@ namespace CSharpTasks
             {
                 Console.WriteLine(match.Value.ToLower());
             }
-            }
         }
     }
 }
