@@ -2717,11 +2717,12 @@ namespace CSharpTasks
                 Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid sentence:");
             }
 
-            string emailPattern = @"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b";
+            string emailPattern = @"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b";
             MatchCollection matches = Regex.Matches(sentence, emailPattern, RegexOptions.IgnoreCase);
             foreach (Match match in matches)
             {
                 Console.WriteLine(match.Value.ToLower());
+            }
             }
         }
     }
