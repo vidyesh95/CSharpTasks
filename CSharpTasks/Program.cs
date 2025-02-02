@@ -2702,7 +2702,7 @@ Console.WriteLine($"After swapping: number1 = {number1}, number2 = {number2}");*
  *      Output: abhishek.solanki@gmail.com
  */
 
-using System.Text.RegularExpressions;
+/*using System.Text.RegularExpressions;
 
 namespace CSharpTasks
 {
@@ -2725,7 +2725,7 @@ namespace CSharpTasks
             }
         }
     }
-}
+}*/
 
 
 /*
@@ -2735,6 +2735,24 @@ namespace CSharpTasks
  *      output: a =01, d=02, r=01, e=01, s=02
  */
 
+/*namespace CSharpTasks
+{
+    internal static class StingUtility
+    {
+        public static void Main()
+        {
+            Console.Write("Enter a name : ");
+            string? name;
+            while (string.IsNullOrWhiteSpace(name = Console.ReadLine()))
+            {
+                Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid name:");
+            }
+
+            
+        }
+    }
+}*/
+
 
 /*
  * 6.
@@ -2742,6 +2760,31 @@ namespace CSharpTasks
  *      Input: Sunday
  *      Output: yadnus
  */
+
+namespace CSharpTasks
+{
+    internal static class StingUtility
+    {
+        public static void Main()
+        {
+            Console.Write("Enter a word : ");
+            string? word;
+            while (string.IsNullOrWhiteSpace(word = Console.ReadLine()))
+            {
+                Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid name:");
+            }
+            Console.WriteLine($"Original word : {word}");
+            Console.WriteLine($"Reversed word : {ReverseWord(word).ToLower()}");
+        }
+
+        private static string ReverseWord(string word)
+        {
+            char[] charArray = word.ToCharArray();
+            Array.Reverse(charArray);
+            return new string(charArray);
+        }
+    }
+}
 
 
 /*
