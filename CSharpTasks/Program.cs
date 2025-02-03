@@ -3150,7 +3150,8 @@ namespace CSharpTasks
             foreach (string phoneNumber in phoneNumbers)
             {
                 string formatNumber = phoneNumber.Replace(" ", "").Replace("-", "").Replace("+", "");
-                Console.WriteLine($"Input: {phoneNumber}    Output: {formatNumber.Substring(formatNumber.Length - 10)}");
+                Console.WriteLine($"Input: {phoneNumber}    " +
+                                  $"Output: {formatNumber.Substring(formatNumber.Length - 10)}");
             }
         }
     }
