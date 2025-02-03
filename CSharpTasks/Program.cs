@@ -2947,7 +2947,7 @@ namespace CSharpTasks
  *      Output: tn
  */
 
-using System;
+/*using System;
 
 namespace CSharpTasks
 {
@@ -2998,12 +2998,56 @@ namespace CSharpTasks
             Console.WriteLine(output);
         }
     }
-}
+}*/
 
 
 /*
  * 10. Enter 10 names in a string array and display only those names which are starting with “H”.
  */
+
+using System;
+
+namespace CSharpTasks
+{
+    internal static class StingUtility
+    {
+        public static void Main()
+        {
+            Console.WriteLine("Enter 10 names : ");
+            string[] hWords = new string[10];
+            for (int i = 0; i < 10; i++)
+            {
+                Console.Write($"Enter name {i + 1} : ");
+                string? name;
+                while (string.IsNullOrWhiteSpace(name = Console.ReadLine()))
+                {
+                    Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid name:");
+                }
+
+                if (name[0] == 'H')
+                {
+                    hWords[i] += name;
+                }
+            }
+
+            if (hWords.All(string.IsNullOrWhiteSpace))
+            {
+                Console.Write("0 words starting with H");
+            }
+            else
+            {
+                Console.Write("Words starting with H : ");
+                foreach (string hWord in hWords)
+                {
+                    if (!string.IsNullOrWhiteSpace(hWord))
+                    {
+                        Console.Write($"{hWord} ");
+                    }
+                }
+            }
+        }
+    }
+}
 
 
 /*
