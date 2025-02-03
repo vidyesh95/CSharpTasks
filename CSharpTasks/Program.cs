@@ -2880,7 +2880,7 @@ namespace CSharpTasks
  *      Output : the = 1, cloud = 1, of = 2, rain = 2, in = 1, sky = 1
  */
 
-namespace CSharpTasks
+/*namespace CSharpTasks
 {
     internal static class StingUtility
     {
@@ -2938,7 +2938,7 @@ namespace CSharpTasks
             Console.WriteLine(output);
         }
     }
-}
+}*/
 
 
 /*
@@ -2946,6 +2946,59 @@ namespace CSharpTasks
  *      Input: teen
  *      Output: tn
  */
+
+using System;
+
+namespace CSharpTasks
+{
+    internal static class StingUtility
+    {
+        public static void Main()
+        {
+            Console.Write("Enter a word : ");
+            string? word;
+            while (string.IsNullOrWhiteSpace(word = Console.ReadLine()?.ToLower()))
+            {
+                Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid name:");
+            }
+
+            char[] chars = new char[word.Length];
+            int uniqueCount = 0;
+
+            foreach (char element in word)
+            {
+                bool found = false;
+                for (int i = 0; i < uniqueCount; i++)
+                {
+                    if (chars[i] == element)
+                    {
+                        chars[i] = ' ';
+                        found = true;
+                        break;
+                    }
+                }
+
+                // If the character is not found in the array add it to the array
+                if (!found)
+                {
+                    chars[uniqueCount] = element;
+                    uniqueCount++;
+                }
+            }
+
+            string output = "";
+            for (int i = 0; i < uniqueCount; i++)
+            {
+                if (chars[i] != ' ')
+                {
+                    output += chars[i];
+                }
+            }
+
+            Console.WriteLine(output);
+        }
+    }
+}
 
 
 /*
