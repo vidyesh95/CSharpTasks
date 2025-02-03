@@ -2734,8 +2734,9 @@ namespace CSharpTasks
  *      Input: address
  *      output: a =01, d=02, r=01, e=01, s=02
  */
+using System;
 
-/*namespace CSharpTasks
+namespace CSharpTasks
 {
     internal static class StingUtility
     {
@@ -2743,15 +2744,58 @@ namespace CSharpTasks
         {
             Console.Write("Enter a name : ");
             string? name;
-            while (string.IsNullOrWhiteSpace(name = Console.ReadLine()))
+            while (string.IsNullOrWhiteSpace(name = Console.ReadLine()?.ToLower()))
             {
                 Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid name:");
             }
-
             
+            char[] chars = new char[name.Length];
+            int[] counts = new int[name.Length];
+            int uniqueCount = 0;
+
+            foreach (char element in name)
+            {
+                if (!char.IsLetter(element))
+                {
+                    continue;
+                }
+                
+                bool found = false;
+                for (int i = 0; i < uniqueCount; i++)
+                {
+                    if (chars[i] == element)
+                    {
+                        counts[i]++;
+                        found = true;
+                        break;
+                    }
+                }
+
+                // If the character is not found in the array add it to the array
+                if (!found)
+                {
+                    chars[uniqueCount] = element;
+                    counts[uniqueCount] = 1;
+                    uniqueCount++;
+                }
+            }
+            
+            string output = "";
+            for (int i = 0; i < uniqueCount; i++)
+            {
+                output += $"{chars[i]} = {counts[i]}, ";
+            }
+            
+            // Remove the trailing comma and space
+            if (output.Length > 0)
+            {
+                output = output.Substring(0, output.Length - 2);
+            }
+            
+            Console.WriteLine(output);
         }
     }
-}*/
+}
 
 
 /*
@@ -2761,7 +2805,7 @@ namespace CSharpTasks
  *      Output: yadnus
  */
 
-namespace CSharpTasks
+/*namespace CSharpTasks
 {
     internal static class StingUtility
     {
@@ -2773,6 +2817,7 @@ namespace CSharpTasks
             {
                 Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid name:");
             }
+
             Console.WriteLine($"Original word : {word}");
             Console.WriteLine($"Reversed word : {ReverseWord(word).ToLower()}");
         }
@@ -2784,7 +2829,7 @@ namespace CSharpTasks
             return new string(charArray);
         }
     }
-}
+}*/
 
 
 /*
