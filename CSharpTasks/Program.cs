@@ -3005,7 +3005,7 @@ namespace CSharpTasks
  * 10. Enter 10 names in a string array and display only those names which are starting with “H”.
  */
 
-using System;
+/*using System;
 
 namespace CSharpTasks
 {
@@ -3047,7 +3047,7 @@ namespace CSharpTasks
             }
         }
     }
-}
+}*/
 
 
 /*
@@ -3055,6 +3055,30 @@ namespace CSharpTasks
         Input: “Sanjay.Rahul.Gautam,tina.farooq,yash.ketan”
         Output: “Sanjay,Rahul,Gautam.tina,farooq.yash,ketan”
  */
+
+using System;
+
+namespace CSharpTasks
+{
+    internal static class StingUtility
+    {
+
+        public static void Main()
+        {
+            Console.Write("Enter a sentence : ");
+            string? sentence;
+            while (string.IsNullOrWhiteSpace(sentence = Console.ReadLine()))
+            {
+                Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid name:");
+            }
+
+            Console.WriteLine($"Original sentence : {sentence}");
+            
+            string replace = sentence.Replace(".", "@`#").Replace(",", ".").Replace("@`#", ",");
+            Console.WriteLine($"Formatted sentence : {replace}");
+        }
+    }
+}
 
 
 /*
