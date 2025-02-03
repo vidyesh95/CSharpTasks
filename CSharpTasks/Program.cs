@@ -3056,7 +3056,7 @@ namespace CSharpTasks
         Output: “Sanjay,Rahul,Gautam.tina,farooq.yash,ketan”
  */
 
-using System;
+/*using System;
 
 namespace CSharpTasks
 {
@@ -3078,14 +3078,55 @@ namespace CSharpTasks
             Console.WriteLine($"Formatted sentence : {replace}");
         }
     }
-}
+}*/
 
 
 /*
  * 12. String str = “Client ID: A1234
  *      Account Number: P12345
+ *      Account Amount: 5690350”
+ * 
  *     Extract the Client ID, Account Number and Account amount and display them.
  */
+
+using System;
+
+namespace CSharpTasks
+{
+    internal static class StingUtility
+    {
+        public static void Main()
+        {
+            string sentence = "Client ID: A1234 \n Account Number: P12345 \n Account amount:  5690350";
+            
+            string clientId = "";
+            string accountNumber = "";
+            string accountAmount = "";
+            
+            string[] words = sentence.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                if (words[i] == "Client" && words[i + 1] == "ID:")
+                {
+                    clientId = words[i + 2];
+                }
+                else if (words[i] == "Account" && words[i + 1] == "Number:")
+                {
+                    accountNumber = words[i + 2];
+                }
+                else if (words[i] == "Account" && words[i + 1] == "amount:")
+                {
+                    accountAmount = words[i + 2];
+                }
+            }
+
+            Console.WriteLine($"Client ID       : {clientId}");
+            Console.WriteLine($"Account Number  : {accountNumber}");
+            Console.WriteLine($"Account amount  : {accountAmount}");
+        }
+    }
+}
 
 
 /*
