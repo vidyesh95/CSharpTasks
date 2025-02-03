@@ -2841,7 +2841,7 @@ namespace CSharpTasks
  *      Input: good = not a palindrome
  */
 
-namespace CSharpTasks
+/*namespace CSharpTasks
 {
     internal static class StingUtility
     {
@@ -2871,12 +2871,74 @@ namespace CSharpTasks
             return true;
         }
     }
-}
+}*/
 
 
 /*
  * 8. Enter a sentence and display the frequency of each word.
+ *      Input : The cloud of rain in sky of rain
+ *      Output : the = 1, cloud = 1, of = 2, rain = 2, in = 1, sky = 1
  */
+
+namespace CSharpTasks
+{
+    internal static class StingUtility
+    {
+        public static void Main()
+        {
+            Console.Write("Enter a sentence : ");
+            string? sentence;
+            while (string.IsNullOrWhiteSpace(sentence = Console.ReadLine()?.ToLower()))
+            {
+                Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid name:");
+            }
+
+            Console.WriteLine(sentence);
+
+            string[] words = sentence.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
+            string[] singleWords = new String[words.Length];
+            int[] counts = new int[words.Length];
+            int uniqueCount = 0;
+
+            foreach (string word in words)
+            {
+                bool found = false;
+                for (int i = 0; i < uniqueCount; i++)
+                {
+                    if (singleWords[i] == word)
+                    {
+                        counts[i]++;
+                        found = true;
+                        break;
+                    }
+                }
+
+                // If the word is not found in the array add it to the array
+                if (!found)
+                {
+                    singleWords[uniqueCount] = word;
+                    counts[uniqueCount] = 1;
+                    uniqueCount++;
+                }
+            }
+
+            string output = "";
+            for (int i = 0; i < uniqueCount; i++)
+            {
+                output += $"{singleWords[i]} = {counts[i]}, ";
+            }
+
+            // Remove the trailing comma and space
+            if (output.Length > 0)
+            {
+                output = output.Substring(0, output.Length - 2);
+            }
+
+            Console.WriteLine(output);
+        }
+    }
+}
 
 
 /*
