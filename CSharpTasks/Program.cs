@@ -3263,30 +3263,82 @@ namespace CSharpTasks
         private static bool IsValidEmail(string email)
         {
             string emailPattern = @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$";
+            // emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
             return Regex.IsMatch(email, emailPattern);
         }
 
+        /// <summary>
+        /// ^                   : Asserts the position at the start of the string.
+        /// ((http|https)://)?  : Matches the protocol part (http:// or https://) optionally.
+        /// (http|https)        : Matches either http or https.
+        /// ://                 : Matches the literal ://.
+        /// ?                   : Makes the preceding group optional.
+        /// (([\w-]+\.)+)?      : Matches the subdomain part optionally.
+        /// [\w-]+              : Matches one or more word characters (letters, digits, and underscores) or hyphens.
+        /// \.                  : Matches a literal dot.
+        /// +                   : Matches one or more of the preceding group.
+        /// ?                   : Makes the entire group optional.
+        /// [\w-]+              : Matches the main domain part, consisting of one or more word characters or hyphens.
+        /// (\.[a-z]{2,3}(\.[a-z]{2,3})?): Matches the top-level domain (TLD) part.
+        /// \.                  : Matches a literal dot.
+        /// [a-z]{2,3}          : Matches 2 to 3 lowercase letters.
+        /// (\.[a-z]{2,3})?     : Optionally matches a second-level TLD.
+        /// \.                  : Matches a literal dot.
+        /// [a-z]{2,3}          : Matches 2 to 3 lowercase letters.
+        /// ?                   : Makes the preceding group optional.
+        /// $                   : Asserts the position at the end of the string.
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns>True if Url is valid or else false</returns>
         private static bool IsValidUrl(string url)
         {
-            string urlPattern = @"^(http|https)://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?$";
+            string urlPattern = @"^((http|https)://)?(([\w-]+\.)+)?[\w-]+(\.[a-z]{2,3}(\.[a-z]{2,3})?)$";
             return Regex.IsMatch(url, urlPattern);
         }
 
+        /// <summary>
+        /// [A-Z]{5}    : This part matches exactly 5 uppercase alphabetic characters.
+        /// [0-9]{4}    : This part matches exactly 4 numeric digits.
+        /// [A-Z]{1}    : This part matches exactly 1 uppercase alphabetic character.
+        /// </summary>
+        /// <param name="panCard"></param>
+        /// <returns>True if PAN is valid or else false</returns>
         private static bool IsValidPanCard(string panCard)
         {
             string panCardPattern = @"[A-Z]{5}[0-9]{4}[A-Z]{1}";
             return Regex.IsMatch(panCard, panCardPattern);
         }
 
+        /// <summary>
+        /// ^       : Asserts the position at the start of the string.
+        /// \d{4}   : Matches exactly 4 digits.
+        /// \s?     : Matches zero or one whitespace character.
+        /// \d{4}   : Matches exactly 4 digits.
+        /// \s?     : Matches zero or one whitespace character.
+        /// \d{4}   : Matches exactly 4 digits.
+        /// $       : Asserts the position at the end of the string.
+        /// </summary>
+        /// <param name="aadhaarCard"></param>
+        /// <returns>True if Aadhaar number is valid or else false</returns>
         private static bool IsValidAadhaarCard(string aadhaarCard)
         {
-            string aadhaarCardPattern = @"^\d{4}\s\d{4}\s\d{4}$";
+            string aadhaarCardPattern = @"^\d{4}\s?\d{4}\s?\d{4}$";
             return Regex.IsMatch(aadhaarCard, aadhaarCardPattern);
         }
 
+        /// <summary>
+        /// ^           : Asserts the position at the start of the string.
+        /// \+?         : Matches an optional + character.
+        /// \d{0,3}?    : Matches between 0 and 3 digits, optionally.
+        /// \s?         : Matches an optional whitespace character.
+        /// (\d\s?){10} : Matches exactly 10 digits, each optionally followed by a whitespace character.
+        /// $           : Asserts the position at the end of the string.
+        /// </summary>
+        /// <param name="phoneNumber"></param>
+        /// <returns>True if Phone number is valid or else false</returns>
         private static bool IsValidPhoneNumber(string phoneNumber)
         {
-            string phoneNumberPattern = @"^\+?\d{1,3}?\s?\d{10}$";
+            string phoneNumberPattern = @"^\+?\d{0,3}?\s?(\d\s?){10}$";
             return Regex.IsMatch(phoneNumber, phoneNumberPattern);
         }
     }
