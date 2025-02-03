@@ -2734,7 +2734,8 @@ namespace CSharpTasks
  *      Input: address
  *      output: a =01, d=02, r=01, e=01, s=02
  */
-using System;
+
+/*using System;
 
 namespace CSharpTasks
 {
@@ -2748,7 +2749,7 @@ namespace CSharpTasks
             {
                 Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid name:");
             }
-            
+
             char[] chars = new char[name.Length];
             int[] counts = new int[name.Length];
             int uniqueCount = 0;
@@ -2759,7 +2760,7 @@ namespace CSharpTasks
                 {
                     continue;
                 }
-                
+
                 bool found = false;
                 for (int i = 0; i < uniqueCount; i++)
                 {
@@ -2779,23 +2780,23 @@ namespace CSharpTasks
                     uniqueCount++;
                 }
             }
-            
+
             string output = "";
             for (int i = 0; i < uniqueCount; i++)
             {
                 output += $"{chars[i]} = {counts[i]}, ";
             }
-            
+
             // Remove the trailing comma and space
             if (output.Length > 0)
             {
                 output = output.Substring(0, output.Length - 2);
             }
-            
+
             Console.WriteLine(output);
         }
     }
-}
+}*/
 
 
 /*
@@ -2839,6 +2840,38 @@ namespace CSharpTasks
  *      Input: mom = palindrome
  *      Input: good = not a palindrome
  */
+
+namespace CSharpTasks
+{
+    internal static class StingUtility
+    {
+        public static void Main()
+        {
+            Console.Write("Enter a word : ");
+            string? word;
+            while (string.IsNullOrWhiteSpace(word = Console.ReadLine()))
+            {
+                Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid name:");
+            }
+
+            Console.WriteLine($"Input : {word} = {(IsPalindrome(word) ? "palindrome" : "not a palindrome")}");
+        }
+
+        private static bool IsPalindrome(string word)
+        {
+            int length = word.Length;
+            for (int i = 0; i < length / 2; i++)
+            {
+                if (word[i] != word[length - i - 1])
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+    }
+}
 
 
 /*
