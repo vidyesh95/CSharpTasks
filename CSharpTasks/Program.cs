@@ -3137,7 +3137,7 @@ namespace CSharpTasks
  *      Input: 986 234 362 8            Output: 9862343628
  */
 
-using System;
+/*using System;
 
 namespace CSharpTasks
 {
@@ -3155,16 +3155,143 @@ namespace CSharpTasks
             }
         }
     }
-}
+}*/
 
 
 /*
  * REGEX TASK:
  */
 /*
+ * ^ - Starts with
+ * $ - Ends with
+ * [] - Range
+ * () - Group
+ * . - Single character once
+ * * - one or more characters in a row
+ * ? - optional preceding character match
+ * \ - escape character
+ * \n - New line
+ * \d - Digit
+ * \D - Non-digit
+ * \s - White space
+ * \S - non-white space
+ * \w - alphanumeric/underscore character (word chars)
+ * \W - non-word characters
+ * {x,y} - Repeat low (x) to high (y) (no "y" means at least x, no ",y" means exactly x)
+ * (x|y) - Alternative - x or y
+ * [^x] - Anything but x (where x is whatever character you want)
+
+ */
+
+/*
  * 1. Enter the following input and validate it:
  *      Email id, URL, PAN Card no, Aadhaar Card no, Phone no.
  */
+
+using System;
+using System.Text.RegularExpressions;
+
+namespace CSharpTasks
+{
+    internal static class RegexUtility
+    {
+        public static void Main()
+        {
+            Console.Write("Enter an email id : ");
+            string? email;
+            while (string.IsNullOrWhiteSpace(email = Console.ReadLine()))
+            {
+                Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid email id:");
+            }
+
+            Console.WriteLine($"Email id : {email} is {(IsValidEmail(email) ? "valid" : "invalid")}");
+
+            Console.Write("Enter a URL : ");
+            string? url;
+            while (string.IsNullOrWhiteSpace(url = Console.ReadLine()))
+            {
+                Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid URL:");
+            }
+
+            Console.WriteLine($"URL : {url} is {(IsValidUrl(url) ? "valid" : "invalid")}");
+
+            Console.Write("Enter a PAN card number : ");
+            string? panCard;
+            while (string.IsNullOrWhiteSpace(panCard = Console.ReadLine()))
+            {
+                Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid PAN card number:");
+            }
+
+            Console.WriteLine($"PAN card number : {panCard} is {(IsValidPanCard(panCard) ? "valid" : "invalid")}");
+
+            Console.Write("Enter an Aadhaar card number : ");
+            string? aadhaarCard;
+            while (string.IsNullOrWhiteSpace(aadhaarCard = Console.ReadLine()))
+            {
+                Console.WriteLine(
+                    "Input cannot be null or empty or only space. Please enter a valid Aadhaar card number:");
+            }
+
+            Console.WriteLine(
+                $"Aadhaar card number : {aadhaarCard} is {(IsValidAadhaarCard(aadhaarCard) ? "valid" : "invalid")}");
+
+            Console.Write("Enter a phone number : ");
+            string? phoneNumber;
+            while (string.IsNullOrWhiteSpace(phoneNumber = Console.ReadLine()))
+            {
+                Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid phone number:");
+            }
+
+            Console.WriteLine(
+                $"Phone number : {phoneNumber} is {(IsValidPhoneNumber(phoneNumber) ? "valid" : "invalid")}");
+        }
+
+        /// <summary>
+        /// ^               : Asserts the position at the start of the string.
+        /// \w+             : Matches one or more word characters (letters, digits, and underscores).
+        /// ([-+.']\w+)*    : Matches zero or more sequences of a hyphen, plus, dot, or apostrophe followed by one or more word characters.
+        /// @               : Matches the "@" symbol.
+        /// \w+             : Matches one or more word characters.
+        /// ([-.]\w+)*      : Matches zero or more sequences of a hyphen or dot followed by one or more word characters.
+        /// \.              : Matches a literal dot.
+        /// \w+             : Matches one or more word characters.
+        /// ([-.]\w+)*      : Matches zero or more sequences of a hyphen or dot followed by one or more word characters.
+        /// $               : Asserts the position at the end of the string.
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns>True if the input is valid, otherwise false</returns>
+        private static bool IsValidEmail(string email)
+        {
+            string emailPattern = @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$";
+            return Regex.IsMatch(email, emailPattern);
+        }
+
+        private static bool IsValidUrl(string url)
+        {
+            string urlPattern = @"^(http|https)://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?$";
+            return Regex.IsMatch(url, urlPattern);
+        }
+
+        private static bool IsValidPanCard(string panCard)
+        {
+            string panCardPattern = @"[A-Z]{5}[0-9]{4}[A-Z]{1}";
+            return Regex.IsMatch(panCard, panCardPattern);
+        }
+
+        private static bool IsValidAadhaarCard(string aadhaarCard)
+        {
+            string aadhaarCardPattern = @"^\d{4}\s\d{4}\s\d{4}$";
+            return Regex.IsMatch(aadhaarCard, aadhaarCardPattern);
+        }
+
+        private static bool IsValidPhoneNumber(string phoneNumber)
+        {
+            string phoneNumberPattern = @"^\+?\d{1,3}?\s?\d{10}$";
+            return Regex.IsMatch(phoneNumber, phoneNumberPattern);
+        }
+    }
+}
+
 
 /*
  * 2. Input: “Please feel free to contact me on abhishek.solanki@gmail.com
