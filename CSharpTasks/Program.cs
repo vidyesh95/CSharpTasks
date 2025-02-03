@@ -3073,7 +3073,7 @@ namespace CSharpTasks
             }
 
             Console.WriteLine($"Original sentence : {sentence}");
-            
+
             string replace = sentence.Replace(".", "@`#").Replace(",", ".").Replace("@`#", ",");
             Console.WriteLine($"Formatted sentence : {replace}");
         }
@@ -3085,11 +3085,11 @@ namespace CSharpTasks
  * 12. String str = “Client ID: A1234
  *      Account Number: P12345
  *      Account Amount: 5690350”
- * 
+ *
  *     Extract the Client ID, Account Number and Account amount and display them.
  */
 
-using System;
+/*using System;
 
 namespace CSharpTasks
 {
@@ -3098,11 +3098,11 @@ namespace CSharpTasks
         public static void Main()
         {
             string sentence = "Client ID: A1234 \n Account Number: P12345 \n Account amount:  5690350";
-            
+
             string clientId = "";
             string accountNumber = "";
             string accountAmount = "";
-            
+
             string[] words = sentence.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
             for (int i = 0; i < words.Length; i++)
@@ -3126,16 +3126,35 @@ namespace CSharpTasks
             Console.WriteLine($"Account amount  : {accountAmount}");
         }
     }
-}
+}*/
 
 
 /*
  * 13.  Extract the last 10 numbers from the following phone numbers using string functions:
  *      Input: +91 9892345679           Output: 9892345679
-        Input: +913 9862343629          Output: 9862343629
-        Input: 986-234-3629             Output: 9862343629
-        Input: 986 234 362 8            Output: 9862343628
+ *      Input: +913 9862343629          Output: 9862343629
+ *      Input: 986-234-3629             Output: 9862343629
+ *      Input: 986 234 362 8            Output: 9862343628
  */
+
+using System;
+
+namespace CSharpTasks
+{
+    internal static class StingUtility
+    {
+        public static void Main()
+        {
+            string[] phoneNumbers = { "+91 9892345679", "+913 9862343629", "986-234-3629", "986 234 362 8" };
+
+            foreach (string phoneNumber in phoneNumbers)
+            {
+                string formatNumber = phoneNumber.Replace(" ", "").Replace("-", "").Replace("+", "");
+                Console.WriteLine($"Input: {phoneNumber}    Output: {formatNumber.Substring(formatNumber.Length - 10)}");
+            }
+        }
+    }
+}
 
 
 /*
