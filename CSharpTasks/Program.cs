@@ -3262,6 +3262,27 @@ namespace CSharpTasks
         /// <returns>True if the input is valid, otherwise false</returns>
         private static bool IsValidEmail(string email)
         {
+            /*
+             * ^ - Starts with
+             * $ - Ends with
+             * [] - Range
+             * () - Group
+             * . - Single character once
+             * * - one or more characters in a row
+             * ? - optional preceding character match
+             * \ - escape character
+             * \n - New line
+             * \d - Digit
+             * \D - Non-digit
+             * \s - White space
+             * \S - non-white space
+             * \w - alphanumeric/underscore character (word chars)
+             * \W - non-word characters
+             * {x,y} - Repeat low (x) to high (y) (no "y" means at least x, no ",y" means exactly x)
+             * (x|y) - Alternative - x or y
+             * [^x] - Anything but x (where x is whatever character you want)
+
+             */
             string emailPattern = @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$";
             // emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
             return Regex.IsMatch(email, emailPattern);
