@@ -3161,26 +3161,39 @@ namespace CSharpTasks
 /*
  * REGEX TASK:
  */
-/*
- * ^ - Starts with
- * $ - Ends with
- * [] - Range
- * () - Group
- * . - Single character once
- * * - one or more characters in a row
- * ? - optional preceding character match
- * \ - escape character
- * \n - New line
- * \d - Digit
- * \D - Non-digit
- * \s - White space
- * \S - non-white space
- * \w - alphanumeric/underscore character (word chars)
- * \W - non-word characters
- * {x,y} - Repeat low (x) to high (y) (no "y" means at least x, no ",y" means exactly x)
- * (x|y) - Alternative - x or y
- * [^x] - Anything but x (where x is whatever character you want)
 
+/*
+ * ^    -   Starts with
+ * $    -   Ends with
+ * []   -   Range
+ * ()   -   Group
+ * .    -   Single character once
+ * +    -   Matches one or more occurrences of the preceding element.
+ *          It requires at least one occurrence for a match.
+ * *    -   Matches zero or more occurrences of the preceding element.
+ *          It can match zero occurrences, meaning the element is optional.
+ * ?    -   optional preceding character match
+ * ?=   -   Positive lookahead assertion. It is used to assert that a certain pattern can be
+ *          matched ahead in the string without consuming any characters.
+ *          This means it checks for the presence of a pattern but does not include it in the match.
+ * ?:   -   Non-capturing group. It is used to match the pattern but not include it in the match.
+ * ?!   -   Negative lookahead assertion. It is used to assert that a certain pattern cannot be
+ *          matched ahead in the string.
+ * \    -   escape character
+ * \n   -   New line
+ * \d   -   Digit
+ * \D   -   Non-digit
+ * \s   -   White space
+ * \S   -   non-white space
+ * \w   -   alphanumeric/underscore character (word chars)
+ * \W   -   non-word characters
+ * \b   -   Word boundary. It asserts the position at the start or end of a word.
+ * /p{L} -  Unicode letter. Unicode property escape that matches any Unicode letter from any language.
+ *          It's a powerful way to handle characters beyond the basic ASCII set,
+ *          ensuring regex can work with a wide range of text.
+ * {x,y} -  Repeat low (x) to high (y) (no "y" means at least x, no ",y" means exactly x)
+ * (x|y) -  Alternative - x or y
+ * [^x]  -  Anything but x (where x is whatever character you want)
  */
 
 /*
@@ -3188,7 +3201,7 @@ namespace CSharpTasks
  *      Email id, URL, PAN Card no, Aadhaar Card no, Phone no.
  */
 
-using System;
+/*using System;
 using System.Text.RegularExpressions;
 
 namespace CSharpTasks
@@ -3263,26 +3276,34 @@ namespace CSharpTasks
         private static bool IsValidEmail(string email)
         {
             /*
-             * ^ - Starts with
-             * $ - Ends with
-             * [] - Range
-             * () - Group
-             * . - Single character once
-             * * - one or more characters in a row
-             * ? - optional preceding character match
-             * \ - escape character
-             * \n - New line
-             * \d - Digit
-             * \D - Non-digit
-             * \s - White space
-             * \S - non-white space
-             * \w - alphanumeric/underscore character (word chars)
-             * \W - non-word characters
-             * {x,y} - Repeat low (x) to high (y) (no "y" means at least x, no ",y" means exactly x)
-             * (x|y) - Alternative - x or y
-             * [^x] - Anything but x (where x is whatever character you want)
-
-             */
+             * ^    -   Starts with
+             * $    -   Ends with
+             * []   -   Range
+             * ()   -   Group
+             * .    -   Single character once
+             * +    -   Matches one or more occurrences of the preceding element.
+             *          It requires at least one occurrence for a match.
+             * *    -   Matches zero or more occurrences of the preceding element.
+             *          It can match zero occurrences, meaning the element is optional.
+             * ?    -   optional preceding character match
+             * ?=   -   Positive lookahead assertion. It is used to assert that a certain pattern can be
+             *          matched ahead in the string without consuming any characters.
+             *          This means it checks for the presence of a pattern but does not include it in the match.
+             * \    -   escape character
+             * \n   -   New line
+             * \d   -   Digit
+             * \D   -   Non-digit
+             * \s   -   White space
+             * \S   -   non-white space
+             * \w   -   alphanumeric/underscore character (word chars)
+             * \W   -   non-word characters
+             * /p{L} -  Unicode letter. Unicode property escape that matches any Unicode letter from any language.
+             *          It's a powerful way to handle characters beyond the basic ASCII set,
+             *          ensuring regex can work with a wide range of text.
+             * {x,y} -  Repeat low (x) to high (y) (no "y" means at least x, no ",y" means exactly x)
+             * (x|y) -  Alternative - x or y
+             * [^x]  -  Anything but x (where x is whatever character you want)
+             #1#
             string emailPattern = @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$";
             // emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
             return Regex.IsMatch(email, emailPattern);
@@ -3363,7 +3384,7 @@ namespace CSharpTasks
             return Regex.IsMatch(phoneNumber, phoneNumberPattern);
         }
     }
-}
+}*/
 
 
 /*
@@ -3371,6 +3392,98 @@ namespace CSharpTasks
  * anytime between 10 am to 6 pm.”
  * Extract email id and timings using Regex.
  */
+
+using System;
+using System.Text.RegularExpressions;
+
+namespace CSharpTasks
+{
+    internal static class RegexUtility
+    {
+        /*
+         * ^    -   Starts with
+         * $    -   Ends with
+         * []   -   Range
+         * ()   -   Group
+         * .    -   Single character once
+         * +    -   Matches one or more occurrences of the preceding element.
+         *          It requires at least one occurrence for a match.
+         * *    -   Matches zero or more occurrences of the preceding element.
+         *          It can match zero occurrences, meaning the element is optional.
+         * ?    -   optional preceding character match
+         * ?=   -   Positive lookahead assertion. It is used to assert that a certain pattern can be
+         *          matched ahead in the string without consuming any characters.
+         *          This means it checks for the presence of a pattern but does not include it in the match.
+         * ?:   -   Non-capturing group. It is used to match the pattern but not include it in the match.
+         * ?!   -   Negative lookahead assertion. It is used to assert that a certain pattern cannot be
+         *          matched ahead in the string.
+         * \    -   escape character
+         * \n   -   New line
+         * \d   -   Digit
+         * \D   -   Non-digit
+         * \s   -   White space
+         * \S   -   non-white space
+         * \w   -   alphanumeric/underscore character (word chars)
+         * \W   -   non-word characters
+         * \b   -   Word boundary. It asserts the position at the start or end of a word.
+         * /p{L} -  Unicode letter. Unicode property escape that matches any Unicode letter from any language.
+         *          It's a powerful way to handle characters beyond the basic ASCII set,
+         *          ensuring regex can work with a wide range of text.
+         * {x,y} -  Repeat low (x) to high (y) (no "y" means at least x, no ",y" means exactly x)
+         * (x|y) -  Alternative - x or y
+         * [^x]  -  Anything but x (where x is whatever character you want)
+         */
+        public static void Main()
+        {
+            string sentence = "Please feel free to contact me on abhishek.solanki@gmail.com anytime " +
+                              "between 10 am to 6 pm.";
+            Console.WriteLine(sentence);
+            string email;
+            string timings;
+            string emailPattern = @"[A-Za-z0-9._%+-]+@[\p{L}0-9.-]+\.[A-Za-z]{2,}";
+            // string timingsPattern = @"(?:(^|\s))([1-9]|1[0-2])\s?(am|pm)(?=\s|$|.|:|;)";
+            string timingsPattern = @"\b([1-9]|1[0-2])\s?(am|pm)\b";
+            MatchCollection emailMatches = Regex.Matches(sentence, emailPattern, RegexOptions.IgnoreCase);
+            MatchCollection timingsMatches = Regex.Matches(sentence, timingsPattern, RegexOptions.IgnoreCase);
+            Console.Write($"Email id : ");
+            foreach (Match emailMatch in emailMatches)
+            {
+                email = emailMatch.Value;
+                Console.WriteLine($"{email} ");
+            }
+
+            Console.Write("Timings : ");
+            foreach (Match timingsMatch in timingsMatches)
+            {
+                timings = timingsMatch.Value;
+                Console.Write($"{timings} ");
+            }
+        }
+    }
+}
+
+
+/*
+* ^ - Starts with
+* $ - Ends with
+* [] - Range
+* () - Group
+* . - Single character once
+* * - one or more characters in a row
+* ? - optional preceding character match
+* \ - escape character
+* \n - New line
+* \d - Digit
+* \D - Non-digit
+* \s - White space
+* \S - non-white space
+* \w - alphanumeric/underscore character (word chars)
+* \W - non-word characters
+* {x,y} - Repeat low (x) to high (y) (no "y" means at least x, no ",y" means exactly x)
+* (x|y) - Alternative - x or y
+* [^x] - Anything but x (where x is whatever character you want)
+
+*/
 /*
  * 3. Extract the last 10 numbers from the following phone numbers using
  * Regex functions:
