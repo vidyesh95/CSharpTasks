@@ -3393,7 +3393,7 @@ namespace CSharpTasks
  * Extract email id and timings using Regex.
  */
 
-using System;
+/*using System;
 using System.Text.RegularExpressions;
 
 namespace CSharpTasks
@@ -3432,7 +3432,7 @@ namespace CSharpTasks
          * {x,y} -  Repeat low (x) to high (y) (no "y" means at least x, no ",y" means exactly x)
          * (x|y) -  Alternative - x or y
          * [^x]  -  Anything but x (where x is whatever character you want)
-         */
+         #1#
         public static void Main()
         {
             string sentence = "Please feel free to contact me on abhishek.solanki@gmail.com anytime " +
@@ -3460,30 +3460,9 @@ namespace CSharpTasks
             }
         }
     }
-}
+}*/
 
 
-/*
-* ^ - Starts with
-* $ - Ends with
-* [] - Range
-* () - Group
-* . - Single character once
-* * - one or more characters in a row
-* ? - optional preceding character match
-* \ - escape character
-* \n - New line
-* \d - Digit
-* \D - Non-digit
-* \s - White space
-* \S - non-white space
-* \w - alphanumeric/underscore character (word chars)
-* \W - non-word characters
-* {x,y} - Repeat low (x) to high (y) (no "y" means at least x, no ",y" means exactly x)
-* (x|y) - Alternative - x or y
-* [^x] - Anything but x (where x is whatever character you want)
-
-*/
 /*
  * 3. Extract the last 10 numbers from the following phone numbers using
  * Regex functions:
@@ -3492,6 +3471,40 @@ namespace CSharpTasks
  * Input: 232-888-986-234-3629 Output: 9862343629
  * Input: 101 986 234 362 8 Output: 9862343628
  */
+
+using System;
+using System.Text.RegularExpressions;
+
+namespace CSharpTasks
+{
+    internal static class RegexUtility
+    {
+        public static void Main()
+        {
+            Console.Write("Enter input : ");
+            string? input;
+            while (string.IsNullOrWhiteSpace(input = Console.ReadLine()))
+            {
+                Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid sentence:");
+            }
+
+            string output = ExtractTenNumbers(input);
+            PrintTenNumbers(input, output);
+        }
+
+        private static void PrintTenNumbers(string input, string output)
+        {
+            Console.WriteLine($"Input: {input} Output: {output}");
+        }
+
+        private static string ExtractTenNumbers(string input)
+        {
+            string pattern = @"(\d{1}(\s|-)*){10}$";
+            Match match = Regex.Match(input, pattern);
+            return Regex.Replace(match.Value, @"\s|-", "");
+        }
+    }
+}
 
 /*
  * DATE TIME TASK:
