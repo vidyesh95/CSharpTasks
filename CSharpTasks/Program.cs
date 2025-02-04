@@ -3472,7 +3472,7 @@ namespace CSharpTasks
  * Input: 101 986 234 362 8 Output: 9862343628
  */
 
-using System;
+/*using System;
 using System.Text.RegularExpressions;
 
 namespace CSharpTasks
@@ -3504,15 +3504,48 @@ namespace CSharpTasks
             return Regex.Replace(match.Value, @"\s|-", "");
         }
     }
-}
+}*/
+
 
 /*
  * DATE TIME TASK:
  */
-
 /*
  * 1. Enter any random date and print it is weekday or weekend.
  */
+
+using System;
+
+namespace CSharpTasks
+{
+    internal static class DateTimeUtility
+    {
+        public static void Main()
+        {
+            Console.Write("Enter a date (dd/MM/yyyy) : ");
+            string? date;
+            while (string.IsNullOrWhiteSpace(date = Console.ReadLine()))
+            {
+                Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid date:");
+            }
+
+            if (DateTime.TryParse(date, out DateTime dateTime))
+            {
+                Console.WriteLine($"The day is {(IsWeekend(dateTime) ? "weekend" : "weekday")}");
+            }
+            else
+            {
+                Console.WriteLine("Invalid date format. Please enter a valid date.");
+            }
+        }
+
+        private static bool IsWeekend(DateTime date)
+        {
+            return date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday;
+        }
+    }
+}
+
 
 /*
  * 2. Enter your birth date and print the current age.
@@ -3523,41 +3556,65 @@ namespace CSharpTasks
  */
 
 /*
-4. Enter your birthdate and print on which weekday you were born.
-Input: 3/4/2015
-Output: I was born on Friday.
-5. If the age of a person is 400000459 seconds find his date of birth.
-6. String str[]={“14/05/2024”, “05/01/1987”, “21/08/1988”,
-“29/05/2016”, “25/12/2027”, “21/05/2030”, “24/05/2024”}
-In the output separate the past, present and future dates from the
-above string array.
+ * 4. Enter your birthdate and print on which weekday you were born.
+ * Input: 3/4/2015
+ * Output: I was born on Friday.
+ */
+/*
+ * 5. If the age of a person is 400000459 seconds find his date of birth.
+ */
+/*
+ * 6. String str[]={“14/05/2024”, “05/01/1987”, “21/08/1988”, “29/05/2016”, “25/12/2027”, “21/05/2030”, “24/05/2024”}
+ * In the output separate the past, present and future dates from the above string array.
+ */
+/*
+ * 7. Enter your birthdate and print this year on which weekday your birthday is.
+ * Input: 3/4/2015
+ * Output: This year (2024) my birthday falls on Wednesday.
+ */
 
-7. Enter your birth date and print this year on which weekday your
-birthday is.
-Input: 3/4/2015
-Output: This year (2024) my birthday falls on Wednesday.
-COLLECTION TASK:
-1. Create a List / Array List of Stationary items and perform insert,
-delete and search operation.
-2. String str= “London Tokyo Paris Sydney Toronto Berlin Mumbai
-Beijing Dubai Los-Angeles Singapore Rome Istanbul São-Paulo
-Chicago Madrid Shanghai Seoul Hong-Kong Buenos Aires Moscow
-Amsterdam Cairo Delhi”
- Create a list of cities from the above string.
-3. Create a dictionary of state names and their capital and perform
-insert, delete and search operation.
-EXCEPTION HANDLING:
-1. Enter two numbers and handle division by zero exception.
-2. Enter numbers in an array and handle array index out of bound
-exception.
-3. Enter a value and handle number format exception.
-4. Enter a value and handle format exception.
-5. Handle all the above-mentioned exceptions using try with multiple
-catch method.
-6. Combine the scenarios from the Question 1 and 2 and implement the
-nested try catch concept. It should handle the exceptions from both the
-scenarios.
-7. Perform a task to deposit and withdraw money using functions and
-switch case. Display a custom exception message if the balance
-amount goes below Rs.1000 during withdrawal transaction.
+/*
+ * COLLECTION TASK:
+ */
+/*
+ * 1. Create a List / Array List of Stationary items and perform
+ * insert, delete and search operation.
+ */
+/*
+ * 2. String str= “London Tokyo Paris Sydney Toronto Berlin Mumbai
+ * Beijing Dubai Los-Angeles Singapore Rome Istanbul São-Paulo
+ * Chicago Madrid Shanghai Seoul Hong-Kong Buenos Aires Moscow
+ * Amsterdam Cairo Delhi”
+ * Create a list of cities from the above string.
+ */
+/*
+ * 3. Create a dictionary of state names and their capital and perform
+ * insert, delete and search operation.
+ */
+/*
+ * EXCEPTION HANDLING:
+ */
+/*
+ * 1. Enter two numbers and handle division by zero exception.
+ */
+
+/*
+ * 2. Enter numbers in an array and handle array index out of bound exception.
+ */
+/*
+ * 3. Enter a value and handle number format exception.
+ */
+/*
+ * 4. Enter a value and handle format exception.
+ */
+/*
+ * 5. Handle all the above-mentioned exceptions using try with multiple catch method.
+ */
+/*
+ * 6. Combine the scenarios from the Question 1 and 2 and implement the nested try catch concept.
+ *    It should handle the exceptions from both the scenarios.
+ */
+/*
+ * 7. Perform a task to deposit and withdraw money using functions and switch case.
+ * Display a custom exception message if the balance amount goes below Rs.1000 during withdrawal transaction.
  */
