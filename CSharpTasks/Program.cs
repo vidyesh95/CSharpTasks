@@ -348,7 +348,8 @@ Console.WriteLine($"Sum of digits is {sum}");*/
 /*
  * 10. Enter three-digit number and display its reverse(Example: Input - 123 Output - 321).
  */
-/*Console.Write("Enter a three-digit number to display its reverse : ");
+
+Console.Write("Enter a three-digit number to display its reverse : ");
 int number;
 while (!int.TryParse(Console.ReadLine(), out number) || number < 100 || number > 999)
 {
@@ -371,7 +372,9 @@ foreach (var digit in digits)
 }
 
 Console.WriteLine();
+
 Console.WriteLine("Method 2 using temporary variable");
+
 int reversedNumber = 0;
 Console.Write("Reversed number is ");
 while (tempNumber > 0)
@@ -379,8 +382,9 @@ while (tempNumber > 0)
     int digit = tempNumber % 10;
     reversedNumber = reversedNumber * 10 + digit;
     tempNumber /= 10;
-    Console.Write(reversedNumber);
-}*/
+}
+
+Console.WriteLine(reversedNumber);
 
 
 /*
@@ -3759,7 +3763,7 @@ namespace CSharpTasks
  * 5. If the age of a person is 400000459 seconds find his date of birth.
  */
 
-using System;
+/*using System;
 using System.Globalization;
 
 namespace CSharpTasks
@@ -3785,13 +3789,81 @@ namespace CSharpTasks
             return dateOfBirth.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
         }
     }
-}
+}*/
 
 
 /*
  * 6. String str[]={“14/05/2024”, “05/01/1987”, “21/08/1988”, “29/05/2016”, “25/12/2027”, “21/05/2030”, “24/05/2024”}
- * In the output separate the past, present and future dates from the above string array.
+ *    In the output separate the past, present and future dates from the above string array.
  */
+
+/*using System;
+using System.Globalization;
+
+namespace CSharpTasks
+{
+    internal static class DateTimeUtility
+    {
+        public static void Main()
+        {
+            string[] dates = { "14/05/2024", "05/01/1987", "21/08/1988",
+                "29/05/2016", "25/12/2027", "21/05/2030", "24/05/2024" };
+            string[] pastDates = new string[dates.Length];
+            string[] presentDates = new string[dates.Length];
+            string[] futureDates = new string[dates.Length];
+            int pastCount = 0;
+            int presentCount = 0;
+            int futureCount = 0;
+
+            foreach (string date in dates)
+            {
+                if (DateTime.TryParseExact(date, "dd/MM/yyyy", CultureInfo.InvariantCulture,
+                        DateTimeStyles.None, out DateTime dateTime))
+                {
+                    if (dateTime < DateTime.Now)
+                    {
+                        pastDates[pastCount] = date;
+                        pastCount++;
+                    }
+                    else if (dateTime > DateTime.Now)
+                    {
+                        futureDates[futureCount] = date;
+                        futureCount++;
+                    }
+                    else
+                    {
+                        presentDates[presentCount] = date;
+                        presentCount++;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"{date} is in Invalid date format. Please enter a valid date.");
+                }
+            }
+
+            Console.WriteLine("Past dates : ");
+            for (int i = 0; i < pastCount; i++)
+            {
+                Console.WriteLine(pastDates[i]);
+            }
+
+            Console.WriteLine("Present dates : ");
+            for (int i = 0; i < presentCount; i++)
+            {
+                Console.WriteLine(presentDates[i]);
+            }
+
+            Console.WriteLine("Future dates : ");
+            for (int i = 0; i < futureCount; i++)
+            {
+                Console.WriteLine(futureDates[i]);
+            }
+        }
+    }
+}*/
+
+
 /*
  * 7. Enter your birthdate and print this year on which weekday your birthday is.
  * Input: 3/4/2015
