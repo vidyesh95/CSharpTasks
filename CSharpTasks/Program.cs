@@ -1071,7 +1071,7 @@ foreach (int element in array3)
  * 32. Accept values in 2D array and perform matrix Addition and multiplication.
  */
 
-using System;
+/*using System;
 
 namespace CSharpTasks
 {
@@ -1235,7 +1235,7 @@ namespace CSharpTasks
             }
         }
     }
-}
+}*/
 
 
 /*
@@ -3788,7 +3788,7 @@ namespace CSharpTasks
  *    In the output separate the past, present and future dates from the above string array.
  */
 
-/*using System;
+using System;
 using System.Globalization;
 
 namespace CSharpTasks
@@ -3796,132 +3796,147 @@ namespace CSharpTasks
     internal static class DateTimeUtility
     {
         public static void Main()
-        {*/
-/*string[] dates = { "14/05/2024", "05/01/1987", "21/08/1988",
-    "29/05/2016", "25/12/2027", "21/05/2030", "24/05/2024" };
-string[] pastDates = new string[dates.Length];
-string[] presentDates = new string[dates.Length];
-string[] futureDates = new string[dates.Length];
-
-for (int i = 0; i < dates.Length; i++)
-{
-    if (DateTime.TryParseExact(dates[i],"dd/MM/yyyy", CultureInfo.InvariantCulture,
-            DateTimeStyles.None, out DateTime dateTime))
-    {
-        if (dateTime < DateTime.Now)
         {
-            pastDates[i] = dates[i];
+            string[] dates =
+            {
+                "14/05/2024", "05/01/1987", "21/08/1988", "29/05/2016", "25/12/2027", "21/05/2030", "24/05/2024"
+            };
+
+
+            Console.WriteLine("Method 1 : ");
+
+            string[] pastDates = new string[dates.Length];
+            string[] presentDates = new string[dates.Length];
+            string[] futureDates = new string[dates.Length];
+
+            for (int i = 0; i < dates.Length; i++)
+            {
+                if (DateTime.TryParseExact(dates[i], "dd/MM/yyyy", CultureInfo.InvariantCulture,
+                        DateTimeStyles.None, out DateTime dateTime))
+                {
+                    if (dateTime < DateTime.Now)
+                    {
+                        pastDates[i] = dates[i];
+                    }
+                    else if (dateTime == DateTime.Now)
+                    {
+                        presentDates[i] = dates[i];
+                    }
+                    else if (dateTime > DateTime.Now)
+                    {
+                        futureDates[i] = dates[i];
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"{dates[i]} is in Invalid date format. Please enter a valid date.");
+                }
+            }
+
+            Console.WriteLine("Print the dates");
+            Console.Write("Past dates : ");
+            foreach (var past in pastDates)
+            {
+                if (!string.IsNullOrWhiteSpace(past))
+                {
+                    Console.Write($"{past} ");
+                }
+            }
+
+            Console.WriteLine();
+
+            Console.Write("Present dates : ");
+            foreach (var present in presentDates)
+            {
+                if (!string.IsNullOrWhiteSpace(present))
+                {
+                    Console.Write($"{present} ");
+                }
+            }
+
+            Console.WriteLine();
+
+            Console.Write("Future dates : ");
+            foreach (var future in futureDates)
+            {
+                if (!string.IsNullOrWhiteSpace(future))
+                {
+                    Console.Write($"{future} ");
+                }
+            }
+
+            Console.WriteLine();
+            Console.WriteLine();
+
+            Console.WriteLine("Method 2 : ");
+            string[] pastDates2 = new string[dates.Length];
+            string[] presentDates2 = new string[dates.Length];
+            string[] futureDates2 = new string[dates.Length];
+            int pastCount = 0;
+            int presentCount = 0;
+            int futureCount = 0;
+
+            foreach (string date in dates)
+            {
+                if (DateTime.TryParseExact(date, "dd/MM/yyyy", CultureInfo.InvariantCulture,
+                        DateTimeStyles.None, out DateTime dateTime))
+                {
+                    if (dateTime < DateTime.Now)
+                    {
+                        pastDates2[pastCount] = date;
+                        pastCount++;
+                    }
+                    else if (dateTime > DateTime.Now)
+                    {
+                        futureDates2[futureCount] = date;
+                        futureCount++;
+                    }
+                    else if (dateTime == DateTime.Now)
+                    {
+                        presentDates2[presentCount] = date;
+                        presentCount++;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"{date} is in Invalid date format. Please enter a valid date.");
+                }
+            }
+
+            Console.WriteLine("Print the dates");
+            Console.Write("Past dates : ");
+            foreach (var past in pastDates2)
+            {
+                if (!string.IsNullOrWhiteSpace(past))
+                {
+                    Console.Write($"{past} ");
+                }
+            }
+
+            Console.WriteLine();
+
+            Console.Write("Present dates : ");
+            foreach (var present in presentDates2)
+            {
+                if (!string.IsNullOrWhiteSpace(present))
+                {
+                    Console.Write($"{present} ");
+                }
+            }
+
+            Console.WriteLine();
+
+            Console.Write("Future dates : ");
+            foreach (var future in futureDates2)
+            {
+                if (!string.IsNullOrWhiteSpace(future))
+                {
+                    Console.Write($"{future} ");
+                }
+            }
         }
     }
-    else
-    {
-        Console.WriteLine($"{dates[i]} is in Invalid date format. Please enter a valid date.");
-    }
 }
-
-for (int i = 0; i < dates.Length; i++)
-{
-    if (DateTime.TryParseExact(dates[i],"dd/MM/yyyy", CultureInfo.InvariantCulture,
-            DateTimeStyles.None, out DateTime dateTime))
-    {
-        if (dateTime == DateTime.Now)
-        {
-            presentDates[i] = dates[i];
-        }
-    }
-    else
-    {
-        Console.WriteLine($"{dates[i]} is in Invalid date format. Please enter a valid date.");
-    }
-}
-
-for (int i = 0; i < dates.Length; i++)
-{
-    if (DateTime.TryParseExact(dates[i],"dd/MM/yyyy", CultureInfo.InvariantCulture,
-            DateTimeStyles.None, out DateTime dateTime))
-    {
-        if (dateTime == DateTime.Now)
-        {
-            futureDates[i] = dates[i];
-        }
-    }
-    else
-    {
-        Console.WriteLine($"{dates[i]} is in Invalid date format. Please enter a valid date.");
-    }
-}
-
-Console.WriteLine("Past dates : ");
-foreach (var past in pastDates)
-{
-    Console.Write($"{past} ");
-}
-Console.WriteLine("Present dates : ");
-foreach (var present in presentDates)
-{
-    Console.Write($"{present} ");
-}
-Console.WriteLine("Future dates : ");
-foreach (var future in futureDates)
-{
-    Console.Write($"{future} ");
-}*/
-/*string[] dates = { "14/05/2024", "05/01/1987", "21/08/1988",
-    "29/05/2016", "25/12/2027", "21/05/2030", "24/05/2024" };
-string[] pastDates = new string[dates.Length];
-string[] presentDates = new string[dates.Length];
-string[] futureDates = new string[dates.Length];
-int pastCount = 0;
-int presentCount = 0;
-int futureCount = 0;
-
-foreach (string date in dates)
-{
-    if (DateTime.TryParseExact(date, "dd/MM/yyyy", CultureInfo.InvariantCulture,
-            DateTimeStyles.None, out DateTime dateTime))
-    {
-        if (dateTime < DateTime.Now)
-        {
-            pastDates[pastCount] = date;
-            pastCount++;
-        }
-        else if (dateTime > DateTime.Now)
-        {
-            futureDates[futureCount] = date;
-            futureCount++;
-        }
-        else
-        {
-            presentDates[presentCount] = date;
-            presentCount++;
-        }
-    }
-    else
-    {
-        Console.WriteLine($"{date} is in Invalid date format. Please enter a valid date.");
-    }
-}
-
-Console.WriteLine("Past dates : ");
-for (int i = 0; i < pastCount; i++)
-{
-    Console.WriteLine(pastDates[i]);
-}
-
-Console.WriteLine("Present dates : ");
-for (int i = 0; i < presentCount; i++)
-{
-    Console.WriteLine(presentDates[i]);
-}
-
-Console.WriteLine("Future dates : ");
-for (int i = 0; i < futureCount; i++)
-{
-    Console.WriteLine(futureDates[i]);
-}*/
-/*}
-}
-}*/
 
 
 /*
