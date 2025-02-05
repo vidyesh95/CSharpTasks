@@ -3514,7 +3514,7 @@ namespace CSharpTasks
  * 1. Enter any random date and print it is weekday or weekend.
  */
 
-using System;
+/*using System;
 using System.Globalization;
 
 namespace CSharpTasks
@@ -3546,7 +3546,7 @@ namespace CSharpTasks
             return date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday;
         }
     }
-}
+}*/
 
 
 /*
@@ -3706,7 +3706,7 @@ namespace CSharpTasks
  * Output: I was born on Friday.
  */
 
-/*using System;
+using System;
 using System.Globalization;
 
 namespace CSharpTasks
@@ -3722,8 +3722,9 @@ namespace CSharpTasks
                 Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid date:");
             }
 
-            if (DateTime.TryParseExact(birthdate, "dd/MM/yyyy", CultureInfo.InvariantCulture,
-                    DateTimeStyles.AssumeLocal, out DateTime dateTime))
+            string[] formats = { "dd/MM/yyyy", "d/M/yyyy" };
+            if (DateTime.TryParseExact(birthdate, formats, CultureInfo.InvariantCulture,
+                    DateTimeStyles.None, out DateTime dateTime))
             {
                 Console.WriteLine($"I was born on {WhichWeekdayBorn(dateTime)}");
             }
@@ -3751,7 +3752,7 @@ namespace CSharpTasks
             };
         }
     }
-}*/
+}
 
 
 /*
