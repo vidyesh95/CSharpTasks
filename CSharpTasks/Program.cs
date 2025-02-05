@@ -3548,7 +3548,7 @@ namespace CSharpTasks
  * 2. Enter your birthdate and print the current age.
  */
 
-/*using System;
+using System;
 
 namespace CSharpTasks
 {
@@ -3588,7 +3588,7 @@ namespace CSharpTasks
             return $"{years} age";
         }
     }
-}*/
+}
 
 
 /*using System;
@@ -3945,7 +3945,7 @@ namespace CSharpTasks
  *    Output: This year (2024) my birthday falls on Wednesday.
  */
 
-using System;
+/*using System;
 using System.Globalization;
 
 namespace CSharpTasks
@@ -3979,7 +3979,7 @@ namespace CSharpTasks
             return new DateTime(DateTime.Now.Year, dateTime.Month, dateTime.Day).DayOfWeek.ToString();
         }
     }
-}
+}*/
 
 /*
  * COLLECTION TASK:
@@ -3988,6 +3988,11 @@ namespace CSharpTasks
  * 1. Create a List / Array List of Stationary items and perform
  * insert, delete and search operation.
  */
+
+/*using System;
+using System.Collections.Generic;*/
+
+
 /*
  * 2. String str= “London Tokyo Paris Sydney Toronto Berlin Mumbai
  * Beijing Dubai Los-Angeles Singapore Rome Istanbul São-Paulo
