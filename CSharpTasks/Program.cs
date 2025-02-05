@@ -3706,7 +3706,7 @@ namespace CSharpTasks
  * Output: I was born on Friday.
  */
 
-using System;
+/*using System;
 using System.Globalization;
 
 namespace CSharpTasks
@@ -3752,12 +3752,42 @@ namespace CSharpTasks
             };
         }
     }
-}
+}*/
 
 
 /*
  * 5. If the age of a person is 400000459 seconds find his date of birth.
  */
+
+using System;
+using System.Globalization;
+
+namespace CSharpTasks
+{
+    internal static class DateTimeUtility
+    {
+        public static void Main()
+        {
+            Console.Write("Enter the age in seconds : ");
+            long seconds;
+            while (!long.TryParse(Console.ReadLine(), out seconds))
+            {
+                Console.WriteLine("Invalid age format. Please enter a valid age in seconds:");
+            }
+
+            Console.WriteLine($"The date of birth is {DateOfBirth(seconds)}");
+        }
+
+        private static string DateOfBirth(long seconds)
+        {
+            DateTime currentDate = DateTime.Now;
+            DateTime dateOfBirth = currentDate.AddSeconds(-seconds);
+            return dateOfBirth.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+        }
+    }
+}
+
+
 /*
  * 6. String str[]={“14/05/2024”, “05/01/1987”, “21/08/1988”, “29/05/2016”, “25/12/2027”, “21/05/2030”, “24/05/2024”}
  * In the output separate the past, present and future dates from the above string array.
