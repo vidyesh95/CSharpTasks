@@ -3551,7 +3551,7 @@ namespace CSharpTasks
  * 2. Enter your birthdate and print the current age.
  */
 
-using System;
+/*using System;
 
 namespace CSharpTasks
 {
@@ -3591,7 +3591,7 @@ namespace CSharpTasks
             return $"{years} age";
         }
     }
-}
+}*/
 
 
 /*using System;
@@ -3650,8 +3650,54 @@ namespace AgeCalculator
 }*/
 
 /*
- * 3. Enter your and your sibling’s birth date and print the age difference.
+ * 3. Enter your and your sibling’s birthdate and print the age difference.
  */
+
+using System;
+
+namespace CSharpTasks
+{
+    internal static class DateTimeUtility
+    {
+        public static void Main()
+        {
+            Console.Write("Enter your birthdate (dd/MM/yyyy) : ");
+            string? yourBirthdate;
+            while (string.IsNullOrWhiteSpace(yourBirthdate = Console.ReadLine()))
+            {
+                Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid date:");
+            }
+
+            Console.Write("Enter your sibling's birthdate (dd/MM/yyyy) : ");
+            string? siblingBirthdate;
+            while (string.IsNullOrWhiteSpace(siblingBirthdate = Console.ReadLine()))
+            {
+                Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid date:");
+            }
+
+            if (DateTime.TryParse(yourBirthdate, out DateTime yourDateTime) &&
+                DateTime.TryParse(siblingBirthdate, out DateTime siblingDateTime))
+            {
+                Console.WriteLine($"The age difference is {AgeDifference(yourDateTime, siblingDateTime)}");
+            }
+            else
+            {
+                Console.WriteLine("Invalid date format. Please enter a valid date.");
+            }
+        }
+
+        private static string AgeDifference(DateTime yourDateTime, DateTime siblingDateTime)
+        {
+            int years = Math.Abs(yourDateTime.Year - siblingDateTime.Year);
+            int months = Math.Abs(yourDateTime.Month - siblingDateTime.Month);
+            int days = Math.Abs(yourDateTime.Day - siblingDateTime.Day);
+
+            return $"{years} years, {months} months, and {days} days";
+        }
+    }
+}
+
+
 
 /*
  * 4. Enter your birthdate and print on which weekday you were born.
