@@ -3788,7 +3788,7 @@ namespace CSharpTasks
  *    In the output separate the past, present and future dates from the above string array.
  */
 
-using System;
+/*using System;
 using System.Globalization;
 
 namespace CSharpTasks
@@ -3936,14 +3936,50 @@ namespace CSharpTasks
             }
         }
     }
-}
+}*/
 
 
 /*
  * 7. Enter your birthdate and print this year on which weekday your birthday is.
- * Input: 3/4/2015
- * Output: This year (2024) my birthday falls on Wednesday.
+ *    Input: 3/4/2015
+ *    Output: This year (2024) my birthday falls on Wednesday.
  */
+
+using System;
+using System.Globalization;
+
+namespace CSharpTasks
+{
+    internal static class DateTimeUtility
+    {
+        public static void Main()
+        {
+            Console.Write("Enter your birthdate (dd/MM/yyyy) : ");
+            string? birthdate;
+            while (string.IsNullOrWhiteSpace(birthdate = Console.ReadLine()))
+            {
+                Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid date:");
+            }
+
+            string[] formats = { "dd/MM/yyyy", "d/M/yyyy" };
+            if (DateTime.TryParseExact(birthdate, formats, CultureInfo.InvariantCulture,
+                    DateTimeStyles.None, out DateTime dateTime))
+            {
+                Console.WriteLine(
+                    $"This year ({DateTime.Now.Year}) my birthday falls on {WhichWeekdayBorn(dateTime)}.");
+            }
+            else
+            {
+                Console.WriteLine("Invalid date format. Please enter a valid date.");
+            }
+        }
+
+        private static string WhichWeekdayBorn(DateTime dateTime)
+        {
+            return new DateTime(DateTime.Now.Year, dateTime.Month, dateTime.Day).DayOfWeek.ToString();
+        }
+    }
+}
 
 /*
  * COLLECTION TASK:
