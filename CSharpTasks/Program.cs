@@ -3548,7 +3548,7 @@ namespace CSharpTasks
  * 2. Enter your birthdate and print the current age.
  */
 
-using System;
+/*using System;
 
 namespace CSharpTasks
 {
@@ -3588,9 +3588,9 @@ namespace CSharpTasks
             return $"{years} age";
         }
     }
-}
+}*/
 
-
+// experimental code
 /*using System;
 
 namespace AgeCalculator
@@ -3650,7 +3650,7 @@ namespace AgeCalculator
  * 3. Enter your and your sibling’s birthdate and print the age difference.
  */
 
-/*using System;
+using System;
 
 namespace CSharpTasks
 {
@@ -3685,14 +3685,11 @@ namespace CSharpTasks
 
         private static string AgeDifference(DateTime yourDateTime, DateTime siblingDateTime)
         {
-            int years = Math.Abs(yourDateTime.Year - siblingDateTime.Year);
-            int months = Math.Abs(yourDateTime.Month - siblingDateTime.Month);
-            int days = Math.Abs(yourDateTime.Day - siblingDateTime.Day);
-
-            return $"{years} years, {months} months, and {days} days";
+            int ageDifference = Math.Abs(yourDateTime.Year - siblingDateTime.Year);
+            return $"{ageDifference} years";
         }
     }
-}*/
+}
 
 
 /*
