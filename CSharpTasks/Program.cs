@@ -349,7 +349,7 @@ Console.WriteLine($"Sum of digits is {sum}");*/
  * 10. Enter three-digit number and display its reverse(Example: Input - 123 Output - 321).
  */
 
-Console.Write("Enter a three-digit number to display its reverse : ");
+/*Console.Write("Enter a three-digit number to display its reverse : ");
 int number;
 while (!int.TryParse(Console.ReadLine(), out number) || number < 100 || number > 999)
 {
@@ -384,7 +384,7 @@ while (tempNumber > 0)
     tempNumber /= 10;
 }
 
-Console.WriteLine(reversedNumber);
+Console.WriteLine(reversedNumber);*/
 
 
 /*
@@ -1071,13 +1071,13 @@ foreach (int element in array3)
  * 32. Accept values in 2D array and perform matrix Addition and multiplication.
  */
 
-/*using System;
+using System;
 
 namespace CSharpTasks
 {
-    static class MatrixOperations
+    internal static class MatrixOperations
     {
-        static int[,] InputMatrixDetails()
+        private static int[,] InputMatrixDetails()
         {
             Console.WriteLine("Enter number of rows");
             int rows;
@@ -1104,15 +1104,13 @@ namespace CSharpTasks
                     {
                         Console.WriteLine("Invalid input. Please enter a valid number greater than 0.");
                     }
-
-                    ;
                 }
             }
 
             return matrix;
         }
 
-        static void PrintMatrix(int[,] matrix)
+        private static void PrintMatrix(int[,] matrix)
         {
             for (int i = 0; i < matrix.GetLength(0); i++)
             {
@@ -1125,11 +1123,10 @@ namespace CSharpTasks
             }
         }
 
-        static int[,] AddMatrices(int[,] matrix1, int[,] matrix2, int rows1, int columns1, int rows2, int columns2)
+        private static int[,] AddMatrices(int[,] matrix1, int[,] matrix2, int rows1, int columns1, int rows2,
+            int columns2)
         {
-            /*
-             * Check if dimensions of matrices match and throw exception if dimensions dont match
-             #1#
+            // Check if dimensions of matrices match and throw exception if dimensions dont match
             if (rows1 != rows2 || columns1 != columns2)
             {
                 throw new InvalidOperationException("Matrices must have same dimensions for addition");
@@ -1137,9 +1134,8 @@ namespace CSharpTasks
 
             int[,] matrixAddition = new int[rows1, columns1];
 
-            /*
-             * Addition of Matrices
-             #1#
+
+            // Addition of Matrices
             for (int i = 0; i < rows1; i++)
             {
                 for (int j = 0; j < columns1; j++)
@@ -1151,13 +1147,13 @@ namespace CSharpTasks
             return matrixAddition;
         }
 
-        static int[,] MultiplyMatrices(int[,] matrix1, int[,] matrix2, int rows1, int columns1, int rows2, int columns2)
+        private static int[,] MultiplyMatrices(int[,] matrix1, int[,] matrix2, int rows1, int columns1, int rows2,
+            int columns2)
         {
-            /*
-             * Check if number of rows in first match with number of columns in second matrix and also
-             * number of columns in first match with number of rows in second matrix
-             * rows1 != columns2 || columns1 != rows2 is redundant so only check 1 condition
-             #1#
+            // Check if number of rows in first match with number of columns in second matrix and also
+            // number of columns in first match with number of rows in second matrix
+            // rows1 != columns2 || columns1 != rows2 is redundant so only check 1 condition
+
             if (columns1 != rows2)
             {
                 throw new InvalidOperationException("Matrices must have number of rows in first match with number \n" +
@@ -1206,16 +1202,11 @@ namespace CSharpTasks
 
             Console.WriteLine();
 
-/*
- * matrix1.GetLength(0) returns the number of rows in matrix1.
- * matrix1.GetLength(1) returns the number of columns in matrix1.
- * matrix2.GetLength(0) returns the number of rows in matrix2.
- * matrix2.GetLength(1) returns the number of columns in matrix2.
- #1#
-            int rows1 = matrix1.GetLength(0);
-            int columns1 = matrix1.GetLength(1);
-            int rows2 = matrix2.GetLength(0);
-            int columns2 = matrix2.GetLength(1);
+
+            int rows1 = matrix1.GetLength(0); // matrix1.GetLength(0) returns the number of rows in matrix1.
+            int columns1 = matrix1.GetLength(1); // matrix1.GetLength(1) returns the number of columns in matrix1.
+            int rows2 = matrix2.GetLength(0); // matrix2.GetLength(0) returns the number of rows in matrix2.
+            int columns2 = matrix2.GetLength(1); // matrix2.GetLength(1) returns the number of columns in matrix2.
 
             Console.WriteLine("Addition of two matrices is : ");
             try
@@ -1244,7 +1235,7 @@ namespace CSharpTasks
             }
         }
     }
-}*/
+}
 
 
 /*
@@ -3805,62 +3796,131 @@ namespace CSharpTasks
     internal static class DateTimeUtility
     {
         public static void Main()
+        {*/
+/*string[] dates = { "14/05/2024", "05/01/1987", "21/08/1988",
+    "29/05/2016", "25/12/2027", "21/05/2030", "24/05/2024" };
+string[] pastDates = new string[dates.Length];
+string[] presentDates = new string[dates.Length];
+string[] futureDates = new string[dates.Length];
+
+for (int i = 0; i < dates.Length; i++)
+{
+    if (DateTime.TryParseExact(dates[i],"dd/MM/yyyy", CultureInfo.InvariantCulture,
+            DateTimeStyles.None, out DateTime dateTime))
+    {
+        if (dateTime < DateTime.Now)
         {
-            string[] dates = { "14/05/2024", "05/01/1987", "21/08/1988",
-                "29/05/2016", "25/12/2027", "21/05/2030", "24/05/2024" };
-            string[] pastDates = new string[dates.Length];
-            string[] presentDates = new string[dates.Length];
-            string[] futureDates = new string[dates.Length];
-            int pastCount = 0;
-            int presentCount = 0;
-            int futureCount = 0;
-
-            foreach (string date in dates)
-            {
-                if (DateTime.TryParseExact(date, "dd/MM/yyyy", CultureInfo.InvariantCulture,
-                        DateTimeStyles.None, out DateTime dateTime))
-                {
-                    if (dateTime < DateTime.Now)
-                    {
-                        pastDates[pastCount] = date;
-                        pastCount++;
-                    }
-                    else if (dateTime > DateTime.Now)
-                    {
-                        futureDates[futureCount] = date;
-                        futureCount++;
-                    }
-                    else
-                    {
-                        presentDates[presentCount] = date;
-                        presentCount++;
-                    }
-                }
-                else
-                {
-                    Console.WriteLine($"{date} is in Invalid date format. Please enter a valid date.");
-                }
-            }
-
-            Console.WriteLine("Past dates : ");
-            for (int i = 0; i < pastCount; i++)
-            {
-                Console.WriteLine(pastDates[i]);
-            }
-
-            Console.WriteLine("Present dates : ");
-            for (int i = 0; i < presentCount; i++)
-            {
-                Console.WriteLine(presentDates[i]);
-            }
-
-            Console.WriteLine("Future dates : ");
-            for (int i = 0; i < futureCount; i++)
-            {
-                Console.WriteLine(futureDates[i]);
-            }
+            pastDates[i] = dates[i];
         }
     }
+    else
+    {
+        Console.WriteLine($"{dates[i]} is in Invalid date format. Please enter a valid date.");
+    }
+}
+
+for (int i = 0; i < dates.Length; i++)
+{
+    if (DateTime.TryParseExact(dates[i],"dd/MM/yyyy", CultureInfo.InvariantCulture,
+            DateTimeStyles.None, out DateTime dateTime))
+    {
+        if (dateTime == DateTime.Now)
+        {
+            presentDates[i] = dates[i];
+        }
+    }
+    else
+    {
+        Console.WriteLine($"{dates[i]} is in Invalid date format. Please enter a valid date.");
+    }
+}
+
+for (int i = 0; i < dates.Length; i++)
+{
+    if (DateTime.TryParseExact(dates[i],"dd/MM/yyyy", CultureInfo.InvariantCulture,
+            DateTimeStyles.None, out DateTime dateTime))
+    {
+        if (dateTime == DateTime.Now)
+        {
+            futureDates[i] = dates[i];
+        }
+    }
+    else
+    {
+        Console.WriteLine($"{dates[i]} is in Invalid date format. Please enter a valid date.");
+    }
+}
+
+Console.WriteLine("Past dates : ");
+foreach (var past in pastDates)
+{
+    Console.Write($"{past} ");
+}
+Console.WriteLine("Present dates : ");
+foreach (var present in presentDates)
+{
+    Console.Write($"{present} ");
+}
+Console.WriteLine("Future dates : ");
+foreach (var future in futureDates)
+{
+    Console.Write($"{future} ");
+}*/
+/*string[] dates = { "14/05/2024", "05/01/1987", "21/08/1988",
+    "29/05/2016", "25/12/2027", "21/05/2030", "24/05/2024" };
+string[] pastDates = new string[dates.Length];
+string[] presentDates = new string[dates.Length];
+string[] futureDates = new string[dates.Length];
+int pastCount = 0;
+int presentCount = 0;
+int futureCount = 0;
+
+foreach (string date in dates)
+{
+    if (DateTime.TryParseExact(date, "dd/MM/yyyy", CultureInfo.InvariantCulture,
+            DateTimeStyles.None, out DateTime dateTime))
+    {
+        if (dateTime < DateTime.Now)
+        {
+            pastDates[pastCount] = date;
+            pastCount++;
+        }
+        else if (dateTime > DateTime.Now)
+        {
+            futureDates[futureCount] = date;
+            futureCount++;
+        }
+        else
+        {
+            presentDates[presentCount] = date;
+            presentCount++;
+        }
+    }
+    else
+    {
+        Console.WriteLine($"{date} is in Invalid date format. Please enter a valid date.");
+    }
+}
+
+Console.WriteLine("Past dates : ");
+for (int i = 0; i < pastCount; i++)
+{
+    Console.WriteLine(pastDates[i]);
+}
+
+Console.WriteLine("Present dates : ");
+for (int i = 0; i < presentCount; i++)
+{
+    Console.WriteLine(presentDates[i]);
+}
+
+Console.WriteLine("Future dates : ");
+for (int i = 0; i < futureCount; i++)
+{
+    Console.WriteLine(futureDates[i]);
+}*/
+/*}
+}
 }*/
 
 
