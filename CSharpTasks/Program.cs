@@ -3514,7 +3514,8 @@ namespace CSharpTasks
  * 1. Enter any random date and print it is weekday or weekend.
  */
 
-/*using System;
+using System;
+using System.Globalization;
 
 namespace CSharpTasks
 {
@@ -3529,7 +3530,8 @@ namespace CSharpTasks
                 Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid date:");
             }
 
-            if (DateTime.TryParse(date, out DateTime dateTime))
+            if (DateTime.TryParseExact(date, "dd/MM/yyyy", CultureInfo.InvariantCulture,
+                    DateTimeStyles.None, out DateTime dateTime))
             {
                 Console.WriteLine($"The day is {(IsWeekend(dateTime) ? "weekend" : "weekday")}");
             }
@@ -3544,7 +3546,7 @@ namespace CSharpTasks
             return date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday;
         }
     }
-}*/
+}
 
 
 /*
@@ -3653,7 +3655,7 @@ namespace AgeCalculator
  * 3. Enter your and your sibling’s birthdate and print the age difference.
  */
 
-using System;
+/*using System;
 
 namespace CSharpTasks
 {
@@ -3695,8 +3697,7 @@ namespace CSharpTasks
             return $"{years} years, {months} months, and {days} days";
         }
     }
-}
-
+}*/
 
 
 /*
@@ -3704,6 +3705,55 @@ namespace CSharpTasks
  * Input: 3/4/2015
  * Output: I was born on Friday.
  */
+
+/*using System;
+using System.Globalization;
+
+namespace CSharpTasks
+{
+    internal static class DateTimeUtility
+    {
+        public static void Main()
+        {
+            Console.Write("Enter your birthdate (dd/MM/yyyy) : ");
+            string? birthdate;
+            while (string.IsNullOrWhiteSpace(birthdate = Console.ReadLine()))
+            {
+                Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid date:");
+            }
+
+            if (DateTime.TryParseExact(birthdate, "dd/MM/yyyy", CultureInfo.InvariantCulture,
+                    DateTimeStyles.AssumeLocal, out DateTime dateTime))
+            {
+                Console.WriteLine($"I was born on {WhichWeekdayBorn(dateTime)}");
+            }
+            else
+            {
+                Console.WriteLine("Invalid date format. Please enter a valid date.");
+            }
+        }
+
+        private static string WhichWeekdayBorn(DateTime dateTime)
+        {
+            // DateTime date = new DateTime(dateTime.Year, dateTime.Month, dateTime.Day);
+            // return date.DayOfWeek.ToString();
+
+            return dateTime.DayOfWeek switch
+            {
+                DayOfWeek.Sunday => "Sunday",
+                DayOfWeek.Monday => "Monday",
+                DayOfWeek.Tuesday => "Tuesday",
+                DayOfWeek.Wednesday => "Wednesday",
+                DayOfWeek.Thursday => "Thursday",
+                DayOfWeek.Friday => "Friday",
+                DayOfWeek.Saturday => "Saturday",
+                _ => throw new ArgumentOutOfRangeException(nameof(dateTime), "Invalid date")
+            };
+        }
+    }
+}*/
+
+
 /*
  * 5. If the age of a person is 400000459 seconds find his date of birth.
  */
