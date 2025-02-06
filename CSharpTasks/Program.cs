@@ -3650,7 +3650,7 @@ namespace AgeCalculator
  * 3. Enter your and your sibling’s birthdate and print the age difference.
  */
 
-using System;
+/*using System;
 
 namespace CSharpTasks
 {
@@ -3689,7 +3689,7 @@ namespace CSharpTasks
             return $"{ageDifference} years";
         }
     }
-}
+}*/
 
 
 /*
@@ -3986,8 +3986,89 @@ namespace CSharpTasks
  * insert, delete and search operation.
  */
 
-/*using System;
-using System.Collections.Generic;*/
+using System;
+using System.Collections;
+using System.Collections.Generic;
+
+namespace CSharpTasks
+{
+    internal static class CollectionUtility
+    {
+        public static void Main()
+        {
+            /*List<string> stationaryItems = new List<string>
+            {
+                "Pen", "Pencil", "Eraser", "Sharpener", "Scale", "Notebook", "Compass", "Crayons", "Colors", "Sketchpen"
+            };*/
+            List<string> stationaryItems = new List<string>();
+            // ArrayList stationaryItems = new ArrayList();
+            Console.Write("Enter the number of stationary items : ");
+            int count;
+            while (!int.TryParse(Console.ReadLine(), out count))
+            {
+                Console.WriteLine("Invalid count. Please enter a valid count:");
+            }
+
+            for (int i = 0; i < count; i++)
+            {
+                Console.Write($"Enter the stationary item {i + 1} : ");
+                string? item;
+                while (string.IsNullOrWhiteSpace(item = Console.ReadLine()))
+                {
+                    Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid item:");
+                }
+
+                stationaryItems.Add(item);
+            }
+
+            Console.WriteLine("Stationary items : ");
+            foreach (string item in stationaryItems)
+            {
+                Console.Write($"{item} ");
+            }
+
+            Console.WriteLine();
+            Console.Write("Enter an item to search : ");
+            string? searchItem;
+            while (string.IsNullOrWhiteSpace(searchItem = Console.ReadLine()))
+            {
+                Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid item:");
+            }
+
+            if (stationaryItems.Contains(searchItem))
+            {
+                Console.WriteLine($"{searchItem} is found in the list at index {stationaryItems.IndexOf(searchItem)}.");
+            }
+            else
+            {
+                Console.WriteLine($"{searchItem} is not found in the list.");
+            }
+
+            Console.Write("Enter an item to delete : ");
+            string? deleteItem;
+            while (string.IsNullOrWhiteSpace(deleteItem = Console.ReadLine()))
+            {
+                Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid item:");
+            }
+
+            if (stationaryItems.Contains(deleteItem))
+            {
+                stationaryItems.Remove(deleteItem);
+                Console.WriteLine($"{deleteItem} is deleted from the list.");
+            }
+            else
+            {
+                Console.WriteLine($"{deleteItem} is not found in the list.");
+            }
+
+            Console.WriteLine("Updated Stationary items : ");
+            foreach (string item in stationaryItems)
+            {
+                Console.Write($"{item} ");
+            }
+        }
+    }
+}
 
 
 /*
