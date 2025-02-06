@@ -3986,7 +3986,7 @@ namespace CSharpTasks
  * insert, delete and search operation.
  */
 
-using System;
+/*using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -3999,7 +3999,7 @@ namespace CSharpTasks
             /*List<string> stationaryItems = new List<string>
             {
                 "Pen", "Pencil", "Eraser", "Sharpener", "Scale", "Notebook", "Compass", "Crayons", "Colors", "Sketchpen"
-            };*/
+            };#1#
             List<string> stationaryItems = new List<string>();
             // ArrayList stationaryItems = new ArrayList();
             Console.Write("Enter the number of stationary items : ");
@@ -4068,7 +4068,7 @@ namespace CSharpTasks
             }
         }
     }
-}
+}*/
 
 
 /*
@@ -4078,6 +4078,31 @@ namespace CSharpTasks
  * Amsterdam Cairo Delhi”
  * Create a list of cities from the above string.
  */
+
+using System;
+using System.Collections.Generic;
+
+namespace CSharpTasks
+{
+    internal static class CollectionUtility
+    {
+        public static void Main()
+        {
+            string stringOfCities = "London Tokyo Paris Sydney Toronto Berlin Mumbai " +
+                         "Beijing Dubai Los-Angeles Singapore Rome Istanbul São-Paulo " +
+                         "Chicago Madrid Shanghai Seoul Hong-Kong Buenos Aires Moscow Amsterdam Cairo Delhi";
+            string[] cities = stringOfCities.Split(" ");
+            List<string> cityList = new List<string>(cities);
+            Console.Write("Cities : ");
+            foreach (string city in cityList)
+            {
+                Console.Write($"{city} ");
+            }
+        }
+    }
+}
+
+
 /*
  * 3. Create a dictionary of state names and their capital and perform
  * insert, delete and search operation.
