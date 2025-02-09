@@ -3548,50 +3548,7 @@ namespace CSharpTasks
  * 2. Enter your birthdate and print the current age.
  */
 
-/*using System;
-
-namespace CSharpTasks
-{
-    internal static class DateTimeUtility
-    {
-        public static void Main()
-        {
-            Console.Write("Enter your birthdate (dd/MM/yyyy) : ");
-            string? birthdate;
-            while (string.IsNullOrWhiteSpace(birthdate = Console.ReadLine()))
-            {
-                Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid date:");
-            }
-
-            if (DateTime.TryParse(birthdate, out DateTime dateTime))
-            {
-                Console.WriteLine($"The current age is {CurrentAge(dateTime)}");
-            }
-            else
-            {
-                Console.WriteLine("Invalid date format. Please enter a valid date.");
-            }
-        }
-
-        private static string CurrentAge(DateTime dateTime)
-        {
-            DateTime currentDate = DateTime.Now;
-            int years = currentDate.Year - dateTime.Year;
-            int months = currentDate.Month - dateTime.Month;
-            int days = currentDate.Day - dateTime.Day;
-
-            if (months < 0 || (months == 0 && days < 0))
-            {
-                years--;
-            }
-
-            return $"{years} age";
-        }
-    }
-}*/
-
-// experimental code
-/*using System;
+using System;
 
 namespace AgeCalculator
 {
@@ -3602,7 +3559,8 @@ namespace AgeCalculator
             Console.Write("Enter your birthdate (dd/MM/yyyy): ");
             string? birthdateInput = Console.ReadLine();
 
-            if (DateTime.TryParseExact(birthdateInput, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out DateTime birthDate))
+            if (DateTime.TryParseExact(birthdateInput, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None,
+                    out DateTime birthDate))
             {
                 DateTime currentDate = DateTime.Now;
 
@@ -3622,18 +3580,15 @@ namespace AgeCalculator
                 {
                     months--; // Adjust if the day hasn't passed yet in the current month
                 }
+
                 if (months < 0)
                 {
                     months += 12; // Add 12 months if the result is negative
                 }
 
                 // Step 4: Calculate the difference in days
-                DateTime lastBirthday = new DateTime(currentDate.Year, birthDate.Month, birthDate.Day);
-                if (currentDate < lastBirthday)
-                {
-                    lastBirthday = lastBirthday.AddYears(-1); // Go back one year if the birthday hasn't occurred yet
-                }
-                int days = ((currentDate - lastBirthday).Days)-(months*30);
+                DateTime lastBirthday = birthDate.AddYears(years).AddMonths(months);
+                int days = (currentDate - lastBirthday).Days;
 
                 // Output the result
                 Console.WriteLine($"Your exact age is: {years} years, {months} months, and {days} days.");
@@ -3644,7 +3599,7 @@ namespace AgeCalculator
             }
         }
     }
-}*/
+}
 
 /*
  * 3. Enter your and your sibling’s birthdate and print the age difference.
@@ -4079,7 +4034,7 @@ namespace CSharpTasks
  * Create a list of cities from the above string.
  */
 
-using System;
+/*using System;
 using System.Collections.Generic;
 
 namespace CSharpTasks
@@ -4100,13 +4055,23 @@ namespace CSharpTasks
             }
         }
     }
-}
+}*/
 
 
 /*
  * 3. Create a dictionary of state names and their capital and perform
  * insert, delete and search operation.
  */
+
+/*using System;
+using System.Collections.Generic;
+
+namespace CSharpTasks
+{
+
+}*/
+
+
 /*
  * EXCEPTION HANDLING:
  */
