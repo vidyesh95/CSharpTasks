@@ -3548,14 +3548,13 @@ namespace CSharpTasks
  * 2. Enter your birthdate and print the current age.
  */
 
-using System;
-
-namespace AgeCalculator
+namespace CSharpTasks
 {
-    internal class Program
+    internal static class Program
     {
         static void Main(string[] args)
         {
+            labelForGoto:
             Console.Write("Enter your birthdate (dd/MM/yyyy): ");
             string? birthdateInput = Console.ReadLine();
 
@@ -3596,6 +3595,7 @@ namespace AgeCalculator
             else
             {
                 Console.WriteLine("Invalid date format. Please enter a valid date in the format dd/MM/yyyy.");
+                goto labelForGoto;
             }
         }
     }
