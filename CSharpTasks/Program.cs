@@ -3548,7 +3548,7 @@ namespace CSharpTasks
  * 2. Enter your birthdate and print the current age.
  */
 
-namespace CSharpTasks
+/*namespace CSharpTasks
 {
     internal static class Program
     {
@@ -3599,13 +3599,13 @@ namespace CSharpTasks
             }
         }
     }
-}
+}*/
 
 /*
  * 3. Enter your and your sibling’s birthdate and print the age difference.
  */
 
-/*using System;
+using System;
 
 namespace CSharpTasks
 {
@@ -3613,38 +3613,72 @@ namespace CSharpTasks
     {
         public static void Main()
         {
-            Console.Write("Enter your birthdate (dd/MM/yyyy) : ");
-            string? yourBirthdate;
-            while (string.IsNullOrWhiteSpace(yourBirthdate = Console.ReadLine()))
-            {
-                Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid date:");
-            }
+            bool isContinue = true;
 
-            Console.Write("Enter your sibling's birthdate (dd/MM/yyyy) : ");
-            string? siblingBirthdate;
-            while (string.IsNullOrWhiteSpace(siblingBirthdate = Console.ReadLine()))
+            do
             {
-                Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid date:");
-            }
+                Console.Write("Enter your birthdate (dd/MM/yyyy) : ");
+                string? yourBirthdate;
+                while (string.IsNullOrWhiteSpace(yourBirthdate = Console.ReadLine()))
+                {
+                    Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid date:");
+                }
 
-            if (DateTime.TryParse(yourBirthdate, out DateTime yourDateTime) &&
-                DateTime.TryParse(siblingBirthdate, out DateTime siblingDateTime))
-            {
-                Console.WriteLine($"The age difference is {AgeDifference(yourDateTime, siblingDateTime)}");
-            }
-            else
-            {
-                Console.WriteLine("Invalid date format. Please enter a valid date.");
-            }
+                Console.Write("Enter your sibling's birthdate (dd/MM/yyyy) : ");
+                string? siblingBirthdate;
+                while (string.IsNullOrWhiteSpace(siblingBirthdate = Console.ReadLine()))
+                {
+                    Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid date:");
+                }
+
+                if (DateTime.TryParseExact(yourBirthdate, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None,
+                        out DateTime yourDateTime) &&
+                    DateTime.TryParseExact(siblingBirthdate, "dd/MM/yyyy", null,
+                        System.Globalization.DateTimeStyles.None,
+                        out DateTime siblingDateTime))
+                {
+                    Console.WriteLine($"The age difference is {AgeDifference(yourDateTime, siblingDateTime)}");
+                    isContinue = false;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid date format. Please enter a valid date.");
+                }
+            } while (isContinue);
         }
 
         private static string AgeDifference(DateTime yourDateTime, DateTime siblingDateTime)
         {
-            int ageDifference = Math.Abs(yourDateTime.Year - siblingDateTime.Year);
-            return $"{ageDifference} years";
+            DateTime biggerDateTime = yourDateTime;
+            DateTime smallerDateTime = siblingDateTime;
+            if (yourDateTime < siblingDateTime)
+            {
+                biggerDateTime = siblingDateTime;
+                smallerDateTime = yourDateTime;
+            }
+
+            int ageDifferenceYears = biggerDateTime.Year - smallerDateTime.Year;
+            int ageDifferenceMonths = biggerDateTime.Month - smallerDateTime.Month;
+            int ageDifferenceDays = biggerDateTime.Day - smallerDateTime.Day;
+
+
+            if (ageDifferenceDays < 0)
+            {
+                ageDifferenceMonths--;
+                DateTime previousMonth = siblingDateTime.AddMonths(-1);
+                ageDifferenceDays += DateTime.DaysInMonth(previousMonth.Year, previousMonth.Month);
+            }
+
+            if (ageDifferenceMonths < 0)
+            {
+                ageDifferenceYears--;
+                ageDifferenceMonths += 12;
+            }
+
+            return $"{ageDifferenceYears} years, {ageDifferenceMonths} months and {ageDifferenceDays} days";
         }
     }
-}*/
+}
 
 
 /*
