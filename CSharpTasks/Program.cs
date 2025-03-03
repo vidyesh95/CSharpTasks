@@ -3665,7 +3665,7 @@ namespace CSharpTasks
             if (ageDifferenceDays < 0)
             {
                 ageDifferenceMonths--;
-                DateTime previousMonth = siblingDateTime.AddMonths(-1);
+                DateTime previousMonth = smallerDateTime.AddMonths(-1);
                 ageDifferenceDays += DateTime.DaysInMonth(previousMonth.Year, previousMonth.Month);
             }
 
