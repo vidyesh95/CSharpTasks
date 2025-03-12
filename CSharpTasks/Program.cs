@@ -4343,7 +4343,7 @@ namespace CSharpTasks
  * 3. Enter a value and handle number format exception.
  */
 
-using System;
+/*using System;
 
 namespace CSharpTasks
 {
@@ -4367,14 +4367,51 @@ namespace CSharpTasks
             {
                 Console.WriteLine($"Error : {e.Message}");
             }
+            catch (OverflowException exception)
+            {
+                Console.WriteLine("Error: The number is too large or too small for an integer.");
+                Console.WriteLine($"Exception details: {exception.Message}");
+            }
         }
     }
-}
+}*/
 
 
 /*
  * 4. Enter a value and handle format exception.
  */
+
+using System;
+using System.Globalization;
+
+namespace CSharpTasks
+{
+    internal static class ErrorHandling
+    {
+        public static void Main(string[] args)
+        {
+            Console.Write("Enter a date in format dd/MM/yyyy : ");
+            string? value;
+            while (string.IsNullOrEmpty(value = Console.ReadLine()))
+            {
+                Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid value:");
+            }
+
+            try
+            {
+                DateTime date = DateTime.ParseExact(value, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                Console.WriteLine($"Parsed date: {date.ToString("dd/MM/yyyy")}");
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine("Error: The input is not in a correct date format.");
+                Console.WriteLine($"Exception details: {e.Message}");
+            }
+        }
+    }
+}
+
+
 /*
  * 5. Handle all the above-mentioned exceptions using try with multiple catch method.
  */
