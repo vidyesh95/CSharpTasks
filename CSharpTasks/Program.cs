@@ -4245,7 +4245,7 @@ namespace CSharpTasks
  * 1. Enter two numbers and handle division by zero exception.
  */
 
-using System;
+/*using System;
 
 namespace CSharpTasks
 {
@@ -4287,12 +4287,58 @@ namespace CSharpTasks
             }
         }
     }
-}
+}*/
 
 
 /*
  * 2. Enter numbers in an array and handle array index out of bound exception.
  */
+
+using System;
+
+namespace CSharpTasks
+{
+    internal static class ErrorHandling
+    {
+        public static void Main(string[] args)
+        {
+            Console.Write("Enter the number of elements in the array : ");
+            int count;
+            while (!int.TryParse(Console.ReadLine(), out count))
+            {
+                Console.WriteLine("Invalid count. Please enter a valid count:");
+            }
+
+            int[] numbers = new int[count];
+            for (int i = 0; i < count; i++)
+            {
+                Console.Write($"Enter the number {i + 1} : ");
+                while (!int.TryParse(Console.ReadLine(), out numbers[i]))
+                {
+                    Console.WriteLine("Invalid number. Please enter a valid number:");
+                }
+            }
+
+            Console.Write("Enter the index to search : ");
+            int index;
+            while (!int.TryParse(Console.ReadLine(), out index))
+            {
+                Console.WriteLine("Invalid index. Please enter a valid index:");
+            }
+
+            try
+            {
+                Console.WriteLine($"The number at index {index} is {numbers[index]}");
+            }
+            catch (IndexOutOfRangeException e)
+            {
+                Console.WriteLine($"Error : {e.Message}");
+            }
+        }
+    }
+}
+
+
 /*
  * 3. Enter a value and handle number format exception.
  */
