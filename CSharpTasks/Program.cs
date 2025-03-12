@@ -4381,7 +4381,7 @@ namespace CSharpTasks
  * 4. Enter a value and handle format exception.
  */
 
-using System;
+/*using System;
 using System.Globalization;
 
 namespace CSharpTasks
@@ -4409,12 +4409,50 @@ namespace CSharpTasks
             }
         }
     }
-}
+}*/
 
 
 /*
  * 5. Handle all the above-mentioned exceptions using try with multiple catch method.
  */
+
+using System;
+
+namespace CSharpTasks
+{
+    internal static class ErrorHandling
+    {
+        public static void Main(string[] args)
+        {
+            Console.Write("Enter a value : ");
+            string? value;
+            while (string.IsNullOrWhiteSpace(value = Console.ReadLine()))
+            {
+                Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid value:");
+            }
+
+            try
+            {
+                int number = int.Parse(value);
+                Console.WriteLine($"The number is {number}");
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine($"Error : {e.Message}");
+            }
+            catch (OverflowException exception)
+            {
+                Console.WriteLine($"Exception details: {exception.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error : {ex.Message}");
+            }
+        }
+    }
+}
+
+
 /*
  * 6. Combine the scenarios from the Question 1 and 2 and implement the nested try catch concept.
  *    It should handle the exceptions from both the scenarios.
