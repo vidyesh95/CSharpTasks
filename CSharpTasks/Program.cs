@@ -4109,17 +4109,17 @@ namespace CSharpTasks
             Dictionary<string, string> stateCapitalDictionary = new Dictionary<string, string>();
             CreateDictionary(stateCapitalDictionary);
             DisplayDictionary(stateCapitalDictionary);
-            
+
             InsertDictionary(stateCapitalDictionary);
             DisplayDictionary(stateCapitalDictionary);
-            
+
             DeleteDictionary(stateCapitalDictionary);
             DisplayDictionary(stateCapitalDictionary);
-            
+
             SearchDictionary(stateCapitalDictionary);
         }
 
-        private static void SearchDictionary(Dictionary<string,string> stateCapitalDictionary)
+        private static void SearchDictionary(Dictionary<string, string> stateCapitalDictionary)
         {
             Console.WriteLine("Searching for dictionary");
             Console.Write("Enter the state to search : ");
@@ -4128,10 +4128,11 @@ namespace CSharpTasks
             {
                 Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid state:");
             }
-            
+
             if (stateCapitalDictionary.ContainsKey(state))
             {
-                Console.WriteLine($"State {state} is found in the dictionary with capital {stateCapitalDictionary[state]}.");
+                Console.WriteLine(
+                    $"State {state} is found in the dictionary with capital {stateCapitalDictionary[state]}.");
             }
             else
             {
@@ -4139,7 +4140,7 @@ namespace CSharpTasks
             }
         }
 
-        private static void DeleteDictionary(Dictionary<string,string> stateCapitalDictionary)
+        private static void DeleteDictionary(Dictionary<string, string> stateCapitalDictionary)
         {
             Console.WriteLine("Deleting a state and capital : ");
             Console.Write("Enter the state to delete : ");
@@ -4148,7 +4149,7 @@ namespace CSharpTasks
             {
                 Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid state:");
             }
-            
+
             if (stateCapitalDictionary.ContainsKey(state))
             {
                 stateCapitalDictionary.Remove(state);
@@ -4159,7 +4160,7 @@ namespace CSharpTasks
             }
         }
 
-        private static void InsertDictionary(Dictionary<string,string> stateCapitalDictionary)
+        private static void InsertDictionary(Dictionary<string, string> stateCapitalDictionary)
         {
             Console.WriteLine("Inserting a new state and capital : ");
             repeat:
@@ -4178,15 +4179,17 @@ namespace CSharpTasks
                 {
                     Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid capital:");
                 }
+
                 stateCapitalDictionary.Add(state, capital);
-            } else
+            }
+            else
             {
                 Console.WriteLine($"State {state} already exists. Please enter a different state.");
                 goto repeat;
             }
         }
 
-        private static void CreateDictionary(Dictionary<string,string> stateCapitalDictionary)
+        private static void CreateDictionary(Dictionary<string, string> stateCapitalDictionary)
         {
             Console.Write("Enter the number of states : ");
             int count;
@@ -4194,7 +4197,7 @@ namespace CSharpTasks
             {
                 Console.WriteLine("Invalid count. Please enter a valid count:");
             }
-            
+
             for (int i = 0; i < count; i++)
             {
                 Console.Write($"Enter the state {i + 1} : ");
@@ -4210,7 +4213,7 @@ namespace CSharpTasks
                 {
                     Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid capital:");
                 }
-                
+
                 if (!stateCapitalDictionary.ContainsKey(state))
                 {
                     stateCapitalDictionary.Add(state, capital);
@@ -4223,7 +4226,7 @@ namespace CSharpTasks
             }
         }
 
-        private static void DisplayDictionary(Dictionary<string,string> stateCapitalDictionary)
+        private static void DisplayDictionary(Dictionary<string, string> stateCapitalDictionary)
         {
             Console.WriteLine("State and Capital : ");
             foreach (var (state, capital) in stateCapitalDictionary)
