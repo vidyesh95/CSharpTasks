@@ -4458,7 +4458,7 @@ namespace CSharpTasks
  *    It should handle the exceptions from both the scenarios.
  */
 
-using System;
+/*using System;
 
 namespace CSharpTasks
 {
@@ -4518,10 +4518,92 @@ namespace CSharpTasks
             }
         }
     }
-}
+}*/
 
 
 /*
  * 7. Perform a task to deposit and withdraw money using functions and switch case.
  * Display a custom exception message if the balance amount goes below Rs.1000 during withdrawal transaction.
  */
+
+using System;
+
+namespace CSharpTasks
+{
+    internal static class ErrorHandling
+    {
+        private static double _balance = 10000;
+
+        public static void Main(string[] args)
+        {
+            bool isContinue = true;
+            do
+            {
+                Console.WriteLine("1. Deposit");
+                Console.WriteLine("2. Withdraw");
+                Console.WriteLine("3. Exit");
+                Console.Write("Enter your choice : ");
+                int choice;
+                while (!int.TryParse(Console.ReadLine(), out choice))
+                {
+                    Console.WriteLine("Invalid choice. Please enter a valid choice:");
+                }
+
+                switch (choice)
+                {
+                    case 1:
+                        Deposit();
+                        break;
+                    case 2:
+                        try
+                        {
+                            Withdraw();
+                        }
+                        catch (Exception exception)
+                        {
+                            Console.WriteLine($"Error: {exception.Message}");
+                        }
+
+                        break;
+                    case 3:
+                        isContinue = false;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid choice. Please enter a valid choice.");
+                        break;
+                }
+            } while (isContinue);
+        }
+
+        private static void Deposit()
+        {
+            Console.Write("Enter the amount to deposit : ");
+            double amount;
+            while (!double.TryParse(Console.ReadLine(), out amount))
+            {
+                Console.WriteLine("Invalid amount. Please enter a valid amount:");
+            }
+
+            _balance += amount;
+            Console.WriteLine($"Amount {amount} deposited successfully. Current balance is {_balance}");
+        }
+
+        private static void Withdraw()
+        {
+            Console.Write("Enter the amount to withdraw : ");
+            double amount;
+            while (!double.TryParse(Console.ReadLine(), out amount))
+            {
+                Console.WriteLine("Invalid amount. Please enter a valid amount:");
+            }
+
+            if (_balance - amount < 1000)
+            {
+                throw new Exception("Insufficient balance. Minimum balance should be Rs.1000.");
+            }
+
+            _balance -= amount;
+            Console.WriteLine($"Amount {amount} withdrawn successfully. Current balance is {_balance}");
+        }
+    }
+}
