@@ -4294,7 +4294,7 @@ namespace CSharpTasks
  * 2. Enter numbers in an array and handle array index out of bound exception.
  */
 
-using System;
+/*using System;
 
 namespace CSharpTasks
 {
@@ -4336,12 +4336,42 @@ namespace CSharpTasks
             }
         }
     }
-}
+}*/
 
 
 /*
  * 3. Enter a value and handle number format exception.
  */
+
+using System;
+
+namespace CSharpTasks
+{
+    internal static class ErrorHandling
+    {
+        public static void Main(string[] args)
+        {
+            Console.Write("Enter a number : ");
+            string? number;
+            while (string.IsNullOrWhiteSpace(number = Console.ReadLine()))
+            {
+                Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid number:");
+            }
+
+            try
+            {
+                int value = int.Parse(number);
+                Console.WriteLine($"The number is {value}");
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine($"Error : {e.Message}");
+            }
+        }
+    }
+}
+
+
 /*
  * 4. Enter a value and handle format exception.
  */
