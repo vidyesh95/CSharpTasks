@@ -4097,7 +4097,7 @@ namespace CSharpTasks
  * insert, delete and search operation.
  */
 
-using System;
+/*using System;
 using System.Collections.Generic;
 
 namespace CSharpTasks
@@ -4235,7 +4235,7 @@ namespace CSharpTasks
             }
         }
     }
-}
+}*/
 
 
 /*
@@ -4244,6 +4244,51 @@ namespace CSharpTasks
 /*
  * 1. Enter two numbers and handle division by zero exception.
  */
+
+using System;
+
+namespace CSharpTasks
+{
+    internal static class ErrorHandling
+    {
+        public static void Main(string[] args)
+        {
+            Console.Write("Enter the first number : ");
+            int firstNumber;
+            while (!int.TryParse(Console.ReadLine(), out firstNumber))
+            {
+                Console.WriteLine("Invalid number. Please enter a valid number:");
+            }
+
+            Console.Write("Enter the second number : ");
+            int secondNumber;
+            while (!int.TryParse(Console.ReadLine(), out secondNumber))
+            {
+                Console.WriteLine("Invalid number. Please enter a valid number:");
+            }
+
+            try
+            {
+                int result = firstNumber / secondNumber;
+                Console.WriteLine($"The division of {firstNumber} by {secondNumber} is {result}");
+            }
+            catch (DivideByZeroException e)
+            {
+                Console.WriteLine($"Error : {e.Message}");
+            }
+            catch (FormatException exception)
+            {
+                Console.WriteLine("Error: Please enter valid numbers.");
+                Console.WriteLine($"Exception details: {exception.Message}");
+            }
+            finally
+            {
+                Console.WriteLine("Division operation complete.");
+            }
+        }
+    }
+}
+
 
 /*
  * 2. Enter numbers in an array and handle array index out of bound exception.
