@@ -4416,7 +4416,7 @@ namespace CSharpTasks
  * 5. Handle all the above-mentioned exceptions using try with multiple catch method.
  */
 
-using System;
+/*using System;
 
 namespace CSharpTasks
 {
@@ -4450,13 +4450,77 @@ namespace CSharpTasks
             }
         }
     }
-}
+}*/
 
 
 /*
  * 6. Combine the scenarios from the Question 1 and 2 and implement the nested try catch concept.
  *    It should handle the exceptions from both the scenarios.
  */
+
+using System;
+
+namespace CSharpTasks
+{
+    internal static class ErrorHandling
+    {
+        public static void Main(string[] args)
+        {
+            try
+            {
+                Console.Write("Enter the first number : ");
+                int firstNumber = int.Parse(Console.ReadLine());
+
+                try
+                {
+                    Console.Write("Enter the second number : ");
+                    int secondNumber = int.Parse(Console.ReadLine());
+
+                    try
+                    {
+                        int result = firstNumber / secondNumber;
+                        Console.WriteLine($"The division of {firstNumber} by {secondNumber} is {result}");
+                    }
+                    catch (DivideByZeroException e)
+                    {
+                        Console.WriteLine($"Error : {e.Message}");
+                    }
+                    catch (FormatException exception)
+                    {
+                        Console.WriteLine("Error: Please enter valid numbers.");
+                        Console.WriteLine($"Exception details: {exception.Message}");
+                    }
+                    finally
+                    {
+                        Console.WriteLine("Division operation complete.");
+                    }
+                }
+                catch (FormatException e)
+                {
+                    Console.WriteLine($"Error : {e.Message}");
+                }
+                catch (OverflowException exception)
+                {
+                    Console.WriteLine($"Exception details: {exception.Message}");
+                }
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine($"Error : {e.Message}");
+            }
+            catch (OverflowException exception)
+            {
+                Console.WriteLine($"Exception details: {exception.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error : {ex.Message}");
+            }
+        }
+    }
+}
+
+
 /*
  * 7. Perform a task to deposit and withdraw money using functions and switch case.
  * Display a custom exception message if the balance amount goes below Rs.1000 during withdrawal transaction.
