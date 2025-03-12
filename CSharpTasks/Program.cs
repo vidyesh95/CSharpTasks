@@ -3605,7 +3605,7 @@ namespace CSharpTasks
  * 3. Enter your and your sibling’s birthdate and print the age difference.
  */
 
-using System;
+/*using System;
 
 namespace CSharpTasks
 {
@@ -3678,7 +3678,7 @@ namespace CSharpTasks
             return $"{ageDifferenceYears} years, {ageDifferenceMonths} months and {ageDifferenceDays} days";
         }
     }
-}
+}*/
 
 
 /*
@@ -4097,13 +4097,142 @@ namespace CSharpTasks
  * insert, delete and search operation.
  */
 
-/*using System;
+using System;
 using System.Collections.Generic;
 
 namespace CSharpTasks
 {
+    internal static class Dictionary
+    {
+        public static void Main()
+        {
+            Dictionary<string, string> stateCapitalDictionary = new Dictionary<string, string>();
+            CreateDictionary(stateCapitalDictionary);
+            DisplayDictionary(stateCapitalDictionary);
+            
+            InsertDictionary(stateCapitalDictionary);
+            DisplayDictionary(stateCapitalDictionary);
+            
+            DeleteDictionary(stateCapitalDictionary);
+            DisplayDictionary(stateCapitalDictionary);
+            
+            SearchDictionary(stateCapitalDictionary);
+        }
 
-}*/
+        private static void SearchDictionary(Dictionary<string,string> stateCapitalDictionary)
+        {
+            Console.WriteLine("Searching for dictionary");
+            Console.Write("Enter the state to search : ");
+            string? state;
+            while (string.IsNullOrWhiteSpace(state = Console.ReadLine()))
+            {
+                Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid state:");
+            }
+            
+            if (stateCapitalDictionary.ContainsKey(state))
+            {
+                Console.WriteLine($"State {state} is found in the dictionary with capital {stateCapitalDictionary[state]}.");
+            }
+            else
+            {
+                Console.WriteLine($"State {state} is not found in the dictionary.");
+            }
+        }
+
+        private static void DeleteDictionary(Dictionary<string,string> stateCapitalDictionary)
+        {
+            Console.WriteLine("Deleting a state and capital : ");
+            Console.Write("Enter the state to delete : ");
+            string? state;
+            while (string.IsNullOrWhiteSpace(state = Console.ReadLine()))
+            {
+                Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid state:");
+            }
+            
+            if (stateCapitalDictionary.ContainsKey(state))
+            {
+                stateCapitalDictionary.Remove(state);
+            }
+            else
+            {
+                Console.WriteLine($"State {state} is not found in the dictionary.");
+            }
+        }
+
+        private static void InsertDictionary(Dictionary<string,string> stateCapitalDictionary)
+        {
+            Console.WriteLine("Inserting a new state and capital : ");
+            repeat:
+            Console.Write("Enter the state : ");
+            string? state;
+            while (string.IsNullOrWhiteSpace(state = Console.ReadLine()))
+            {
+                Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid state:");
+            }
+
+            if (!stateCapitalDictionary.ContainsKey(state))
+            {
+                Console.Write($"Enter the capital of {state} : ");
+                string? capital;
+                while (string.IsNullOrWhiteSpace(capital = Console.ReadLine()))
+                {
+                    Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid capital:");
+                }
+                stateCapitalDictionary.Add(state, capital);
+            } else
+            {
+                Console.WriteLine($"State {state} already exists. Please enter a different state.");
+                goto repeat;
+            }
+        }
+
+        private static void CreateDictionary(Dictionary<string,string> stateCapitalDictionary)
+        {
+            Console.Write("Enter the number of states : ");
+            int count;
+            while (!int.TryParse(Console.ReadLine(), out count))
+            {
+                Console.WriteLine("Invalid count. Please enter a valid count:");
+            }
+            
+            for (int i = 0; i < count; i++)
+            {
+                Console.Write($"Enter the state {i + 1} : ");
+                string? state;
+                while (string.IsNullOrWhiteSpace(state = Console.ReadLine()))
+                {
+                    Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid state:");
+                }
+
+                Console.Write($"Enter the capital of {state} : ");
+                string? capital;
+                while (string.IsNullOrWhiteSpace(capital = Console.ReadLine()))
+                {
+                    Console.WriteLine("Input cannot be null or empty or only space. Please enter a valid capital:");
+                }
+                
+                if (!stateCapitalDictionary.ContainsKey(state))
+                {
+                    stateCapitalDictionary.Add(state, capital);
+                }
+                else
+                {
+                    Console.WriteLine($"State {state} already exists. Please enter a different state.");
+                    i--; // Repeat this iteration
+                }
+            }
+        }
+
+        private static void DisplayDictionary(Dictionary<string,string> stateCapitalDictionary)
+        {
+            Console.WriteLine("State and Capital : ");
+            foreach (var (state, capital) in stateCapitalDictionary)
+            {
+                Console.WriteLine($"State {state}: Capital {capital}");
+            }
+        }
+    }
+}
 
 
 /*
